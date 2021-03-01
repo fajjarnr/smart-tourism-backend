@@ -13,8 +13,7 @@ Users
     <div class="col-sm-12">
         <div class="card">
             <div class="card-header">
-                <h4>User Data</h4>
-                <i data-feather="user-plus"></i>
+                <a href="{{ route('users.create') }}" class="btn btn-primary"><i data-feather="user-plus"></i></a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -38,7 +37,8 @@ Users
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->roles}}</td>
-                                <td><img src="{{$user->picturePath}}" alt="photo profile" width="30px" height="30px">
+                                <td><img src="{{$user->profile_photo_path}}" alt="photo profile" width="30px"
+                                        height="30px">
                                 </td>
                                 <td class="text-center row"><a href="{{route('users.edit', $user->id)}}"
                                         class="btn btn-primary mx-1">edit</a>

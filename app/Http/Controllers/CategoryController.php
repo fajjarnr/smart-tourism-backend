@@ -43,7 +43,7 @@ class CategoryController extends Controller
 
         Category::create($data);
 
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with('success', 'category berhasil dibuat');
     }
 
     /**

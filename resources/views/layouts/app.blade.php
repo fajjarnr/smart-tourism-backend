@@ -71,6 +71,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         @yield('content')
+                        @include('sweetalert::alert')
                         {{ isset($slot) ? $slot : null }}
                     </div>
                 </div>

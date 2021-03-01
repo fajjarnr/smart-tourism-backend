@@ -9,6 +9,20 @@ Create Category
     <div class="justify-content-center">
         <div class="card">
             <div class="card-body">
+                @if ($errors->any())
+                <div class="mb-5" role="alert">
+                    <div class="alert alert-danger dark alert-dismissible fade show" role="alert"><strong>There's
+                            something wrong!</strong>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                        <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">×</span></button>
+                    </div>
+                </div>
+                @endif
                 <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data"
                     class="needs-validation" novalidate="">
                     @csrf
