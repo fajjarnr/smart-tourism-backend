@@ -32,11 +32,18 @@
                             data-feather="list"></i><span>Category</span></a>
                 </li>
                 <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title" href="{{route('map')}}"><i
-                            data-feather="map"></i><span>Map</span></a>
+                    <label class="badge badge-info">2</label><a class="sidebar-link sidebar-title" href="#"><i
+                            data-feather="map"></i><span>Obyek Wisata</span></a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="{{route('map')}}">Add Locations</a></li>
+                        <li><a href="#">Alam</a></li>
+                        <li><a href="#">Buatan</a></li>
+                        <li><a href="#">Religi</a></li>
+                        <li><a href="#">Hotel</a></li>
+                    </ul>
                 </li>
                 <li class="sidebar-list">
-                    <label class="badge badge-success">2</label><a class="sidebar-link sidebar-title" href="#"><i
+                    <label class="badge badge-info">2</label><a class="sidebar-link sidebar-title" href="#"><i
                             data-feather="film"></i><span>News Feed</span></a>
                     <ul class="sidebar-submenu">
                         <li><a href="add-post.html">Add Post</a></li>

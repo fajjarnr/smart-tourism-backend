@@ -60,7 +60,8 @@
                                     <li class="breadcrumb-item">
                                         <a href={{route('dashboard')}}> <i data-feather="home"></i></a>
                                     </li>
-                                    <li class="breadcrumb-item">@yield('title')</li>
+                                    <li class="breadcrumb-item">Dashboard</li>
+                                    <li class="breadcrumb-item active">@yield('title')</li>
                                 </ol>
                             </div>
                         </div>
