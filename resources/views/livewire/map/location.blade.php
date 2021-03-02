@@ -1,4 +1,4 @@
-@section('title')
+@section('name')
 Map
 @endsection
 
@@ -29,22 +29,22 @@ Map
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" wire:model="lat" class="form-control"
+                                    <input type="text" wire:model="latitude" class="form-control"
                                         {{$isEdit ? 'disabled' : null}} placeholder="latitude" />
-                                    @error('lat') <small class="text-danger">{{$message}}</small>@enderror
+                                    @error('latitude') <small class="text-danger">{{$message}}</small>@enderror
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" wire:model="long" class="form-control"
+                                    <input type="text" wire:model="longitude" class="form-control"
                                         {{$isEdit ? 'disabled' : null}} placeholder="longitude" />
-                                    @error('long') <small class="text-danger">{{$message}}</small>@enderror
+                                    @error('longitude') <small class="text-danger">{{$message}}</small>@enderror
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" wire:model="title" class="form-control" placeholder="Name of location" />
-                            @error('title') <small class="text-danger">{{$message}}</small>@enderror
+                            <input type="text" wire:model="name" class="form-control" placeholder="Name of location" />
+                            @error('name') <small class="text-danger">{{$message}}</small>@enderror
                         </div>
                         <div class="form-group">
                             <textarea wire:model="description" class="form-control"
@@ -85,31 +85,128 @@ Map
 <script>
     document.addEventListener('livewire:load',  ()  => {
         
-      const defaultLocation = [109.38125146611975, -6.889835946033301]
-      
-      const coordinateInfo = document.getElementById('info');
+        const defaultLocation = [109.38125146611975, -6.889835946033301]
 
-      mapboxgl.accessToken = "{{env('MAPBOX_KEY')}}";
-      let map = new mapboxgl.Map({
-          container: "map",
-          center: defaultLocation,
-          zoom: 11.15,
-          style: "mapbox://styles/mapbox/streets-v11"
-      });      
+        const coordinateInfo = document.getElementById('info');
 
-      //light-v10, outdoors-v11, satellite-v9, streets-v11, dark-v10
-      const style = "streets-v11"
-      map.setStyle(`mapbox://styles/mapbox/${style}`);
+        mapboxgl.accessToken = "{{env('MAPBOX_KEY')}}";
+        let map = new mapboxgl.Map({
+            container: "map",
+            center: defaultLocation,
+            zoom: 11.15,
+            style: "mapbox://styles/mapbox/streets-v11"
+        });
 
-      map.on('click', (e) => {
-          const latitude = e.lngLat.lat;
-          const longitude = e.lngLat.lng;
+        //light-v10, outdoors-v11, satellite-v9, streets-v11, dark-v10
+        const style = "streets-v11"
+        map.setStyle(`mapbox://styles/mapbox/${style}`);
 
-          console.log(latitude, longitude)
+        map.addControl(new mapboxgl.NavigationControl());
 
-          @this.lat = latitude;
-          @this.long = longitude;
-      });  
-  })
+        const loadGeoJSON = (geojson) => {
+
+            geojson.features.forEach(function (marker) {
+                const {geometry, properties} = marker
+                const {iconSize, locationId, name, image, description} = properties
+
+                let el = document.createElement('div');
+                el.className = 'marker' + locationId;
+                el.id = locationId;
+                el.style.backgroundImage = 'url({{asset("image/car2.png")}})';
+                el.style.backgroundSize = 'cover';
+                el.style.width = iconSize[0] + 'px';
+                el.style.height = iconSize[1] + 'px';
+
+                const pictureLocation = '{{asset("/storage/images")}}' + '/' + image
+
+                const content = `
+                <div style="overflow-y: auto; max-height:400px;width:100%;">
+                    <table class="table table-sm mt-2">
+                            <tbody>
+                            <tr>
+                                <td>Name</td>
+                                <td>${name}</td>
+                            </tr>
+                            <tr>
+                                <td>Picture</td>
+                                <td><img src="${pictureLocation}" loading="lazy" class="img-fluid"/></td>
+                            </tr>
+                            <tr>
+                                <td>Description</td>         
+                                <td>${description}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                `;
+                
+                let popup = new mapboxgl.Popup({ offset: 25 }).setHTML(content).setMaxWidth("400px");
+
+                el.addEventListener('click', (e) => {   
+                    const locationId = e.toElement.id                  
+                    @this.findLocationById(locationId)
+                }); 
+            
+                new mapboxgl.Marker(el)
+                .setLngLat(geometry.coordinates)
+                .setPopup(popup)
+                .addTo(map);
+            });
+        }
+
+        loadGeoJSON({!! $geoJson !!})
+
+        window.addEventListener('locationAdded', (e) => {           
+            swal({
+                name: "Location Added!",
+                text: "Your location has been save sucessfully!",
+                icon: "success",
+                button: "Ok",
+            }).then((value) => {
+                loadGeoJSON(JSON.parse(e.detail))
+            });
+        }) 
+
+        window.addEventListener('deleteLocation', (e) => {  
+            console.log(e.detail);         
+            swal({
+                name: "Location Delete!",
+                text: "Your location deleted sucessfully!",
+                icon: "success",
+                button: "Ok",
+            }).then((value) => {
+                $('.marker' + e.detail).remove();
+                $('.mapboxgl-popup').remove();
+            });
+        })
+
+        window.addEventListener('updateLocation', (e) => {  
+            console.log(e.detail);         
+            swal({
+                name: "Location Update!",
+                text: "Your location updated sucessfully!",
+                icon: "success",
+                button: "Ok",
+            }).then((value) => {
+                loadGeoJSON(JSON.parse(e.detail))
+                $('.mapboxgl-popup').remove();
+            });
+        })
+
+        const getLongLatByMarker = () => {
+            const lngLat = marker.getLngLat();           
+            return 'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+        }    
+
+        map.on('click', (e) => {
+            if(@this.isEdit){
+                return
+            }else{
+                coordinateInfo.innerHTML = JSON.stringify(e.point) + '<br />' + JSON.stringify(e.lngLat.wrap());
+                @this.long = e.lngLat.lng;
+                @this.lat = e.lngLat.lat;
+            }            
+        });
+    })
 </script>
 @endpush

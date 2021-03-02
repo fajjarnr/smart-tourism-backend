@@ -15,4 +15,9 @@ class Category extends Model
     {
         return $this->hasOne(WisataAlam::class);
     }
+
+    public function location()
+    {
+        return $this->hasOne(Location::class);
+    }
 }

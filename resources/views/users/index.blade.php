@@ -43,14 +43,16 @@ Users
                                     <span class="badge bg-warning">{{$user->roles}}</span>
                                     @endif
                                 </td>
-                                <td><img src="{{$user->profile_photo_path}}" alt="photo profile" width="30px"
+                                <td><img src="{{asset($user->profile_photo_path)}}" alt="photo profile" width="30px"
                                         height="30px">
                                 </td>
-                                <td class="text-center row"><a href="{{route('users.edit', $user->id)}}"
-                                        class="btn btn-primary mx-1">edit</a>
+                                <td class="text-center row align-items-center">
+                                    <a href="{{route('users.edit', $user->id)}}" class="btn btn-primary mx-1"><i
+                                            class="fa fa-edit"></i></a>
                                     <form action="{{route('users.destroy', $user->id)}}" method="post">
                                         {!! method_field('delete') . csrf_field() !!}
-                                        <button type="submit" class="btn btn-danger">delete</button>
+                                        <button type="submit" class="btn btn-danger"><i
+                                                class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

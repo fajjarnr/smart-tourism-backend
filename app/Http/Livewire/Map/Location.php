@@ -13,7 +13,7 @@ class Location extends Component
     use WithFileUploads;
 
     public $count = 5;
-    public $locationId, $long, $lat, $title, $description, $image;
+    public $locationId, $longitude, $latitude, $name, $description, $image;
     public $imageUrl;
     public $geoJson;
     public $isEdit = false;
@@ -29,7 +29,7 @@ class Location extends Component
                 'type' => 'Feature',
                 'geometry' => [
                     'coordinates' => [
-                        $location->long, $location->lat
+                        $location->longitude, $location->latitude
                     ],
                     'type' => 'Point'
                 ],
@@ -37,7 +37,7 @@ class Location extends Component
                     'message' => $location->description,
                     'iconSize' => [50, 50],
                     'locationId' => $location->id,
-                    'title' => $location->title,
+                    'name' => $location->name,
                     'image' => $location->image,
                     'description' => $location->description
                 ]
@@ -49,6 +49,7 @@ class Location extends Component
             'features' => $customLocation
         ];
 
+        // convert ke json
         $geoJson = collect($geoLocations)->toJson();
         $this->geoJson = $geoJson;
     }
@@ -71,9 +72,9 @@ class Location extends Component
     public function store()
     {
         $this->validate([
-            'long' => 'required',
-            'lat' => 'required',
-            'title' => 'required',
+            'longitude' => 'required',
+            'latitude' => 'required',
+            'name' => 'required',
             'description' => 'required',
             'image' => 'image|max:2048|required',
         ]);
@@ -87,9 +88,9 @@ class Location extends Component
         );
 
         ModelsLocation::create([
-            'long' => $this->long,
-            'lat' => $this->lat,
-            'title' => $this->title,
+            'longitude' => $this->longitude,
+            'latitude' => $this->latitude,
+            'name' => $this->name,
             'description' => $this->description,
             'image' => $imageName,
             'user_id' => Auth::id(),
@@ -105,9 +106,9 @@ class Location extends Component
     public function update()
     {
         $this->validate([
-            'long' => 'required',
-            'lat' => 'required',
-            'title' => 'required',
+            'longitude' => 'required',
+            'latitude' => 'required',
+            'name' => 'required',
             'description' => 'required',
         ]);
 
@@ -123,13 +124,13 @@ class Location extends Component
             );
 
             $updateData = [
-                'title' => $this->title,
+                'name' => $this->name,
                 'description' => $this->description,
                 'image' => $imageName,
             ];
         } else {
             $updateData = [
-                'title' => $this->title,
+                'name' => $this->name,
                 'description' => $this->description,
             ];
         }
@@ -154,9 +155,9 @@ class Location extends Component
 
     public function clearForm()
     {
-        $this->long = '';
-        $this->lat = '';
-        $this->title = '';
+        $this->longitude = '';
+        $this->latitude = '';
+        $this->name = '';
         $this->description = '';
         $this->image = '';
         $this->imageUrl = '';
@@ -168,9 +169,9 @@ class Location extends Component
         $location = ModelsLocation::findOrFail($id);
 
         $this->locationId = $id;
-        $this->long = $location->long;
-        $this->lat = $location->lat;
-        $this->title = $location->title;
+        $this->longitude = $location->longitude;
+        $this->latitude = $location->latitude;
+        $this->name = $location->name;
         $this->description = $location->description;
         $this->isEdit = true;
         $this->imageUrl = $location->image;

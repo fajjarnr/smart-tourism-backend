@@ -33,10 +33,8 @@ Create Category
                         <div class="valid-feedback">Looks good!</div>
                     </div>
                     <div class="col mb-3">
-                        <label for="validationCustom02">Icon</label>
-                        <input name="icon" class="custom-file-input" id="validationCustom02" type="file"
-                            placeholder="Icon" required="">
-                        <div class="valid-feedback">Looks good!</div>
+                        <label for="formFile" class="form-label">Default file input example</label>
+                        <input class="form-control" type="file" id="formFile">
                     </div>
                     <button class="btn btn-success btn-block" type="submit">Submit</button>
                 </form>

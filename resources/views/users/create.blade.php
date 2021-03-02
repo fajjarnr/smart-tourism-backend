@@ -10,7 +10,7 @@ Create User
 
 @section('content')
 <div class="col-6">
-    <div class="justify-content-center">
+    <div class=" row align-items-sm-center justify-content-center">
         <div class="card">
             <div class="card-body">
                 @if ($errors->any())
