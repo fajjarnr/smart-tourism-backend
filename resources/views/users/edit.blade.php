@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Create User
+Edit User
 @endsection
 
 @push('custom-css')
@@ -27,8 +27,9 @@ Create User
                     </div>
                 </div>
                 @endif
-                <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data"
-                    class="needs-validation">
+
+                {{-- {{ route('users.update') }} --}}
+                <form action="" method="POST" enctype="multipart/form-data" class="needs-validation">
                     @csrf
                     <div class="col mb-3">
                         <label for="validationCustom01">Name</label>
@@ -76,6 +77,7 @@ Create User
                     </div>
                     <button type="submit" class="btn btn-success btn-block">Submit</button>
                 </form>
+
             </div>
         </div>
     </div>

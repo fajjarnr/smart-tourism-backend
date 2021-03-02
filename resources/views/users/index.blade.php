@@ -36,7 +36,13 @@ Users
                                 <td>{{$no}}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>{{$user->roles}}</td>
+                                <td>
+                                    @if ($user->roles == 'admin')
+                                    <span class="badge bg-success">{{$user->roles}}</span>
+                                    @else
+                                    <span class="badge bg-warning">{{$user->roles}}</span>
+                                    @endif
+                                </td>
                                 <td><img src="{{$user->profile_photo_path}}" alt="photo profile" width="30px"
                                         height="30px">
                                 </td>

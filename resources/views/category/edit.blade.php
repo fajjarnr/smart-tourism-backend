@@ -1,14 +1,15 @@
 @extends('layouts.app')
 
 @section('title')
-Create Category
+Edit Category
 @endsection
 
 @section('content')
-<div class="col-6">
+<div class="col-12">
     <div class="justify-content-center">
         <div class="card">
             <div class="card-body">
+
                 @if ($errors->any())
                 <div class="mb-5" role="alert">
                     <div class="alert alert-danger dark alert-dismissible fade show" role="alert"><strong>There's
@@ -23,6 +24,7 @@ Create Category
                     </div>
                 </div>
                 @endif
+
                 <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data"
                     class="needs-validation" novalidate="">
                     @csrf
@@ -40,6 +42,7 @@ Create Category
                     </div>
                     <button class="btn btn-success btn-block" type="submit">Submit</button>
                 </form>
+
             </div>
         </div>
     </div>

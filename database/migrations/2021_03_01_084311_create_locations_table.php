@@ -17,9 +17,15 @@ class CreateLocationsTable extends Migration
             $table->id();
             $table->string('latitude');
             $table->string('longitude');
-            $table->string('title');
+            $table->string('name');
             $table->text('description');
-            $table->string('image');
+            $table->string('address');
+            $table->string('image')->nullable();
+            $table->string('phoneNumber')->nullable();
+            $table->string('htm')->nullable();
+            $table->string('hours')->nullable();
+            $table->string('rides')->nullable();
+            $table->string('facilities')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
