@@ -25,22 +25,23 @@ Edit Category
                 </div>
                 @endif
 
-                <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data"
+                <form action="{{ route('category.update', $item->id) }}" method="POST" enctype="multipart/form-data"
                     class="needs-validation" novalidate="">
                     @csrf
+                    @method('PUT')
                     <div class="col mb-3">
                         <label for="validationCustom01">Category Name</label>
-                        <input value="{{ old('name') }}" name="name" class="form-control" id="validationCustom01"
-                            type="text" placeholder="Category name" required="">
+                        <input value="{{ old('name') ?? $item->name }}" name="name" class="form-control"
+                            id="validationCustom01" type="text" placeholder="Category name" required="">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
                     <div class="col mb-3">
                         <label for="validationCustom02">Icon</label>
                         <input name="icon" class="custom-file-input" id="validationCustom02" type="file"
-                            placeholder="Icon" required="">
+                            placeholder="Icon">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
-                    <button class="btn btn-success btn-block" type="submit">Submit</button>
+                    <button type="submit" class="btn btn-success btn-block">Submit</button>
                 </form>
 
             </div>

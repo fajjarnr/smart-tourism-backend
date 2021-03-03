@@ -63,9 +63,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        return view('category.edit', [
+            'item' => $category
+        ]);
     }
 
     /**
@@ -75,9 +77,17 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $data = $request->all();
+
+        if ($request->file('icon')) {
+            $data['icon'] = $request->file('icon')->store('assets/user', 'public');
+        }
+
+        $category->update($data);
+
+        return redirect()->route('category.index')->with('success', 'category berhasil di update');
     }
 
     /**
@@ -90,6 +100,6 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with('success', 'category berhasil di delete');
     }
 }
