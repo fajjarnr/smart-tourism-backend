@@ -6,7 +6,8 @@
             </div>
             <div class="col-md-6">
                 <p class="pull-right mb-0">
-                    Developed with <i class="fa fa-heart font-secondary"></i>
+                    Developed By <strong><i>Fajar Nur Rohman</i></strong> with <i
+                        class="fa fa-heart font-secondary"></i>
                 </p>
             </div>
         </div>

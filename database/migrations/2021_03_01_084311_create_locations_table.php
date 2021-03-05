@@ -17,9 +17,10 @@ class CreateLocationsTable extends Migration
             $table->id();
             $table->string('latitude');
             $table->string('longitude');
-            $table->string('name');
             $table->text('description');
+            $table->string('name');
             $table->string('address');
+            $table->string('rate')->nullable();
             $table->string('image')->nullable();
             $table->string('phoneNumber')->nullable();
             $table->string('htm')->nullable();
