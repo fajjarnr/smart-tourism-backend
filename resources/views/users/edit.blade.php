@@ -60,14 +60,14 @@ Edit User
                     <div class="col mb-3">
                         <label for="validationCustom01">Password</label>
                         <input value="{{ old('password') }}" name="password" class="form-control"
-                            id="validationCustom01" type="password" placeholder="Password" required="">
+                            id="validationCustom01" type="password" placeholder="Password">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
                     <div class="col mb-3">
                         <label for="validationCustom01">Password Confirmation</label>
                         <input value="{{ old('password_confirmation') }}" name="password_confirmation"
                             class="form-control" id="validationCustom01" type="password"
-                            placeholder="Password Confirmation" required="">
+                            placeholder="Password Confirmation">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
                     <div class="mb-3">

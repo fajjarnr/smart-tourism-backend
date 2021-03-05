@@ -11,33 +11,9 @@ class CategoryController extends Controller
 {
     public function fetch(Request $request)
     {
-        $id = $request->input('id');
-        $limit = $request->input('limit', 6);
-        $name = $request->input('name');
-
-        if ($id) {
-            $category = Category::find($id);
-
-            if ($category)
-                return ResponseFormatter::success(
-                    $category,
-                    'Data category berhasil diambil'
-                );
-            else
-                return ResponseFormatter::error(
-                    null,
-                    'Data category tidak ada',
-                    404
-                );
-        }
-
-        $category = Category::query();
-
-        if ($name)
-            $category->where('name', 'like', '%' . $name . '%');
-
+        $category = Category::all();
         return ResponseFormatter::success(
-            $category->paginate($limit),
+            $category,
             'Data list category berhasil diambil'
         );
     }

@@ -43,8 +43,8 @@ Users
                                     <span class="badge bg-warning">{{$user->roles}}</span>
                                     @endif
                                 </td>
-                                <td><img src="{{asset($user->profile_photo_path)}}" alt="photo profile" width="30px"
-                                        height="30px">
+                                <td><img src="{{asset('storage/assets/user'.$user->profile_photo_path)}}"
+                                        alt="photo profile" width="30px" height="30px">
                                 </td>
                                 <td class="text-center row align-items-center">
                                     <a href="{{route('users.edit', $user->id)}}" class="btn btn-primary mx-1"><i
