@@ -22,20 +22,20 @@ Add Location
                     </div>
                 </div>
                 <div class="card-body">
-                    <form wire:submit.prevent="store">
+                    <form @if($isEdit) wire:submit.prevent="update" @else wire:submit.prevent="store" @endif>
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">latitude</label>
                                     <input wire:model="latitude" type="text" name="latitude" class="form-control"
-                                        id="latitude">
+                                        id="latitude" {{$isEdit ? 'disabled' : null}} />
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">longitude</label>
                                     <input wire:model="longitude" type="text" name="longitude" class="form-control"
-                                        id="longitude">
+                                        id="longitude" {{$isEdit ? 'disabled' : null}} />
                                 </div>
                             </div>
                         </div>
@@ -86,18 +86,26 @@ Add Location
                         </div>
                         <div class="form-group">
                             <label class="text-white">Image</label>
-                            <div class="custom-file dark-input">
+                            <div class="custom-file">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
                                 <input wire:model="image" type="file" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label dark-input" for="customFile">Choose file</label>
                             </div>
                             <label class="text-white">Picture of Location</label>
                             @error('image') <small class="text-danger">{{$message}}</small>@enderror
                             @if($image)
                             <img src="{{$image->temporaryUrl()}}" class="img-fluid" alt="Preview Image">
                             @endif
+                            @if($imageUrl && !$image)
+                            <img src="{{asset('/storage/images/'.$imageUrl)}}" class="img-fluid" alt="Preview Image">
+                            @endif
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block">Submit Location</button>
+                            <button type="submit"
+                                class="btn active btn-{{$isEdit ? 'success text-white' : 'primary'}} btn-block">{{$isEdit ? 'Update Location' : 'Submit Location'}}</button>
+                            @if($isEdit)
+                            <button wire:click="deleteLocationById" type="button"
+                                class="btn btn-danger active btn-block">Delete Location</button>
+                            @endif
                         </div>
                     </form>
                 </div>
@@ -163,6 +171,11 @@ Add Location
                     </table>
                 </div>
                 `;
+                
+                el.addEventListener('click', (e) => {   
+                    const locationId = e.toElement.id        
+                    @this.findLocationById(locationId)
+                }); 
 
                 let popup = new mapboxgl.Popup({ offset: 25 }).setHTML(content).setMaxWidth("400px")
 
@@ -175,16 +188,51 @@ Add Location
 
         loadGeoJSON({!! $geoJson !!})
 
-        window.addEventListener('locationAdded', (e) => {           
+        // window.addEventListener('locationAdded', (e) => {           
+        //     swal({
+        //         title: "Location Added!",
+        //         text: "Your location has been save sucessfully!",
+        //         icon: "success",
+        //         button: "Ok",
+        //     }).then((value) => {
+        //         loadGeoJSON(JSON.parse(e.detail))
+        //     });
+        // })
+
+        window.addEventListener('locationAdded', (e) => {
+            loadGeoJSON(JSON.parse(e.detail))
+        })
+
+        window.addEventListener('deleteLocation', (e) => {  
+            console.log(e.detail);         
             swal({
-                title: "Location Added!",
-                text: "Your location has been save sucessfully!",
+                title: "Location Delete!",
+                text: "Your location deleted sucessfully!",
                 icon: "success",
                 button: "Ok",
             }).then((value) => {
-                loadGeoJSON(JSON.parse(e.detail))
+               $('.marker' + e.detail).remove();
+               $('.mapboxgl-popup').remove();
             });
         })
+
+        window.addEventListener('updateLocation', (e) => {  
+            console.log(e.detail);         
+            swal({
+                title: "Location Update!",
+                text: "Your location updated sucessfully!",
+                icon: "success",
+                button: "Ok",
+            }).then((value) => {
+               loadGeoJSON(JSON.parse(e.detail))
+               $('.mapboxgl-popup').remove();
+            });
+        })
+
+        const getLongLatByMarker = () => {
+            const lngLat = marker.getLngLat();           
+            return 'Latitude: ' + lngLat.lat + '<br /> Longitude: ' + lngLat.lng;
+        }
 
         map.on('click', (e) =>{
             const latitude = e.lngLat.lat
