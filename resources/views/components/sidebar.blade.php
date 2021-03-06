@@ -40,6 +40,7 @@
                             data-feather="map"></i><span>Obyek Wisata</span></a>
                     <ul class="sidebar-submenu">
                         <li><a href="{{route('map')}}">Add Locations</a></li>
+                        <li><a href="{{route('location.index')}}">Data Locations</a></li>
                         <li><a href="#">Alam</a></li>
                         <li><a href="#">Buatan</a></li>
                         <li><a href="#">Religi</a></li>
