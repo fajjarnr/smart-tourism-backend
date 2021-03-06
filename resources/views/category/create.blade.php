@@ -6,7 +6,7 @@ Create Category
 
 @section('content')
 <div class="col-6">
-    <div class="justify-content-center">
+    <div class="flex flex-col justify-center">
         <div class="card">
             <div class="card-body">
                 @if ($errors->any())

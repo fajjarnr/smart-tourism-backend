@@ -11,13 +11,8 @@ class Category extends Model
 
     protected $guarded = [];
 
-    public function wisataAlam()
-    {
-        return $this->hasOne(WisataAlam::class);
-    }
-
     public function location()
     {
-        return $this->hasOne(Location::class);
+        return $this->hasMany(Location::class);
     }
 }

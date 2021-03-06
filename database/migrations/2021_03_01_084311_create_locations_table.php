@@ -23,14 +23,14 @@ class CreateLocationsTable extends Migration
             $table->string('rate')->nullable();
             $table->string('image')->nullable();
             $table->string('phoneNumber')->nullable();
-            $table->string('htm')->nullable();
+            $table->string('price')->nullable();
             $table->string('hours')->nullable();
-            $table->string('rides')->nullable();
             $table->string('facilities')->nullable();
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
 
             $table->timestamps();
         });

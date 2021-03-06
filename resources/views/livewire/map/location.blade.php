@@ -3,6 +3,7 @@ Add Location
 @endsection
 
 @push('custom-css')
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/select2.css') }}">
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
 @endpush
 
@@ -21,7 +22,7 @@ Add Location
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="">
+                    <form wire:submit.prevent="store">
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
@@ -40,12 +41,48 @@ Add Location
                         </div>
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" name="name" id="name">
+                            <input wire:model="name" type="text" class="form-control" name="name" id="name">
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea name="description" class="form-control" id="description" cols="30"
-                                rows="10"></textarea>
+                            <textarea wire:model="description" name="description" class="form-control" id="description"
+                                cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-form-label">Category</div>
+                            <select wire:model="category" name="category_id" class="js-example-basic-single col">
+                                <option value="">Select a Category</option>
+                                @foreach ($categories as $item)
+                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input wire:model="address" type="text" class="form-control" name="address" id="address">
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input wire:model="phoneNumber" type="text" class="form-control" name="phoneNumber"
+                                id="phoneNumber">
+                        </div>
+                        <div class="form-group">
+                            <label for="rate">Rate</label>
+                            <input wire:model="rate" type="number" class="form-control" name="rate" max="5" min="1"
+                                id="rate">
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price</label>
+                            <input wire:model="price" type="text" class="form-control" name="price" id="price">
+                        </div>
+                        <div class="form-group">
+                            <label for="hours">Hours</label>
+                            <input wire:model="hours" type="text" class="form-control" name="hours" id="hours">
+                        </div>
+                        <div class="form-group">
+                            <label for="facilities">Facilities</label>
+                            <input wire:model="facilities" type="text" class="form-control" name="facilities"
+                                id="facilities">
                         </div>
                         <div class="form-group">
                             <label class="text-white">Image</label>
@@ -116,7 +153,7 @@ Add Location
                             </tr>
                             <tr>
                                 <td>Picture</td>
-                                <td><img src="${image}" loading="lazy" class="img-fluid"/></td>
+                                <td><img src="${pictureLocation}" loading="lazy" class="img-fluid"/></td>
                             </tr>
                             <tr>
                                 <td>Description</td>         
@@ -138,6 +175,17 @@ Add Location
 
         loadGeoJSON({!! $geoJson !!})
 
+        window.addEventListener('locationAdded', (e) => {           
+            swal({
+                title: "Location Added!",
+                text: "Your location has been save sucessfully!",
+                icon: "success",
+                button: "Ok",
+            }).then((value) => {
+                loadGeoJSON(JSON.parse(e.detail))
+            });
+        })
+
         map.on('click', (e) =>{
             const latitude = e.lngLat.lat
             const longitude = e.lngLat.lng
@@ -147,4 +195,8 @@ Add Location
         })
     });
 </script>
+
+<script src="{{ asset('assets/js/form-validation-custom.js') }}"></script>
+<script src="{{ asset('assets/js/select2/select2.full.min.js') }}"></script>
+<script src="{{ asset('assets/js/select2/select2-custom.js') }}"></script>
 @endpush
