@@ -17,4 +17,5 @@ Route::post('login', [UserController::class, 'login']);
 Route::post('register', [UserController::class, 'register']);
 
 Route::get('/category', [CategoryController::class, 'fetch']);
+Route::get('/location', [LocationController::class, 'all']);
 Route::get('/location/{category_id}', [LocationController::class, 'fetch']);
