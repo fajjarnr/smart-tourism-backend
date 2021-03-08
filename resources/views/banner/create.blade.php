@@ -36,7 +36,7 @@ Create Banner
                     </div>
                     <div class="form-group">
                         <div class="col-form-label">Location</div>
-                        <select name="category_id" class="js-example-basic-single col">
+                        <select name="location_id" class="js-example-basic-single col">
                             <option value="">Select a Location</option>
                             @foreach ($location as $item)
                             <option value="{{ $item->id }}">{{ $item->name }}</option>

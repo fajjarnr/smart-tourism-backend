@@ -4,6 +4,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\NewsFeedController;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\Map\Location;
 use Illuminate\Support\Facades\Route;
@@ -20,4 +21,5 @@ Route::prefix('dashboard')->middleware(['auth:sanctum', 'admin'])->group(functio
     Route::get('/map', Location::class)->name('map');
     Route::resource('/location', LocationController::class);
     Route::resource('/banner', BannerController::class);
+    Route::resource('/news', NewsFeedController::class);
 });

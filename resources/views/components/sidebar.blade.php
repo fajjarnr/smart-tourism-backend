@@ -55,8 +55,8 @@
                     <label class="badge badge-info">2</label><a class="sidebar-link sidebar-title" href="#"><i
                             data-feather="paperclip"></i><span>News Feed</span></a>
                     <ul class="sidebar-submenu">
-                        <li><a href="add-post.html">Add Post</a></li>
-                        <li><a href="blog.html">News Feed Datatable</a></li>
+                        <li><a href="{{ route('news.index') }}">Data News</a></li>
+                        <li><a href="">Comments</a></li>
                     </ul>
                 </li>
                 <li class="sidebar-list">

@@ -35,7 +35,7 @@ Banner
                                 <td><img src="{{asset('storage/assets/banner'.$item->image)}}" alt="photo profile"
                                         width="30px" height="30px">
                                 </td>
-                                <td></td>
+                                <td>{{$item->location->id}}</td>
                                 <td class="text-center row align-items-center">
                                     <a href="{{route('banner.edit', $item->id)}}" class="btn btn-primary mx-1"><i
                                             class="fa fa-edit"></i></a>

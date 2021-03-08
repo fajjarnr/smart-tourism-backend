@@ -9,7 +9,7 @@ Create User
 @endpush
 
 @section('content')
-<div class="col-6">
+<div class="col-12">
     <div class=" row align-items-sm-center justify-content-center">
         <div class="card">
             <div class="card-body">

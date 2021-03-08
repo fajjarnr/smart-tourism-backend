@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BannerRequest;
-use App\Models\Banner;
-use App\Models\Location;
+use App\Models\NewsFeed;
 use Illuminate\Http\Request;
 
-class BannerController extends Controller
+class NewsFeedController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,8 @@ class BannerController extends Controller
      */
     public function index()
     {
-        return view('banner.index', [
-            'banner' => Banner::all()
+        return view('news.index', [
+            'news' => NewsFeed::all(),
         ]);
     }
 
@@ -28,9 +26,7 @@ class BannerController extends Controller
      */
     public function create()
     {
-        return view('banner.create', [
-            'location' => Location::all()
-        ]);
+        return view('news.create');
     }
 
     /**
@@ -39,15 +35,9 @@ class BannerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BannerRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->all();
-
-        $data['image'] = $request->file('image')->store('assets/banner', 'public');
-
-        Banner::create($data);
-
-        return redirect()->route('banner.index')->with('success', 'banner berhasil dibuat');
+        //
     }
 
     /**
@@ -67,11 +57,9 @@ class BannerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Banner $banner)
+    public function edit($id)
     {
-        return view('banner.edit', [
-            'item' => Location::all()
-        ]);
+        return view('news.edit');
     }
 
     /**
@@ -81,17 +69,9 @@ class BannerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Banner $banner)
+    public function update(Request $request, $id)
     {
-        $data = $request->all();
-
-        if ($request->file('image')) {
-            $data['image'] = $request->file('image')->store('assets/banner', 'public');
-        }
-
-        $banner->update($data);
-
-        return redirect()->route('banner.index')->with('success', 'Banner berhasil di update');
+        //
     }
 
     /**
@@ -100,10 +80,7 @@ class BannerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Banner $banner)
+    public function destroy($id)
     {
-        $banner->delete();
-
-        return redirect()->route('banner.index')->with('success', 'banner berhasil di delete');
     }
 }

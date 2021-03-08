@@ -9,8 +9,10 @@ class Banner extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function location()
     {
-        return $this->hasOne(Location::class, 'location_id');
+        return $this->hasMany(Location::class, 'location_id');
     }
 }
