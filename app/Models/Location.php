@@ -16,4 +16,9 @@ class Location extends Model
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
+
+    public function banner()
+    {
+        return $this->belongsTo(Banner::class);
+    }
 }

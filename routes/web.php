@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocationController;
@@ -18,4 +19,5 @@ Route::prefix('dashboard')->middleware(['auth:sanctum', 'admin'])->group(functio
     Route::resource('/category', CategoryController::class);
     Route::get('/map', Location::class)->name('map');
     Route::resource('/location', LocationController::class);
+    Route::resource('/banner', BannerController::class);
 });

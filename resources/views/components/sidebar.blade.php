@@ -48,6 +48,10 @@
                     </ul>
                 </li>
                 <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title" href="{{route('banner.index')}}"><i
+                            data-feather="image"></i><span>Banner</span></a>
+                </li>
+                <li class="sidebar-list">
                     <label class="badge badge-info">2</label><a class="sidebar-link sidebar-title" href="#"><i
                             data-feather="paperclip"></i><span>News Feed</span></a>
                     <ul class="sidebar-submenu">

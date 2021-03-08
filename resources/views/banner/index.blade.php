@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Location
+Banner
 @endsection
 
 @push('custom-css')
@@ -13,7 +13,7 @@ Location
     <div class="col-sm-12">
         <div class="card">
             <div class="card-header">
-                List All Data Location
+                <a href="{{ route('banner.create') }}" class="btn btn-primary"><i data-feather="plus"></i></a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -21,42 +21,25 @@ Location
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                {{-- <th>Latitude</th>
-                                <th>Longitude</th> --}}
-                                <th>Address</th>
-                                <th>Phone Number</th>
-                                <th>Price</th>
-                                <th>Hours</th>
-                                <th>Facilities</th>
-                                <th>Category</th>
-                                <th>Image</th>
+                                <th>image</th>
+                                <th>Location</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no=0; ?>
-                            @foreach ($location as $item)
+                            @foreach ($banner as $item)
                             <?php $no++; ?>
                             <tr>
                                 <td>{{$no}}</td>
-                                <td>{{$item->name}}</td>
-                                <td>{{$item->description}}</td>
-                                {{-- <td>{{$item->latitude}}</td>
-                                <td>{{$item->longitude}}</td> --}}
-                                <td>{{$item->address}}</td>
-                                <td>{{$item->phoneNumber}}</td>
-                                <td>{{$item->price}}</td>
-                                <td>{{$item->hours}}</td>
-                                <td>{{$item->facilities}}</td>
-                                <td>{{$item->category->name}}</td>
-                                <td><img src="{{asset('')}}" width="30px" height="30px">
+                                <td><img src="{{asset('storage/assets/banner'.$item->image)}}" alt="photo profile"
+                                        width="30px" height="30px">
                                 </td>
+                                <td></td>
                                 <td class="text-center row align-items-center">
-                                    <a href="{{route('location.edit', $item->id)}}" class="btn btn-primary mx-1"><i
+                                    <a href="{{route('banner.edit', $item->id)}}" class="btn btn-primary mx-1"><i
                                             class="fa fa-edit"></i></a>
-                                    <form action="{{route('location.destroy', $item->id)}}" method="post">
+                                    <form action="{{route('banner.destroy', $item->id)}}" method="post">
                                         {!! method_field('delete') . csrf_field() !!}
                                         <button type="submit" class="btn btn-danger"><i
                                                 class="fa fa-trash"></i></button>
