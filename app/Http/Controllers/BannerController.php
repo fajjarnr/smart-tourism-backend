@@ -16,9 +16,8 @@ class BannerController extends Controller
      */
     public function index()
     {
-        return view('banner.index', [
-            'banner' => Banner::all()
-        ]);
+        $banner = Banner::all();
+        return view('banner.index', compact('banner'));
     }
 
     /**

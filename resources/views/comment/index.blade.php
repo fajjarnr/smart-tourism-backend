@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-News Feed
+Comments
 @endsection
 
 @push('custom-css')
@@ -13,7 +13,7 @@ News Feed
     <div class="col-sm-12">
         <div class="card">
             <div class="card-header">
-                <a href="{{ route('news.create') }}" class="btn btn-primary"><i data-feather="plus"></i></a>
+                <a href="{{ route('comment.create') }}" class="btn btn-primary"><i data-feather="plus"></i></a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -29,7 +29,7 @@ News Feed
                         </thead>
                         <tbody>
                             <?php $no=0; ?>
-                            @foreach ($news as $item)
+                            @foreach ($comment as $item)
                             <?php $no++; ?>
                             <tr>
                                 <td>{{$no}}</td>
@@ -37,7 +37,7 @@ News Feed
                                 <td>artikel</td>
                                 <td>nama</td>
                                 <td class="text-center row align-items-center">
-                                    <form action="{{route('news.destroy', $item->id)}}" method="post">
+                                    <form action="{{route('comment.destroy', $item->id)}}" method="post">
                                         {!! method_field('delete') . csrf_field() !!}
                                         <button type="submit" class="btn btn-danger"><i
                                                 class="fa fa-trash"></i></button>

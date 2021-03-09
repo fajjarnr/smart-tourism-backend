@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
+use App\Models\NewsFeed;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -13,7 +16,8 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comment = Comment::all();
+        return view('comment.index', compact('comment'));
     }
 
     /**
@@ -23,7 +27,9 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        $user = User::all();
+        $news = NewsFeed::all();
+        return view('comment.create', compact('user', 'news'));
     }
 
     /**
@@ -77,8 +83,10 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+
+        return redirect()->route('category.index')->with('success', 'comment berhasil di delete');
     }
 }

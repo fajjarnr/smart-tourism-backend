@@ -10,7 +10,7 @@ Create User
 
 @section('content')
 <div class="col-12">
-    <div class=" row align-items-sm-center justify-content-center">
+    <div class="justify-content-center">
         <div class="card">
             <div class="card-body">
                 @if ($errors->any())
@@ -49,12 +49,6 @@ Create User
                         <div class="valid-feedback">Looks good!</div>
                     </div>
                     <div class="col mb-3">
-                        <label for="validationCustom02">Photo Profile</label>
-                        <input name="profile_photo_path" class="custom-file-input" id="validationCustom02" type="file"
-                            placeholder="Photo Profile" required="">
-                        <div class="valid-feedback">Looks good!</div>
-                    </div>
-                    <div class="col mb-3">
                         <label for="validationCustom01">Password</label>
                         <input value="{{ old('password') }}" name="password" class="form-control"
                             id="validationCustom01" type="password" placeholder="Password" required="">
@@ -67,12 +61,18 @@ Create User
                             placeholder="Password Confirmation" required="">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
-                    <div class="mb-3">
+                    <div class="col mb-3">
                         <div class="col-form-label">Roles</div>
                         <select name="roles" class="js-example-basic-single col">
                             <option value="user">User</option>
                             <option value="admin">Admin</option>
                         </select>
+                    </div>
+                    <div class="col mb-5">
+                        <label for="validationCustom02">Photo Profile</label>
+                        <input name="profile_photo_path" class="form-control" id="validationCustom02" type="file"
+                            placeholder="Photo Profile" required="">
+                        <div class="valid-feedback">Looks good!</div>
                     </div>
                     <button type="submit" class="btn btn-success btn-block">Submit</button>
                 </form>

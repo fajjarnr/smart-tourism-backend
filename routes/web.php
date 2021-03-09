@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\NewsFeedController;
@@ -22,4 +23,5 @@ Route::prefix('dashboard')->middleware(['auth:sanctum', 'admin'])->group(functio
     Route::resource('/location', LocationController::class);
     Route::resource('/banner', BannerController::class);
     Route::resource('/news', NewsFeedController::class);
+    Route::resource('/comment', CommentController::class);
 });
