@@ -1,5 +1,5 @@
 @section('title')
-Add Location
+Tambah Destinasi
 @endsection
 
 @push('custom-css')
@@ -116,6 +116,10 @@ Add Location
 
 @push('custom-js')
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+
+<script src="{{ asset('assets/js/form-validation-custom.js') }}"></script>
+<script src="{{ asset('assets/js/select2/select2.full.min.js') }}"></script>
+<script src="{{ asset('assets/js/select2/select2-custom.js') }}"></script>
 
 <script>
     document.addEventListener('livewire:load',  ()  => {
@@ -243,8 +247,4 @@ Add Location
         })
     });
 </script>
-
-<script src="{{ asset('assets/js/form-validation-custom.js') }}"></script>
-<script src="{{ asset('assets/js/select2/select2.full.min.js') }}"></script>
-<script src="{{ asset('assets/js/select2/select2-custom.js') }}"></script>
 @endpush

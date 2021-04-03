@@ -56,7 +56,6 @@
                             data-feather="paperclip"></i><span>Berita</span></a>
                     <ul class="sidebar-submenu">
                         <li><a href="{{ route('news.index') }}">Data News</a></li>
-                        <li><a href="{{ route('comment.index') }}">Comments</a></li>
                     </ul>
                 </li>
                 <li class="sidebar-list">
