@@ -33,13 +33,13 @@
                 </li>
                 <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title" href="{{route('category.index')}}"><i
-                            data-feather="list"></i><span>Category</span></a>
+                            data-feather="list"></i><span>Kategori</span></a>
                 </li>
                 <li class="sidebar-list">
                     <label class="badge badge-info">2</label><a class="sidebar-link sidebar-title" href="#"><i
-                            data-feather="map"></i><span>Obyek Wisata</span></a>
+                            data-feather="map"></i><span>Destinasi</span></a>
                     <ul class="sidebar-submenu">
-                        <li><a href="{{route('map')}}">Add Locations</a></li>
+                        <li><a href="{{route('map')}}">Tambah Destinasi</a></li>
                         <li><a href="{{route('location.index')}}">Data Locations</a></li>
                         <li><a href="#">Alam</a></li>
                         <li><a href="#">Buatan</a></li>
@@ -53,11 +53,15 @@
                 </li>
                 <li class="sidebar-list">
                     <label class="badge badge-info">2</label><a class="sidebar-link sidebar-title" href="#"><i
-                            data-feather="paperclip"></i><span>News Feed</span></a>
+                            data-feather="paperclip"></i><span>Berita</span></a>
                     <ul class="sidebar-submenu">
                         <li><a href="{{ route('news.index') }}">Data News</a></li>
                         <li><a href="{{ route('comment.index') }}">Comments</a></li>
                     </ul>
+                </li>
+                <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title" href=""><i
+                            data-feather="dollar-sign"></i><span>Transaksi</span></a>
                 </li>
                 <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title" href="{{route('users.index')}}"><i
