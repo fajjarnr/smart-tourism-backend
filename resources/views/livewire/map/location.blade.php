@@ -1,10 +1,13 @@
 @section('title')
-Tambah Destinasi
+Destinasi
 @endsection
 
 @push('custom-css')
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/select2.css') }}">
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+{{-- <link rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+    type="text/css"> --}}
 @endpush
 
 <div class="container-fluid">
@@ -116,6 +119,7 @@ Tambah Destinasi
 
 @push('custom-js')
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+{{-- <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script> --}}
 
 <script src="{{ asset('assets/js/form-validation-custom.js') }}"></script>
 <script src="{{ asset('assets/js/select2/select2.full.min.js') }}"></script>
@@ -139,6 +143,12 @@ Tambah Destinasi
         map.setStyle(`mapbox://styles/mapbox/${style}`);
 
         map.addControl(new mapboxgl.NavigationControl());
+
+        // direction
+        // map.addControl( new MapboxDirections({
+        //     accessToken: mapboxgl.accessToken
+        // }), 'top-left'
+        // );
 
         const loadGeoJSON = (geoJson) => {
             geoJson.features.forEach(function (marker) {

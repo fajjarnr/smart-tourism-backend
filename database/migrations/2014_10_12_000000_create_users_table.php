@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->text('profile_photo_path')->nullable();
             // $table->text('picturePath')->default('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDGQO5-8CPA9Hzl5_wLkAf6VtlMw52q7IwRw&usqp=CAU');
 
+            $table->softDeletes();
             $table->timestamps();
         });
     }

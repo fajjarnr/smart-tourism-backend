@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Location
+Data Destinasi
 @endsection
 
 @push('custom-css')
@@ -13,7 +13,7 @@ Location
     <div class="col-sm-12">
         <div class="card">
             <div class="card-header">
-                List All Data Location
+                List Data Destinasi
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -23,8 +23,6 @@ Location
                                 <th>No</th>
                                 <th>Name</th>
                                 <th>Description</th>
-                                {{-- <th>Latitude</th>
-                                <th>Longitude</th> --}}
                                 <th>Address</th>
                                 <th>Phone Number</th>
                                 <th>Price</th>
@@ -43,8 +41,6 @@ Location
                                 <td>{{$no}}</td>
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->description}}</td>
-                                {{-- <td>{{$item->latitude}}</td>
-                                <td>{{$item->longitude}}</td> --}}
                                 <td>{{$item->address}}</td>
                                 <td>{{$item->phoneNumber}}</td>
                                 <td>{{$item->price}}</td>

@@ -40,11 +40,7 @@
                             data-feather="map"></i><span>Destinasi</span></a>
                     <ul class="sidebar-submenu">
                         <li><a href="{{route('map')}}">Tambah Destinasi</a></li>
-                        <li><a href="{{route('location.index')}}">Data Locations</a></li>
-                        <li><a href="#">Alam</a></li>
-                        <li><a href="#">Buatan</a></li>
-                        <li><a href="#">Religi</a></li>
-                        <li><a href="#">Hotel</a></li>
+                        <li><a href="{{route('destination.index')}}">Data Destinasi</a></li>
                     </ul>
                 </li>
                 <li class="sidebar-list">
@@ -52,11 +48,8 @@
                             data-feather="image"></i><span>Banner</span></a>
                 </li>
                 <li class="sidebar-list">
-                    <label class="badge badge-info">2</label><a class="sidebar-link sidebar-title" href="#"><i
+                    <a class="sidebar-link sidebar-title" href="{{ route('news.index') }}"><i
                             data-feather="paperclip"></i><span>Berita</span></a>
-                    <ul class="sidebar-submenu">
-                        <li><a href="{{ route('news.index') }}">Data News</a></li>
-                    </ul>
                 </li>
                 <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title" href=""><i

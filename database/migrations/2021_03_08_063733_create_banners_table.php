@@ -17,9 +17,9 @@ class CreateBannersTable extends Migration
             $table->id();
             $table->string('image');
 
-            $table->unsignedBigInteger('location_id');
-            $table->foreign('location_id')->references('id')->on('locations');
+            $table->integer('destination_id');
 
+            $table->softDeletes();
             $table->timestamps();
         });
     }

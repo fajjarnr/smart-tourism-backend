@@ -20,10 +20,9 @@ Route::prefix('dashboard')->middleware(['auth:sanctum', 'admin'])->group(functio
     Route::resource('/users', UserController::class);
     Route::resource('/category', CategoryController::class);
     Route::get('/map', Location::class)->name('map');
-    Route::resource('/location', LocationController::class);
+    Route::resource('/destination', LocationController::class);
     Route::resource('/banner', BannerController::class);
     Route::resource('/news', NewsFeedController::class);
-    Route::resource('/comment', CommentController::class);
 
     Route::get('transactions/{id}/status/{status}', [TransactionController::class, 'changeStatus'])
         ->name('transactions.changeStatus');
