@@ -17,6 +17,7 @@
         "laravel/sanctum": "^2.9",
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.4",
+        "midtrans/midtrans-php": "^2.3",
         "realrashid/sweet-alert": "^3.2"
     },
     "require-dev": {

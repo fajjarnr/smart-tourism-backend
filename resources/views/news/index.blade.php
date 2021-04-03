@@ -21,9 +21,10 @@ News Feed
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Comment</th>
-                                <th>Article</th>
-                                <th>User</th>
+                                <th>Title</th>
+                                <th>Content</th>
+                                <th>Image</th>
+                                <th>Author</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
