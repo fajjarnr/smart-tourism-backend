@@ -35,10 +35,10 @@ Create Banner
                         <input name="icon" class="form-control" type="file" id="formFile">
                     </div>
                     <div class="form-group">
-                        <div class="col-form-label">Location</div>
+                        <div class="col-form-label">Destination</div>
                         <select name="location_id" class="js-example-basic-single col">
-                            <option value="">Select a Location</option>
-                            @foreach ($location as $item)
+                            <option value="">Select a Destination</option>
+                            @foreach ($destination as $item)
                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
                         </select>

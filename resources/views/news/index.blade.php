@@ -23,8 +23,8 @@ Berita
                                 <th>No</th>
                                 <th>Title</th>
                                 <th>Content</th>
-                                <th>Image</th>
                                 <th>Author</th>
+                                <th>Image</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -36,9 +36,8 @@ Berita
                                 <td>{{$no}}</td>
                                 <td>{{ $item->title }}</td>
                                 <td>{{ $item->content }}</td>
+                                <td>{{ $item->user->name }}</td>
                                 <td><img src="{{ $item->image }}" width="50px"></td>
-                                {{-- <td>{{ $item->user->name }}</td> --}}
-                                <td>author</td>
                                 <td class="text-center row align-items-center">
                                     <a href="{{route('news.edit', $item->id)}}" class="btn btn-primary mx-1"><i
                                             class="fa fa-edit"></i></a>

@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Map;
 
 use App\Models\Category;
-use App\Models\Location as ModelsLocation;
+use App\Models\Destination;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
@@ -23,7 +23,7 @@ class Location extends Component
 
     private function getLocations()
     {
-        $locations = ModelsLocation::orderBy('created_at', 'desc')->get();
+        $locations = Destination::orderBy('created_at', 'desc')->get();
 
         $customLocation = [];
 
@@ -90,7 +90,7 @@ class Location extends Component
             $imageName
         );
 
-        ModelsLocation::create([
+        Destination::create([
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
             'name' => $this->name,
@@ -103,7 +103,7 @@ class Location extends Component
             'facilities' => $this->facilities,
             'image' => $imageName,
             'category_id' => $this->category,
-            'user_id' => Auth::id(),
+            // 'user_id' => Auth::id(),
         ]);
 
         session()->flash('info', 'Product Created Successfully');
@@ -122,7 +122,7 @@ class Location extends Component
             'description' => 'required',
         ]);
 
-        $location = ModelsLocation::findOrFail($this->locationId);
+        $location = Destination::findOrFail($this->locationId);
 
         if ($this->image) {
             $imageName = md5($this->image . microtime()) . '.' . $this->image->extension();
@@ -170,7 +170,7 @@ class Location extends Component
 
     public function deleteLocationById()
     {
-        $location = ModelsLocation::findOrFail($this->locationId);
+        $location = Destination::findOrFail($this->locationId);
         $location->delete();
 
         $this->clearForm();
@@ -196,7 +196,7 @@ class Location extends Component
 
     public function findLocationById($id)
     {
-        $location = ModelsLocation::findOrFail($id);
+        $location = Destination::findOrFail($id);
 
         $this->locationId = $id;
         $this->latitude = $location->latitude;

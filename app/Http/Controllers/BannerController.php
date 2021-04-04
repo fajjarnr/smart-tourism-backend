@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BannerRequest;
 use App\Models\Banner;
-use App\Models\Location;
+use App\Models\Destination;
 use Illuminate\Http\Request;
 
 class BannerController extends Controller
@@ -16,8 +16,9 @@ class BannerController extends Controller
      */
     public function index()
     {
-        $banner = Banner::all();
-        return view('banner.index', compact('banner'));
+        return view('banner.index', [
+            'banner' => Banner::all(),
+        ]);
     }
 
     /**
@@ -28,7 +29,7 @@ class BannerController extends Controller
     public function create()
     {
         return view('banner.create', [
-            'location' => Location::all()
+            'destination' => Destination::all()
         ]);
     }
 
@@ -69,7 +70,7 @@ class BannerController extends Controller
     public function edit(Banner $banner)
     {
         return view('banner.edit', [
-            'item' => Location::all()
+            'item' => Destination::all()
         ]);
     }
 

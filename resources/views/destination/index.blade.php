@@ -47,12 +47,13 @@ Data Destinasi
                                 <td>{{$item->hours}}</td>
                                 <td>{{$item->facilities}}</td>
                                 <td>{{$item->category->name}}</td>
+                                <td>category</td>
                                 <td><img src="{{asset('')}}" width="30px" height="30px">
                                 </td>
                                 <td class="text-center row align-items-center">
-                                    <a href="{{route('location.edit', $item->id)}}" class="btn btn-primary mx-1"><i
+                                    <a href="{{route('destination.edit', $item->id)}}" class="btn btn-primary mx-1"><i
                                             class="fa fa-edit"></i></a>
-                                    <form action="{{route('location.destroy', $item->id)}}" method="post">
+                                    <form action="{{route('destination.destroy', $item->id)}}" method="post">
                                         {!! method_field('delete') . csrf_field() !!}
                                         <button type="submit" class="btn btn-danger"><i
                                                 class="fa fa-trash"></i></button>

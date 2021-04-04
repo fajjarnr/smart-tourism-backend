@@ -14,9 +14,8 @@ class DestinationController extends Controller
      */
     public function index()
     {
-        $destination = Destination::all();
         return view('destination.index', [
-            'destination' => $destination,
+            'destination' => Destination::all()
         ]);
     }
 

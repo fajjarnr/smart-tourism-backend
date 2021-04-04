@@ -12,8 +12,8 @@ class Category extends Model
 
     protected $guarded = [];
 
-    public function location()
+    public function destination()
     {
-        return $this->hasMany(Location::class);
+        return $this->hasMany(Destination::class, 'id', 'category_id');
     }
 }

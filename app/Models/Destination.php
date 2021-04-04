@@ -22,17 +22,21 @@ class Destination extends Model
         'price',
         'hours',
         'facilities',
-        'user_id',
         'category_id'
     ];
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'id', 'category_id');
+        return $this->belongsTo(Category::class);
     }
 
     public function banner()
     {
-        return $this->belongsTo(Banner::class, 'id', 'banner_id');
+        return $this->belongsTo(Banner::class);
+    }
+
+    public function transaction()
+    {
+        return $this->belongsTo(Transaction::class);
     }
 }

@@ -19,9 +19,9 @@ class Transaction extends Model
         'payment_url'
     ];
 
-    public function location()
+    public function destination()
     {
-        return $this->hasOne(Location::class, 'id', 'location_id');
+        return $this->hasOne(Destination::class, 'id', 'location_id');
     }
 
     public function user()

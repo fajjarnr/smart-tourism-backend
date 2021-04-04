@@ -12,8 +12,13 @@ class Banner extends Model
 
     protected $guarded = [];
 
-    public function location()
+    public function destination()
     {
-        return $this->hasMany(Location::class, 'id', 'location_id');
+        return $this->hasMany(Destination::class, 'id', 'destination_id');
+    }
+
+    public function news()
+    {
+        return $this->hasMany(NewsFeed::class, 'id', 'news_id');
     }
 }
