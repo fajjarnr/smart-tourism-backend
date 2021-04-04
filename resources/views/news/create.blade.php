@@ -26,7 +26,7 @@ Create News
                 </div>
             </div>
             @endif
-            <form action="{{ route('news.store') }}" method="POST" enctype="multipart/form-data"
+            <form action="{{ route('ne  ws.store') }}" method="POST" enctype="multipart/form-data"
                 class="needs-validation">
                 @csrf
                 <div class="form-group">

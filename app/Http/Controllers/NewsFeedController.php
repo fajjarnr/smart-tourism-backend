@@ -14,8 +14,9 @@ class NewsFeedController extends Controller
      */
     public function index()
     {
-        $news = NewsFeed::all();
-        return view('news.index', compact('news'));
+        return view('news.index', [
+            'news' => NewsFeed::all(),
+        ]);
     }
 
     /**

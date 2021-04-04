@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-News Feed
+Berita
 @endsection
 
 @push('custom-css')
@@ -34,10 +34,14 @@ News Feed
                             <?php $no++; ?>
                             <tr>
                                 <td>{{$no}}</td>
-                                <td>comment</td>
-                                <td>artikel</td>
-                                <td>nama</td>
+                                <td>{{ $item->title }}</td>
+                                <td>{{ $item->content }}</td>
+                                <td><img src="{{ $item->image }}" width="50px"></td>
+                                {{-- <td>{{ $item->user->name }}</td> --}}
+                                <td>author</td>
                                 <td class="text-center row align-items-center">
+                                    <a href="{{route('news.edit', $item->id)}}" class="btn btn-primary mx-1"><i
+                                            class="fa fa-edit"></i></a>
                                     <form action="{{route('news.destroy', $item->id)}}" method="post">
                                         {!! method_field('delete') . csrf_field() !!}
                                         <button type="submit" class="btn btn-danger"><i

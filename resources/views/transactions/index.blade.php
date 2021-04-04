@@ -21,9 +21,12 @@ Transaksi
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Address</th>
+                                <th>ID</th>
+                                <th>Destination</th>
+                                <th>User</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -33,11 +36,14 @@ Transaksi
                             <?php $no++; ?>
                             <tr>
                                 <td>{{$no}}</td>
-                                <td><img src="{{asset('')}}" width="30px" height="30px">
-                                </td>
+                                <td>{{ $item->destination->name }}</td>
+                                <td>{{ $item->user->name }}</td>
+                                <td>{{ $item->quantity }}</td>
+                                <td>{{ number_format($item->total) }}</td>
+                                <td>{{ $item->status }}</td>
                                 <td class="text-center row align-items-center">
-                                    <a href="{{route('transactions.edit', $item->id)}}" class="btn btn-primary mx-1"><i
-                                            class="fa fa-edit"></i></a>
+                                    <a href="{{route('transactions.show', $item->id)}}" class="btn btn-primary mx-1"><i
+                                            class="fa fa-eye"></i></a>
                                     <form action="{{route('transactions.destroy', $item->id)}}" method="post">
                                         {!! method_field('delete') . csrf_field() !!}
                                         <button type="submit" class="btn btn-danger"><i

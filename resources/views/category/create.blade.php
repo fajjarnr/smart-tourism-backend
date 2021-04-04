@@ -5,7 +5,7 @@ Create Category
 @endsection
 
 @section('content')
-<div class="col-6">
+<div class="col">
     <div class="flex flex-col justify-center">
         <div class="card">
             <div class="card-body">
