@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\DestinationController;
 use App\Http\Controllers\API\LocationController;
 use App\Http\Controllers\API\TransactionController;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ Route::post('login', [UserController::class, 'login']);
 Route::post('register', [UserController::class, 'register']);
 
 Route::get('/category', [CategoryController::class, 'fetch']);
-Route::get('/location', [LocationController::class, 'all']);
-Route::get('/location/{category_id}', [LocationController::class, 'fetch']);
+Route::get('/destination', [DestinationController::class, 'all']);
+Route::get('/destination/{category_id}', [DestinationController::class, 'fetch']);
 
 Route::post('midtrans/callback', [MidtransController::class, 'callback']);

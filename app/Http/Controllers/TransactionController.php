@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Location;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
-class LocationController extends Controller
+class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class LocationController extends Controller
      */
     public function index()
     {
-        $location = Location::all();
-        return view('location.index', [
-            'location' => $location
+        $transcation = Transaction::all();
+        return view('transactions.index', [
+            'transaction' => $transcation,
         ]);
     }
 

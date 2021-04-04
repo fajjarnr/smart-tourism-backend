@@ -52,7 +52,7 @@
                             data-feather="paperclip"></i><span>Berita</span></a>
                 </li>
                 <li class="sidebar-list">
-                    <a class="sidebar-link sidebar-title" href=""><i
+                    <a class="sidebar-link sidebar-title" href="{{ route('transactions.index') }}"><i
                             data-feather="dollar-sign"></i><span>Transaksi</span></a>
                 </li>
                 <li class="sidebar-list">
