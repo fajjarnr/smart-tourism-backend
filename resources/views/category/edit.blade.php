@@ -36,10 +36,8 @@ Edit Category
                         <div class="valid-feedback">Looks good!</div>
                     </div>
                     <div class="col mb-3">
-                        <label for="validationCustom02">Icon</label>
-                        <input name="icon" class="custom-file-input" id="validationCustom02" type="file"
-                            placeholder="Icon">
-                        <div class="valid-feedback">Looks good!</div>
+                        <label for="formFile" class="form-label">Icon</label>
+                        <input name="icon" class="form-control" type="file" id="formFile">
                     </div>
                     <button type="submit" class="btn btn-success btn-block">Submit</button>
                 </form>

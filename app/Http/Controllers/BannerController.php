@@ -28,9 +28,9 @@ class BannerController extends Controller
      */
     public function create()
     {
-        return view('banner.create', [
-            'destination' => Destination::all()
-        ]);
+        $item = Banner::all();
+        $destination = Destination::all();
+        return view('banner.create', compact('item', 'destination'));
     }
 
     /**
@@ -41,9 +41,13 @@ class BannerController extends Controller
      */
     public function store(BannerRequest $request)
     {
+        // $request->validate([
+        //     'image' => 'image|max:2048|mimes:png,jpg'
+        // ]);
+
         $data = $request->all();
 
-        $data['image'] = $request->file('image')->store('assets/banner', 'public');
+        $data['image'] = $request->file('image')->store('images/banner', 'public');
 
         Banner::create($data);
 
@@ -86,7 +90,7 @@ class BannerController extends Controller
         $data = $request->all();
 
         if ($request->file('image')) {
-            $data['image'] = $request->file('image')->store('assets/banner', 'public');
+            $data['image'] = $request->file('image')->store('images/banner', 'public');
         }
 
         $banner->update($data);

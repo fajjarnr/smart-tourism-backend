@@ -39,7 +39,7 @@ class CategoryController extends Controller
     {
         $data = $request->all();
 
-        $data['icon'] = $request->file('icon')->store('assets/icon', 'public');
+        $data['image'] = $request->file('image')->store('images/category', 'public');
 
         Category::create($data);
 
@@ -81,8 +81,8 @@ class CategoryController extends Controller
     {
         $data = $request->all();
 
-        if ($request->file('icon')) {
-            $data['icon'] = $request->file('icon')->store('assets/user', 'public');
+        if ($request->file('image')) {
+            $data['image'] = $request->file('image')->store('images/category', 'public');
         }
 
         $category->update($data);

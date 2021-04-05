@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Map;
 
 use App\Models\Category;
 use App\Models\Destination;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
@@ -72,7 +73,7 @@ class Location extends Component
         }
     }
 
-    public function store()
+    public function store(Request $request)
     {
         $this->validate([
             'latitude' => 'required',
@@ -90,6 +91,19 @@ class Location extends Component
             $imageName
         );
 
+        // if ($request->hasFile('image')) {
+        //     $files = $request->file('image');
+
+        //     foreach ($files as $file) {
+        //         $name = rand(1, 999);
+        //         $extension = $file->getClientOriginalExtenxion();
+        //         $newName = $name . '' . $extension;
+        //         $size = $file->getClientSize();
+
+        //         Storage::putFileAs('public/image', $file, $newName);
+        //     }
+        // }
+
         Destination::create([
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
@@ -103,11 +117,9 @@ class Location extends Component
             'facilities' => $this->facilities,
             'image' => $imageName,
             'category_id' => $this->category,
-            // 'user_id' => Auth::id(),
         ]);
 
         session()->flash('info', 'Product Created Successfully');
-
         $this->clearForm();
         $this->getLocations();
         $this->dispatchBrowserEvent('locationAdded', $this->geoJson);

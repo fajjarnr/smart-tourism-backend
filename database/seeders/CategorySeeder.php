@@ -17,19 +17,19 @@ class CategorySeeder extends Seeder
         DB::table('categories')->insert([
             [
                 'name' => 'Wisata Alam',
-                'icon' => '',
+                'image' => '',
             ],
             [
                 'name' => 'Wisata Buatan',
-                'icon' => '',
+                'image' => '',
             ],
             [
                 'name' => 'Wisata Budaya',
-                'icon' => '',
+                'image' => '',
             ],
             [
                 'name' => 'Wisata Kuliner',
-                'icon' => '',
+                'image' => '',
             ],
         ]);
     }

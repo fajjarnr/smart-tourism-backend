@@ -10,7 +10,11 @@ class Banner extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $guarded = [];
+    // protected $guarded = [];
+    protected $fillable = [
+        'image',
+        'destination_id'
+    ];
 
     public function destination()
     {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NewsFeedRequest;
 use App\Models\NewsFeed;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,9 @@ class NewsFeedController extends Controller
      */
     public function index()
     {
+        $news = NewsFeed::all();
         return view('news.index', [
-            'news' => NewsFeed::all(),
+            'news' => $news,
         ]);
     }
 
@@ -35,9 +37,15 @@ class NewsFeedController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NewsFeedRequest $request)
     {
-        //
+        $data = $request->all();
+
+        $data['image'] = $request->file('image')->store('images/news', 'public');
+
+        NewsFeed::create($data);
+
+        return redirect()->route('news.index')->with('success', 'Berita berhasil dibuat');
     }
 
     /**
@@ -48,7 +56,6 @@ class NewsFeedController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -69,9 +76,17 @@ class NewsFeedController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, NewsFeed $newsFeed)
     {
-        //
+        $data = $request->all();
+
+        if ($request->file('image')) {
+            $data['image'] = $request->file('image')->store('images/news', 'public');
+        }
+
+        $newsFeed->update($data);
+
+        return redirect()->route('news.index')->with('success', 'Berita berhasil di edit');
     }
 
     /**
@@ -80,7 +95,10 @@ class NewsFeedController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(NewsFeed $newsFeed)
     {
+        $newsFeed->delete();
+
+        return redirect()->route('news.index')->with('success', 'Berita berhasil di hapus');
     }
 }

@@ -18,8 +18,8 @@ class CreateDestinationsTable extends Migration
             $table->integer('category_id');
             $table->string('latitude');
             $table->string('longitude');
-            $table->text('description');
             $table->string('name');
+            $table->text('description');
             $table->string('address');
             $table->string('rate')->nullable();
             $table->string('image')->nullable();

@@ -25,6 +25,7 @@ class BannerRequest extends FormRequest
     {
         return [
             'image' => ['required', 'max:2048'],
+            'destination_id' => ['required', 'string', 'max:255'],
         ];
     }
 }

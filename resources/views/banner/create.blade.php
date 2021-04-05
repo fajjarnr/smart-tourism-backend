@@ -32,7 +32,7 @@ Create Banner
                     @csrf
                     <div class="form-group">
                         <label for="formFile" class="form-label">File</label>
-                        <input name="icon" class="form-control" type="file" id="formFile">
+                        <input name="image" class="form-control" type="file" id="formFile">
                     </div>
                     <div class="form-group">
                         <div class="col-form-label">Destination</div>
