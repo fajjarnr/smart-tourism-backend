@@ -17,17 +17,17 @@ class DestinationSeeder extends Seeder
         DB::table('destinations')->insert([
             [
                 'category_id' => '1',
-                'latitude' => '',
-                'longitude' => '',
-                'name' => '',
-                'description' => '',
-                'address' => '',
-                'rate' => '',
-                'image' => '',
-                'phoneNumber' => '',
-                'price' => '',
-                'hours' => '',
-                'facilities' => ''
+                'latitude' => '-6.8902627925291',
+                'longitude' => '109.38135790220787',
+                'name' => 'Alun-Alun Pemalang',
+                'description' => 'Alun-Alun Pemalang',
+                'address' => 'Pemalang',
+                'rate' => '4',
+                'image' => '-',
+                'phoneNumber' => '-',
+                'price' => '-',
+                'hours' => '24',
+                'facilities' => 'parkir'
             ],
         ]);
     }

@@ -34,7 +34,7 @@ Create Category
                     </div>
                     <div class="col mb-3">
                         <label for="formFile" class="form-label">File</label>
-                        <input name="icon" class="form-control" type="file" id="formFile">
+                        <input name="image" class="form-control" type="file" id="formFile">
                     </div>
                     <button class="btn btn-success btn-block" type="submit">Submit</button>
                 </form>

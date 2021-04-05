@@ -13,7 +13,7 @@ class NewsFeedRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,7 +26,7 @@ class NewsFeedRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:255'],
             'content' => ['required', 'string', 'max:255'],
-            'image' => ['required', 'max:2048', 'mimes:png,jpg']
+            'image' => ['required', 'mimes:png,jpg']
         ];
     }
 }

@@ -10,7 +10,10 @@ class NewsFeed extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $guarded = [];
+    // protected $guarded = [];
+    protected $fillable = [
+        'user_id', 'title', 'content', 'image',
+    ];
 
     public function user()
     {

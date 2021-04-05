@@ -50,11 +50,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function news()
-    {
-        return $this->hasMany(NewsFeed::class, 'id', 'news_id');
-    }
-
     public function transaction()
     {
         return $this->belongsTo(Transaction::class);

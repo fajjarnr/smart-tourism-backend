@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NewsFeedRequest;
+use App\Models\Category;
 use App\Models\NewsFeed;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NewsFeedController extends Controller
 {
@@ -39,11 +41,22 @@ class NewsFeedController extends Controller
      */
     public function store(NewsFeedRequest $request)
     {
-        $data = $request->all();
+        // $data = $request->all();
 
-        $data['image'] = $request->file('image')->store('images/news', 'public');
+        $request->validate([
+            'title' => 'required|max:255|string',
+            'content' => 'required|max:255|string',
+            'image' => 'required|image|mimes:png,jpg'
+        ]);
 
-        NewsFeed::create($data);
+        $image = $request->file('image')->store('images/news', 'public');
+
+        NewsFeed::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'image' => $image,
+            'user_id' => Auth::id(),
+        ]);
 
         return redirect()->route('news.index')->with('success', 'Berita berhasil dibuat');
     }
@@ -64,9 +77,11 @@ class NewsFeedController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(NewsFeed $newsFeed)
     {
-        return view('news.edit');
+        return view('news.edit', [
+            'item' => $newsFeed,
+        ]);
     }
 
     /**

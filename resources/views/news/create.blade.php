@@ -31,8 +31,8 @@ Create News
                 @csrf
                 <div class="form-group">
                     <label for="validationCustom01">Title</label>
-                    <input value="{{ old('name') }}" name="name" class="form-control" id="validationCustom01"
-                        type="text" placeholder="Name" required="">
+                    <input value="{{ old('title') }}" name="title" class="form-control" id="validationCustom01"
+                        type="text" placeholder="title" required="">
                     <div class="valid-feedback">good!</div>
                 </div>
                 <div class="form-floating mb-3">
