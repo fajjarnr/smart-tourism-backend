@@ -11,11 +11,18 @@ class DestinationController extends Controller
 {
     public function all()
     {
-        $destination = Destination::all();
-        return ResponseFormatter::success(
-            $destination,
-            'Data destinasi berhasil diambil'
-        );
+        try {
+            $destination = Destination::all();
+            return ResponseFormatter::success(
+                $destination,
+                'Data destinasi berhasil diambil'
+            );
+        } catch (Exception $error) {
+            return ResponseFormatter::error([
+                'message' => 'Something went wrong',
+                'error' => $error,
+            ], 'Data gagal di ambil', 404);
+        }
     }
 
     public function fetch($category_id)
