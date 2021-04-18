@@ -400,11 +400,11 @@
                     <!-- Left Column -->
                     <div
                         class="left-column-header-4-1 d-flex flex-lg-grow-1 flex-column align-items-lg-start text-lg-start align-items-center text-center">
-                        <p class="text-caption-header-4-1">FREE 30 DAY TRIAL</p>
-                        <h1 class="title-text-big-header-4-1 d-lg-inline d-none">The best way<br> to organize your
-                            online learning</h1>
-                        <h1 class="title-text-small-header-4-1 d-lg-none d-inline">The best way to organize your online
-                            learning</h1>
+                        <p class="text-caption-header-4-1"></p>
+                        <h1 class="title-text-big-header-4-1 d-lg-inline d-none">Sudahi<br> Mengsedihmu
+                            Ayo dolan <span style="color: #ff7c57">Pemalang</span> Bersamaku</h1>
+                        <h1 class="title-text-small-header-4-1 d-lg-none d-inline">Sudahi Mengsedihmu
+                            Ayo dolan Pemalang bersamaku</h1>
                         <div
                             class="div-button-header-4-1 d-inline d-lg-flex align-items-center mx-lg-0 mx-auto justify-content-center">
                             <button class="btn d-inline-flex mb-md-0 btn-try-header-4-1">Try it free</button>
@@ -425,10 +425,8 @@
                     <div
                         class="right-column-header-4-1 text-center d-flex justify-content-lg-end justify-content-center pe-0">
                         <img id="img-fluid" style="display: block;max-width: 100%;height: auto;"
-                            src="http://api.elements.buildwithangga.com/storage/files/2/assets/Header/Header4/Header-4-1.png"
-                            alt="">
+                            src="{{ asset('assets/sapiens.svg') }}" alt="">
                     </div>
-
                 </div>
             </div>
         </div>
