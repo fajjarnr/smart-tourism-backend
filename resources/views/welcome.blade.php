@@ -400,7 +400,7 @@
                     <!-- Left Column -->
                     <div
                         class="left-column-header-4-1 d-flex flex-lg-grow-1 flex-column align-items-lg-start text-lg-start align-items-center text-center">
-                        <p class="text-caption-header-4-1"></p>
+                        <p class="text-caption-header-4-1">Download Aplikasinya sekarang juga!!!</p>
                         <h1 class="title-text-big-header-4-1 d-lg-inline d-none">Sudahi<br> Mengsedihmu
                             Ayo dolan <span style="color: #ff7c57">Pemalang</span> Bersamaku</h1>
                         <h1 class="title-text-small-header-4-1 d-lg-none d-inline">Sudahi Mengsedihmu

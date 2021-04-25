@@ -21,7 +21,7 @@ class Transaction extends Model
 
     public function destination()
     {
-        return $this->hasOne(Destination::class, 'id', 'location_id');
+        return $this->hasOne(Destination::class, 'id', 'destination_id');
     }
 
     public function user()

@@ -12,7 +12,7 @@ class DestinationController extends Controller
     public function all()
     {
         try {
-            $destination = Destination::all();
+            $destination = Destination::with(['category'])->get();
             return ResponseFormatter::success(
                 $destination,
                 'Data destinasi berhasil diambil'

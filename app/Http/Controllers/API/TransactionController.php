@@ -16,11 +16,11 @@ class TransactionController extends Controller
     {
         $id = $request->input('id');
         $limit = $request->input('limit', 6);
-        $food_id = $request->input('food_id');
+        $destination_id = $request->input('destination_id');
         $status = $request->input('status');
 
         if ($id) {
-            $transaction = Transaction::with(['food', 'user'])->find($id);
+            $transaction = Transaction::with(['destinations', 'user'])->find($id);
 
             if ($transaction)
                 return ResponseFormatter::success(
@@ -35,13 +35,15 @@ class TransactionController extends Controller
                 );
         }
 
-        $transaction = Transaction::with(['food', 'user'])->where('user_id', Auth::user()->id);
+        $transaction = Transaction::with(['destinations', 'user'])->where('user_id', Auth::user()->id);
 
-        if ($food_id)
-            $transaction->where('food_id', $food_id);
+        if ($destination_id) {
+            $transaction->where('destination_id', $destination_id);
+        }
 
-        if ($status)
+        if ($status) {
             $transaction->where('status', $status);
+        }
 
         return ResponseFormatter::success(
             $transaction->paginate($limit),
@@ -56,7 +58,7 @@ class TransactionController extends Controller
     public function checkout(Request $request)
     {
         $request->validate([
-            'food_id' => 'required|exists:food,id',
+            'destination_id' => 'required|exists:destination,id',
             'user_id' => 'required|exists:users,id',
             'quantity' => 'required',
             'total' => 'required',
@@ -64,7 +66,7 @@ class TransactionController extends Controller
         ]);
 
         $transaction = Transaction::create([
-            'food_id' => $request->food_id,
+            'destination_id' => $request->destination_id,
             'user_id' => $request->user_id,
             'quantity' => $request->quantity,
             'total' => $request->total,
@@ -78,7 +80,7 @@ class TransactionController extends Controller
         Config::$isSanitized = config('services.midtrans.isSanitized');
         Config::$is3ds = config('services.midtrans.is3ds');
 
-        $transaction = Transaction::with(['location', 'user'])->find($transaction->id);
+        $transaction = Transaction::with(['destinations', 'user'])->find($transaction->id);
 
         $midtrans = [
             'transaction_details' => [
