@@ -28,7 +28,7 @@ class DestinationController extends Controller
     public function fetch($category_id)
     {
         try {
-            $destination = Destination::where('category_id', $category_id)->paginate(6);
+            $destination = Destination::with(['category'])->where('category_id', $category_id)->paginate(6);
             return ResponseFormatter::success(
                 $destination,
                 'Data list destinasi sesuai category berhasil diambil'
