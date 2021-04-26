@@ -37,7 +37,13 @@ Transaksi
                                 <td>{{ $item->user->name }}</td>
                                 <td>{{ $item->quantity }}</td>
                                 <td>{{ number_format($item->total) }}</td>
-                                <td>{{ $item->status }}</td>
+                                <td>
+                                    @if ($item->status == 'ACCEPTED')
+                                    <span class="badge bg-success">{{ $item->status }}</span>
+                                    @else
+                                    <span class="badge bg-danger">{{ $item->status }}</span>
+                                    @endif
+                                </td>
                                 <td class="text-center row align-items-center">
                                     <a href="{{route('transactions.show', $item->id)}}" class="btn btn-primary mx-1"><i
                                             class="fa fa-eye"></i></a>
