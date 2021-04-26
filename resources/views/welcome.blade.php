@@ -48,7 +48,7 @@
                 font-weight: 600;
             }
 
-            .header-4-1 .navbar-light .navbar-toggler-icon {
+            nav .header-4-1 .navbar-light .navbar-toggler-icon {
                 background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
             }
 
@@ -259,7 +259,7 @@
                 }
 
                 .header-4-1 .navbar {
-                    padding: 3rem 6rem;
+                    padding: 1rem 6rem;
                 }
 
                 .hero-header-4-1 {
@@ -401,9 +401,9 @@
                     <div
                         class="left-column-header-4-1 d-flex flex-lg-grow-1 flex-column align-items-lg-start text-lg-start align-items-center text-center">
                         <p class="text-caption-header-4-1">Download Aplikasinya sekarang juga!!!</p>
-                        <h1 class="title-text-big-header-4-1 d-lg-inline d-none">Sudahi<br> Mengsedihmu
+                        <h1 class="title-text-big-header-4-1 d-lg-inline d-none">Sudahi<br> sedihmu
                             Ayo dolan <span style="color: #ff7c57">Pemalang</span> Bersamaku</h1>
-                        <h1 class="title-text-small-header-4-1 d-lg-none d-inline">Sudahi Mengsedihmu
+                        <h1 class="title-text-small-header-4-1 d-lg-none d-inline">Sudahi sedihmu
                             Ayo dolan Pemalang bersamaku</h1>
                         <div
                             class="div-button-header-4-1 d-inline d-lg-flex align-items-center mx-lg-0 mx-auto justify-content-center">
@@ -555,7 +555,7 @@
                                 <span class="circle-content-3-1 d-flex align-items-center justify-content-center">
                                     1
                                 </span>
-                                Trusted Mentor
+                                Destinasi yang menarik
                             </h4>
                             <p class="text-caption-content-3-1 d-sm-inline d-none">
                                 We have provided highly experienced mentors<br>
@@ -572,7 +572,7 @@
                                 <span class="circle-content-3-1 d-flex align-items-center justify-content-center">
                                     2
                                 </span>
-                                Access Forever
+                                Dapatkan informasi up to date
                             </h4>
                             <p class="text-caption-content-3-1 d-sm-inline d-none">
                                 Are you busy at work so it's hard to consult? don't<br>
@@ -589,15 +589,15 @@
                                 <span class="circle-content-3-1 d-flex align-items-center justify-content-center">
                                     3
                                 </span>
-                                Halfpenny
+                                Bayar langsung dari aplikasi
                             </h4>
                             <p class="text-caption-content-3-1 d-sm-inline d-none">
-                                We provide economical packages for those of you<br>
-                                who are still in school or workers.
+                                Kamu bisa langsung melakukan pembelian tiket<br>
+                                melalui Virtual Account maupun e-wallet kesayanganmu
                             </p>
                             <p class="text-caption-content-3-1 d-sm-none d-inline">
-                                We provide economical packages for those of you
-                                who are still in school or workers.
+                                Kamu bisa langsung melakukan pembelian tiket
+                                melalui Virtual Account maupun e-wallet kesayanganmu
                             </p>
                         </li>
                     </ul>
@@ -787,7 +787,9 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h2 class="footer-text-title-footer-2-1 list-space-footer-2-1-title">Touch Up</h2>
-                        <h6>Dinas Pariwisata Kabupaten Pemalang</h6>
+                        <p class="text-muted">Dinas Pariwisata Pemuda dan Olahraga Kabupaten Pemalang</p>
+                        <p class="text-muted">Jl. Laksda Yos Sudarso No.1, Widuri, Kec. Pemalang, Kabupaten Pemalang,
+                            Jawa Tengah 52314</p>
                     </div>
                 </div>
             </div>
@@ -848,15 +850,15 @@
                     </div>
                     <nav
                         class="mx-auto d-flex flex-wrap align-items-center justify-content-center footer-responsive-space-footer-2-1">
-                        <p>
-                            Developed By <a href="https://www.instagram.com/jaaaayyyyyyyy/"
-                                class="footer-link-footer-2-1" style="text-decoration: none;" target="_blank"
-                                rel="noopener noreferrer">Fajar Nur
-                                Rohman</a>with <i class="fa fa-heart"></i>
-                        </p>
+                        <p class="footer-link-footer-2-1" style="margin: 0">Copyright © 2021 Smart Tourism Pemalang</p>
+
                     </nav>
                     <nav class="d-flex flex-lg-row flex-column align-items-center justify-content-center">
-                        <p style="margin: 0">Copyright © 2021 Smart Tourism Pemalang</p>
+                        <p>
+                            Developed By <a href="https://www.instagram.com/jaaaayyyyyyyy/" class="text-muted"
+                                style="text-decoration: none;" target="_blank" rel="noopener noreferrer">Fajar Nur
+                                Rohman</a> with <i class="fa fa-heart"></i>
+                        </p>
                     </nav>
                 </div>
             </div>
