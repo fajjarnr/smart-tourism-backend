@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Transaksi &raquo; {{ $item->destination->name }} by {{ $item->user->name }}
+Transaksi &raquo; {{ $item->destinations->name }} by {{ $item->user->name }}
 @endsection
 
 @push('custom-css')
@@ -18,13 +18,13 @@ Transaksi &raquo; {{ $item->destination->name }} by {{ $item->user->name }}
             <div class="card-body">
                 <div class="row">
                     <div class="col-3">
-                        <img src="{{ $item->destination->image }}" alt="">
+                        <img src="{{ $item->destinations->image }}">
                     </div>
                     <div class="col-6">
                         <div class="row px-3">
                             <div class="col-4 mb-3">
-                                <div class="text-sm">Product Name</div>
-                                <div class="text-xl font-bold">{{ $item->destination->name }}</div>
+                                <div class="text-sm">Destinasi</div>
+                                <div class="text-xl font-bold">{{ $item->destinations->name }}</div>
                             </div>
                             <div class="col-4 mb-3">
                                 <div class="text-sm">Quantity</div>
@@ -37,8 +37,8 @@ Transaksi &raquo; {{ $item->destination->name }} by {{ $item->user->name }}
                         </div>
                         <div class="row px-3 mb-3">
                             <div class="col-6">
-                                <div class="text-sm">User Name</div>
-                                <div class="text-xl font-bold">{{ $item->user->image }}</div>
+                                <div class="text-sm">Nama</div>
+                                <div class="text-xl font-bold">{{ $item->user->name }}</div>
                             </div>
                             <div class="col-6">
                                 <div class="text-sm">Email</div>
@@ -77,7 +77,7 @@ Transaksi &raquo; {{ $item->destination->name }} by {{ $item->user->name }}
                                 class="bg-success text-white font-bold rounded d-block text-center mb-1">ACCEPTED</a>
 
                             <a href="{{ route('transactions.changeStatus', ['id' => $item->id, 'status' => 'CANCELLED']) }}"
-                                class="bg-red text-white font-bold rounded d-block text-center mb-1">CANCELLED</a>
+                                class="bg-danger text-white font-bold rounded d-block text-center mb-1">CANCELLED</a>
                         </div>
                     </div>
                 </div>

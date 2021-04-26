@@ -14,9 +14,9 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transcation = Transaction::with(['destination', 'user']);
+        $transcation = Transaction::with(['destinations', 'user'])->get();
         return view('transactions.index', [
-            'transaction' => $transcation,
+            'transactions' => $transcation,
         ]);
     }
 
@@ -97,6 +97,6 @@ class TransactionController extends Controller
         $transaction->status = $status;
         $transaction->save();
 
-        return redirect()->route('transactions.show', $id);
+        return redirect()->route('transactions.show', $id)->with('success', 'status berhasil diubah');
     }
 }

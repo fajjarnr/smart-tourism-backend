@@ -20,7 +20,6 @@ Transaksi
                     <table class="display" id="basic-1">
                         <thead>
                             <tr>
-                                <th>No</th>
                                 <th>ID</th>
                                 <th>Destination</th>
                                 <th>User</th>
@@ -31,12 +30,10 @@ Transaksi
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $no=0; ?>
-                            @foreach ($transaction as $item)
-                            <?php $no++; ?>
+                            @foreach ($transactions as $item)
                             <tr>
-                                <td>{{$no}}</td>
-                                <td>{{ $item->destination->name }}</td>
+                                <td>{{ $item->id }}</td>
+                                <td>{{ $item->destinations->name }}</td>
                                 <td>{{ $item->user->name }}</td>
                                 <td>{{ $item->quantity }}</td>
                                 <td>{{ number_format($item->total) }}</td>
