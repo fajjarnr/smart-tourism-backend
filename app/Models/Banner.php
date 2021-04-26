@@ -16,6 +16,11 @@ class Banner extends Model
         'destination_id'
     ];
 
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:m:s',
+        'updated_at' => 'datetime:Y-m-d H:m:s',
+    ];
+
     public function destination()
     {
         return $this->hasMany(Destination::class, 'id', 'destination_id');

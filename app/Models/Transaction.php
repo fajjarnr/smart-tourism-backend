@@ -19,6 +19,11 @@ class Transaction extends Model
         'payment_url'
     ];
 
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:m:s',
+        'updated_at' => 'datetime:Y-m-d H:m:s',
+    ];
+
     public function destination()
     {
         return $this->hasOne(Destination::class, 'id', 'destination_id');

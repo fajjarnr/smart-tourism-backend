@@ -25,6 +25,11 @@ class Destination extends Model
         'category_id'
     ];
 
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:m:s',
+        'updated_at' => 'datetime:Y-m-d H:m:s',
+    ];
+
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -35,8 +40,8 @@ class Destination extends Model
         return $this->belongsTo(Banner::class);
     }
 
-    public function transaction()
-    {
-        return $this->belongsTo(Transaction::class);
-    }
+    // public function transaction()
+    // {
+    //     return $this->belongsTo(Transaction::class);
+    // }
 }

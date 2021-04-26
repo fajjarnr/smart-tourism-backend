@@ -16,6 +16,11 @@ class Category extends Model
         'image'
     ];
 
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:m:s',
+        'updated_at' => 'datetime:Y-m-d H:m:s',
+    ];
+
     public function destination()
     {
         return $this->hasMany(Destination::class, 'id', 'category_id');

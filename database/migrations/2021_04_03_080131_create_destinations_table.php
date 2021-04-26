@@ -27,6 +27,7 @@ class CreateDestinationsTable extends Migration
             $table->string('price')->nullable();
             $table->string('hours')->nullable();
             $table->string('facilities')->nullable();
+            $table->string('types')->default('');
 
             // $table->unsignedBigInteger('user_id');
             // $table->foreign('user_id')->references('id')->on('users');
