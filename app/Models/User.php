@@ -55,19 +55,4 @@ class User extends Authenticatable
         'created_at' => 'datetime:Y-m-d H:m:s',
         'updated_at' => 'datetime:Y-m-d H:m:s',
     ];
-
-    // public function transaction()
-    // {
-    //     return $this->belongsTo(Transaction::class);
-    // }
-
-    // public function getCreatedAtAttribute($value)
-    // {
-    //     return Carbon::parse($value)->timestamp;
-    // }
-
-    // public function getUpdatedAtAttribute($value)
-    // {
-    //     return Carbon::parse($value)->timestamp;
-    // }
 }

@@ -25,9 +25,10 @@ class DestinationSeeder extends Seeder
                 'rate' => '4',
                 'image' => '-',
                 'phoneNumber' => '-',
-                'price' => '-',
+                'price' => '2000',
                 'hours' => '24',
-                'facilities' => 'parkir'
+                'facilities' => 'parkir',
+                'types' => 'recommended',
             ],
         ]);
     }

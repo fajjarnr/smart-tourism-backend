@@ -40,8 +40,8 @@ class Destination extends Model
         return $this->belongsTo(Banner::class);
     }
 
-    // public function transaction()
-    // {
-    //     return $this->belongsTo(Transaction::class);
-    // }
+    public function transaction()
+    {
+        return $this->belongsTo(Transaction::class);
+    }
 }

@@ -58,7 +58,7 @@ class TransactionController extends Controller
     public function checkout(Request $request)
     {
         $request->validate([
-            'destination_id' => 'required|exists:destination,id',
+            'destination_id' => 'required|exists:destinations,id',
             'user_id' => 'required|exists:users,id',
             'quantity' => 'required',
             'total' => 'required',

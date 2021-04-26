@@ -24,7 +24,7 @@ class Transaction extends Model
         'updated_at' => 'datetime:Y-m-d H:m:s',
     ];
 
-    public function destination()
+    public function destinations()
     {
         return $this->hasOne(Destination::class, 'id', 'destination_id');
     }
