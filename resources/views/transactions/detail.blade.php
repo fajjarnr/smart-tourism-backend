@@ -19,7 +19,7 @@ Transaksi Detail
                             <div class="col-sm-6">
                                 <div class="media">
                                     <div class="media-left"><img class="media-object img-60"
-                                            src="../assets/images/other-images/logo-login.png" alt=""></div>
+                                            src="{{ asset('assets/images/other-images/logo-login.png') }}" alt=""></div>
                                     <div class="media-body m-l-20">
                                         <h4 class="media-heading">Smart Tourism Pemalang</h4>
                                         <p>hello@smarttourismpemalang.com<br><span>1122-33-44-5566</span></p>
@@ -42,10 +42,10 @@ Transaksi Detail
                         <div class="col-md-4">
                             <div class="media">
                                 <div class="media-left"><img class="media-object rounded-circle img-60"
-                                        src="{{ $item->user->image }}" alt=""></div>
+                                        src="{{ $item->user->image_profile }}" alt=""></div>
                                 <div class="media-body m-l-20">
                                     <h4 class="media-heading">{{ $item->user->name }}</h4>
-                                    <p>{{ $item->user->email }}<br><span>{{ $item->user->phoneNumber }}</span></p>
+                                    <p>{{ $item->user->email }}<br><span>{{ $item->user->phone }}</span></p>
                                 </div>
                             </div>
                         </div>

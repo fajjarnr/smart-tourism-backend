@@ -23,8 +23,8 @@ Users
                                 <th>No</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>City</th>
                                 <th>Roles</th>
-                                <th>Profile Photo</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -36,15 +36,13 @@ Users
                                 <td>{{$no}}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
+                                <td>{{$user->city}}</td>
                                 <td>
                                     @if ($user->roles == 'admin')
                                     <span class="badge bg-success">{{$user->roles}}</span>
                                     @else
                                     <span class="badge bg-warning">{{$user->roles}}</span>
                                     @endif
-                                </td>
-                                <td><img src="{{asset('storage/assets/user'.$user->profile_photo_path)}}"
-                                        alt="photo profile" width="30px" height="30px">
                                 </td>
                                 <td class="text-center row align-items-center">
                                     <a href="{{route('users.edit', $user->id)}}" class="btn btn-primary mx-1"><i

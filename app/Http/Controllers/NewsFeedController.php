@@ -55,7 +55,7 @@ class NewsFeedController extends Controller
             'title' => $request->title,
             'content' => $request->content,
             'image' => $image,
-            'user_id' => Auth::id(),
+            'user_id' => Auth::user()->id,
         ]);
 
         return redirect()->route('news.index')->with('success', 'Berita berhasil dibuat');

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
 
 class CategorySeeder extends Seeder
 {
@@ -14,22 +15,26 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
+
+        $faker = Faker::create('id_ID');
+
+
         DB::table('categories')->insert([
             [
                 'name' => 'Wisata Alam',
-                'image' => '',
+                'image' => $faker->image(),
             ],
             [
                 'name' => 'Wisata Buatan',
-                'image' => '',
+                'image' => $faker->image(),
             ],
             [
                 'name' => 'Wisata Budaya',
-                'image' => '',
+                'image' => $faker->image(),
             ],
             [
                 'name' => 'Wisata Kuliner',
-                'image' => '',
+                'image' => $faker->image(),
             ],
         ]);
     }
