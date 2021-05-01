@@ -15,12 +15,13 @@ class Location extends Component
     use WithFileUploads;
 
     public $count = 5;
-    public $locationId, $longitude, $latitude, $name, $description, $image, $address, $phoneNumber, $price, $rate, $hours, $facilities;
+    public $locationId, $longitude, $latitude, $name, $description, $address, $phoneNumber, $price, $rate, $hours, $facilities;
     public $geoJson;
     public $category = null;
     public $category_id;
     public $imageUrl;
     public $isEdit = false;
+    public $image = [];
 
     private function getLocations()
     {
@@ -80,29 +81,12 @@ class Location extends Component
             'longitude' => 'required',
             'name' => 'required',
             'description' => 'required',
-            'image' => 'image|max:2048|required',
+            'image' => 'max:2048|required',
         ]);
 
-        $imageName = md5($this->image . microtime()) . '.' . $this->image->extension();
-
-        Storage::putFileAs(
-            'public/images',
-            $this->image,
-            $imageName
-        );
-
-        // if ($request->hasFile('image')) {
-        //     $files = $request->file('image');
-
-        //     foreach ($files as $file) {
-        //         $name = rand(1, 999);
-        //         $extension = $file->getClientOriginalExtenxion();
-        //         $newName = $name . '' . $extension;
-        //         $size = $file->getClientSize();
-
-        //         Storage::putFileAs('public/image', $file, $newName);
-        //     }
-        // }
+        foreach ($this->image as $image) {
+            $image->store('images/destinations', 'public');
+        };
 
         Destination::create([
             'latitude' => $this->latitude,
@@ -115,7 +99,7 @@ class Location extends Component
             'rate' => $this->rate,
             'hours' => $this->hours,
             'facilities' => $this->facilities,
-            'image' => $imageName,
+            'image' => $image,
             'category_id' => $this->category,
         ]);
 
@@ -132,23 +116,20 @@ class Location extends Component
             'longitude' => 'required',
             'name' => 'required',
             'description' => 'required',
+            'image' => 'max:2048|required',
         ]);
 
         $location = Destination::findOrFail($this->locationId);
 
         if ($this->image) {
-            $imageName = md5($this->image . microtime()) . '.' . $this->image->extension();
-
-            Storage::putFileAs(
-                'public/images',
-                $this->image,
-                $imageName
-            );
+            foreach ($this->image as $image) {
+                $image->store('images/destinations', 'public');
+            };
 
             $updateData = [
                 'name' => $this->name,
                 'description' => $this->description,
-                'image' => $imageName,
+                'image' => $image,
                 'address' => $this->address,
                 'price' => $this->price,
                 'phoneNumber' => $this->phoneNumber,

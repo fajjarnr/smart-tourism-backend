@@ -25,7 +25,8 @@ Destinasi
                     </div>
                 </div>
                 <div class="card-body">
-                    <form @if($isEdit) wire:submit.prevent="update" @else wire:submit.prevent="store" @endif>
+                    <form @if($isEdit) wire:submit.prevent="update" @else wire:submit.prevent="store" @endif
+                        enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
@@ -91,15 +92,20 @@ Destinasi
                             <label class="text-white">Image</label>
                             <div class="custom-file">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
-                                <input wire:model="image" type="file" class="custom-file-input" id="customFile">
+                                <input wire:model="image" type="file" class="custom-file-input" id="customFile"
+                                    multiple>
                             </div>
                             <label class="text-white">Picture of Location</label>
+                            <br>
                             @error('image') <small class="text-danger">{{$message}}</small>@enderror
                             @if($image)
-                            <img src="{{$image->temporaryUrl()}}" class="img-fluid" alt="Preview Image">
+                            @foreach ($image as $item)
+                            <img src="{{$item->temporaryUrl()}}" class="img-fluid" alt="Preview Image">
+                            @endforeach
                             @endif
                             @if($imageUrl && !$image)
-                            <img src="{{asset('/storage/images/'.$imageUrl)}}" class="img-fluid" alt="Preview Image">
+                            <img src="{{asset('/storage/images/destinations'.$imageUrl)}}" class="img-fluid"
+                                alt="Preview Image">
                             @endif
                         </div>
                         <div class="form-group">
