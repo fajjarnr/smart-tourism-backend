@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\BannerController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\DestinationController;
@@ -26,5 +27,6 @@ Route::get('destination', [DestinationController::class, 'all']);
 Route::get('destination/{category_id}', [DestinationController::class, 'fetch']);
 
 Route::get('news', [NewsFeedController::class, 'all']);
+Route::get('banner', [BannerController::class, 'all']);
 
 Route::post('midtrans/callback', [MidtransController::class, 'callback']);

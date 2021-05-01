@@ -17,7 +17,8 @@ class CreateBannersTable extends Migration
             $table->id();
             $table->string('image');
 
-            $table->integer('destination_id');
+            $table->integer('destination_id')->nullable();
+            $table->integer('news_feeds_id')->nullable();
 
             $table->softDeletes();
             $table->timestamps();

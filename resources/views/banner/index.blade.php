@@ -23,7 +23,7 @@ Banner
                                 <th>No</th>
                                 <th>image</th>
                                 <th>Destination</th>
-                                {{-- <th>Berita</th> --}}
+                                <th>Berita</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -38,6 +38,7 @@ Banner
                                 </td>
                                 {{-- <td>{{$item->destination->id}}</td> --}}
                                 <td>destinasi</td>
+                                <td>berita</td>
                                 <td class="text-center row align-items-center">
                                     <a href="{{route('banner.edit', $item->id)}}" class="btn btn-primary mx-1"><i
                                             class="fa fa-edit"></i></a>

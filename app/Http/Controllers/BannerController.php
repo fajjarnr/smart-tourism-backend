@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\BannerRequest;
 use App\Models\Banner;
 use App\Models\Destination;
+use App\Models\NewsFeed;
 use Illuminate\Http\Request;
 
 class BannerController extends Controller
@@ -17,7 +18,7 @@ class BannerController extends Controller
     public function index()
     {
         return view('banner.index', [
-            'banner' => Banner::all(),
+            'banner' => Banner::with(['destination', 'news'])->get(),
         ]);
     }
 
@@ -28,9 +29,9 @@ class BannerController extends Controller
      */
     public function create()
     {
-        $item = Banner::all();
         $destination = Destination::all();
-        return view('banner.create', compact('item', 'destination'));
+        $news = NewsFeed::all();
+        return view('banner.create', compact('destination', 'news'));
     }
 
     /**
