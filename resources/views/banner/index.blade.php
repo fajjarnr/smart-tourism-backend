@@ -33,12 +33,11 @@ Banner
                             <?php $no++; ?>
                             <tr>
                                 <td>{{$no}}</td>
-                                <td><img src="{{asset('storage/assets/banner'.$item->image)}}" alt="photo profile"
-                                        width="30px" height="30px">
+                                <td><img src="{{asset('storage/assets/banner'.$item->image)}}" width="30px"
+                                        height="30px">
                                 </td>
-                                {{-- <td>{{$item->destination->id}}</td> --}}
-                                <td>destinasi</td>
-                                <td>berita</td>
+                                <td>{{$item->destination->name}}</td>
+                                <td>{{$item->news->name ?? '-'}}</td>
                                 <td class="text-center row align-items-center">
                                     <a href="{{route('banner.edit', $item->id)}}" class="btn btn-primary mx-1"><i
                                             class="fa fa-edit"></i></a>

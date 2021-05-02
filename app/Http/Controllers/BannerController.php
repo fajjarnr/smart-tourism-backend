@@ -17,8 +17,9 @@ class BannerController extends Controller
      */
     public function index()
     {
+        $banner = Banner::with(['destination', 'news'])->get();
         return view('banner.index', [
-            'banner' => Banner::with(['destination', 'news'])->get(),
+            'banner' => $banner
         ]);
     }
 

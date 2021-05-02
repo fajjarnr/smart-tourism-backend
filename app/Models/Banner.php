@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 class Banner extends Model
 {
@@ -13,7 +14,8 @@ class Banner extends Model
     // protected $guarded = [];
     protected $fillable = [
         'image',
-        'destination_id'
+        'destination_id',
+        'news_feed_id',
     ];
 
     protected $casts = [
@@ -23,11 +25,16 @@ class Banner extends Model
 
     public function destination()
     {
-        return $this->hasMany(Destination::class, 'id', 'destination_id');
+        return $this->hasOne(Destination::class, 'id', 'destination_id');
     }
 
     public function news()
     {
-        return $this->hasMany(NewsFeed::class, 'id', 'news_id');
+        return $this->hasOne(NewsFeed::class, 'id', 'news_feed_id');
+    }
+
+    public function getPicturePathAttribute()
+    {
+        return config('app.url') . Storage::url($this->attributes['image']);
     }
 }

@@ -24,4 +24,9 @@ class NewsFeed extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function banner()
+    {
+        return $this->belongsTo(Banner::class);
+    }
 }
