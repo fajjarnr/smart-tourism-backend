@@ -212,7 +212,7 @@ nav .header-4-1 .navbar-light .navbar-toggler-icon {
     }
 
     .hero-header-4-1 {
-        padding: 3rem 4rem 5rem 4rem;
+        padding: 3rem 4rem 0rem 4rem;
     }
 
     .left-column-header-4-1 {
@@ -274,6 +274,10 @@ nav .header-4-1 .navbar-light .navbar-toggler-icon {
 
     .btn-try-header-4-1 {
         margin-right: 2rem;
+    }
+
+    .hidden {
+        display: none;
     }
 }
 

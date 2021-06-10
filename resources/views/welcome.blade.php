@@ -12,12 +12,10 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/fontawesome.css')}}" />
     <link rel="stylesheet" href="{{ asset('assets/css/landing.css') }}">
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
 </head>
 
 <body>
     <section style="height:100%; width: 100%; box-sizing: border-box; background-color: #FFFFFF">
-
         <div class="header-4-1" style="font-family: 'Poppins', sans-serif;">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a href="#">
@@ -25,81 +23,32 @@
                         src="http://api.elements.buildwithangga.com/storage/files/2/assets/Header/Header2/Header-2-2.png"
                         alt="">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="modal"
-                    data-bs-target="#targetModal-header-4-1">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                {{-- Mobile Responsive --}}
 
-                <div class="modal-header-4-1 modal fade" id="targetModal-header-4-1" tabindex="-1" role="dialog"
-                    aria-labelledby="targetModalLabel-header-4-1" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content modal-content-header-4-1">
-                            <div class="modal-header" style="padding:	2rem; padding-bottom: 0;">
-                                <a class="modal-title" id="targetModalLabel-header-4-1">
-                                    <img style="margin-top:0.5rem"
-                                        src="http://api.elements.buildwithangga.com/storage/files/2/assets/Header/Header2/Header-2-2.png"
-                                        alt="">
-                                </a>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                </button>
-                            </div>
-                            <div class="modal-body" style="padding:	2rem; padding-top: 0; padding-bottom: 0;">
-                                <ul class="navbar-nav responsive-header-4-1 me-auto mt-2 mt-lg-0">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="#">Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Feature</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">About Us</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Contact</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="modal-footer" style="padding:	2rem; padding-top: 0.75rem">
-                                @if (Route::has('login'))
-                                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                                    @auth
-                                    <a href="{{ route('dashboard') }}"
-                                        class="btn btn-default btn-no-fill-header-4-1">Dashboard</a>
-                                    <a class="btn btn-fill-header-4-1" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                @if (Route::has('login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    @auth
+                    <a href="{{ route('dashboard') }}" class="btn btn-default btn-no-fill-header-4-1">Dashboard</a>
+                    <a class="btn btn-fill-header-4-1" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                    @else
-                                    <a href="{{ route('login') }}" class="btn btn-fill-header-4-1">Log in</a>
-                                    @endauth
-                                </div>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                    @else
+                    <a href="{{ route('login') }}" class="btn btn-fill-header-4-1">Log in</a>
+                    @endauth
                 </div>
+                @endif
+
+                {{-- Mobile Responsive --}}
 
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo-header-4-1">
-                    <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Feature</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
-                    </ul>
+                    <div class="me-auto mt-2 mt-lg-0"></div>
                     @if (Route::has('login'))
-                    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    <div class="fixed top-0 right-0 px-6 py-4 sm:block">
                         @auth
                         <a href="{{ route('dashboard') }}" class="btn btn-default btn-no-fill-header-4-1">Dashboard</a>
                         <a class="btn btn-fill-header-4-1" href="{{ route('logout') }}"
@@ -124,24 +73,14 @@
                     <div
                         class="left-column-header-4-1 d-flex flex-lg-grow-1 flex-column align-items-lg-start text-lg-start align-items-center text-center">
                         <p class="text-caption-header-4-1">Download Aplikasinya sekarang juga!!!</p>
-                        <h1 class="title-text-big-header-4-1 d-lg-inline d-none">Sudahi<br> sedihmu
-                            Ayo dolan <span style="color: #ff7c57">Pemalang</span> Bersamaku</h1>
-                        <h1 class="title-text-small-header-4-1 d-lg-none d-inline">Sudahi sedihmu
-                            Ayo dolan Pemalang bersamaku</h1>
+                        <h1 class="title-text-big-header-4-1 d-lg-inline d-none">Ayo Wisata ke <span
+                                style="color: #ff7c57">Pemalang</span></h1>
+
+                        <h1 class="title-text-small-header-4-1 d-lg-none d-inline">
+                            Ayo Wisata ke Pemalang</h1>
                         <div
                             class="div-button-header-4-1 d-inline d-lg-flex align-items-center mx-lg-0 mx-auto justify-content-center">
-                            <button class="btn d-inline-flex mb-md-0 btn-try-header-4-1">Try it free</button>
-                            <button class="btn btn-outline-header-4-1">
-                                <div class="d-flex align-items-center">
-                                    <svg class="me-2" width="13" height="12" viewBox="0 0 13 13" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M10.9293 7.99988L6.66668 5.15788V10.8419L10.9293 7.99988ZM12.9173 8.27722L5.85134 12.9879C5.80115 13.0213 5.74283 13.0404 5.6826 13.0433C5.62238 13.0462 5.5625 13.0327 5.50934 13.0042C5.45619 12.9758 5.41175 12.9334 5.38075 12.8817C5.34976 12.83 5.33337 12.7708 5.33334 12.7105V3.28922C5.33337 3.22892 5.34976 3.16976 5.38075 3.11804C5.41175 3.06633 5.45619 3.02398 5.50934 2.99552C5.5625 2.96706 5.62238 2.95355 5.6826 2.95644C5.74283 2.95932 5.80115 2.97848 5.85134 3.01188L12.9173 7.72255C12.963 7.75299 13.0004 7.79423 13.0263 7.84261C13.0522 7.89099 13.0658 7.94501 13.0658 7.99988C13.0658 8.05475 13.0522 8.10878 13.0263 8.15716C13.0004 8.20553 12.963 8.24678 12.9173 8.27722Z"
-                                            fill="#555B61" />
-                                    </svg>
-                                    Watch the video
-                                </div>
-                            </button>
+                            <button class="btn d-inline-flex mb-md-0 btn-try-header-4-1">Download App</button>
                         </div>
                     </div>
                     <!-- Right Column -->
@@ -153,174 +92,10 @@
                 </div>
             </div>
         </div>
-
-    </section>
-    <section style="height:100%; width: 100%; box-sizing: border-box; background-color: #FFFFFF">
-
-        <div class="main-content-3-1" style="font-family: 'Poppins', sans-serif;">
-            <div class="d-flex flex-lg-row flex-column align-items-center">
-                <!-- Left Column -->
-                <div class="img-hero-content-3-1 text-center justify-content-center d-flex">
-                    <img id="hero-content-3-1" class="img-fluid"
-                        src="http://api.elements.buildwithangga.com/storage/files/2/assets/Content/Content3/Content-3-1.png"
-                        alt="">
-                </div>
-
-                <!-- Right Column -->
-                <div
-                    class="right-column-content-3-1 d-flex flex-column align-items-lg-start align-items-center text-lg-start text-center">
-                    <h2 class="title-text-content-3-1">3 Keys Benefit</h2>
-                    <ul style="padding:0;margin:0">
-                        <li class="list-unstyled" style="margin-bottom: 2rem;">
-                            <h4
-                                class="title-caption-content-3-1 d-flex flex-lg-row flex-column align-items-center justify-content-lg-start justify-content-center">
-                                <span class="circle-content-3-1 d-flex align-items-center justify-content-center">
-                                    1
-                                </span>
-                                Destinasi yang menarik
-                            </h4>
-                            <p class="text-caption-content-3-1 d-sm-inline d-none">
-                                We have provided highly experienced mentors<br>
-                                for several years.
-                            </p>
-                            <p class="text-caption-content-3-1 d-sm-none d-inline">
-                                We have provided highly experienced mentors
-                                for several years.
-                            </p>
-                        </li>
-                        <li class="list-unstyled" style="margin-bottom: 2rem;">
-                            <h4
-                                class="title-caption-content-3-1 d-flex flex-lg-row flex-column align-items-center justify-content-lg-start justify-content-center">
-                                <span class="circle-content-3-1 d-flex align-items-center justify-content-center">
-                                    2
-                                </span>
-                                Dapatkan informasi up to date
-                            </h4>
-                            <p class="text-caption-content-3-1 d-sm-inline d-none">
-                                Are you busy at work so it's hard to consult? don't<br>
-                                worry because you can access anytime.
-                            </p>
-                            <p class="text-caption-content-3-1 d-sm-none d-inline">
-                                Are you busy at work so it's hard to consult? don't
-                                worry because you can access anytime.
-                            </p>
-                        </li>
-                        <li class="list-unstyled" style="margin-bottom: 4rem;">
-                            <h4
-                                class="title-caption-content-3-1 d-flex flex-lg-row flex-column align-items-center justify-content-lg-start justify-content-center">
-                                <span class="circle-content-3-1 d-flex align-items-center justify-content-center">
-                                    3
-                                </span>
-                                Bayar langsung dari aplikasi
-                            </h4>
-                            <p class="text-caption-content-3-1 d-sm-inline d-none">
-                                Kamu bisa langsung melakukan pembelian tiket<br>
-                                melalui Virtual Account maupun e-wallet kesayanganmu
-                            </p>
-                            <p class="text-caption-content-3-1 d-sm-none d-inline">
-                                Kamu bisa langsung melakukan pembelian tiket
-                                melalui Virtual Account maupun e-wallet kesayanganmu
-                            </p>
-                        </li>
-                    </ul>
-                    <button class="btn btn-content-3-1">Learn More</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container" style="font-family: 'Poppins', sans-serif;">
-            <div class="row">
-                <div class="col-lg-6 col-sm-12">
-                    <div id="loc" style="width: 100%; height: 100%;"></div>
-                </div>
-                <div class="col-lg-6 col-sm-12">
-                    <form action="">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nama</label>
-                            <input type="name" class="form-control" id="name" placeholder="Masukan Nama">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                placeholder="name@example.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Pesan</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Kirim</button>
-                    </form>
-                </div>
-            </div>
-        </div>
     </section>
 
     <section style="height: 100%; width: 100%; box-sizing: border-box; background-color: #FFFFFF;">
-
         <div style="font-family: 'Poppins', sans-serif;">
-            <div class="list-footer-footer-2-1">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="">
-                            <div class="list-space-footer-2-1">
-                                <img src="http://api.elements.buildwithangga.com/storage/files/2/assets/Header/Header2/Header-2-2.png"
-                                    alt="">
-                            </div>
-                            <nav style="list-style-type:none;">
-                                <li class="list-space-footer-2-1">
-                                    <a class="list-menu-footer-2-1">Home</a>
-                                </li>
-                                <li class="list-space-footer-2-1">
-                                    <a class="list-menu-footer-2-1">About</a>
-                                </li>
-                                <li class="list-space-footer-2-1">
-                                    <a class="list-menu-footer-2-1">Testimonial</a>
-                                </li>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h2 class="footer-text-title-footer-2-1 list-space-footer-2-1-title">Company</h2>
-                        <nav style="list-style-type:none;">
-                            <li class="list-space-footer-2-1">
-                                <a class="list-menu-footer-2-1">Contact Us</a>
-                            </li>
-                            <li class="list-space-footer-2-1">
-                                <a class="list-menu-footer-2-1">Blog</a>
-                            </li>
-                            <li class="list-space-footer-2-1">
-                                <a class="list-menu-footer-2-1">Culture</a>
-                            </li>
-                            <li class="list-space-footer-2-1">
-                                <a class="list-menu-footer-2-1">Security</a>
-                            </li>
-                        </nav>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h2 class="footer-text-title-footer-2-1 list-space-footer-2-1-title">Support</h2>
-                        <nav style="list-style-type:none;">
-                            <li class="list-space-footer-2-1">
-                                <a class="list-menu-footer-2-1">Getting Started</a>
-                            </li>
-                            <li class="list-space-footer-2-1">
-                                <a class="list-menu-footer-2-1">Help Center</a>
-                            </li>
-                            <li class="list-space-footer-2-1">
-                                <a class="list-menu-footer-2-1">Server Status</a>
-                            </li>
-                        </nav>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h2 class="footer-text-title-footer-2-1 list-space-footer-2-1-title">Touch Up</h2>
-                        <p class="text-muted">Dinas Pariwisata Pemuda dan Olahraga Kabupaten Pemalang</p>
-                        <p class="text-muted">Jl. Laksda Yos Sudarso No.1, Widuri, Kec. Pemalang, Kabupaten Pemalang,
-                            Jawa Tengah 52314</p>
-                    </div>
-                </div>
-            </div>
-
             <div class="border-color-footer-2-1 info-footer-footer-2-1">
                 <div class="">
                     <hr class="hr-footer-2-1">
@@ -390,31 +165,10 @@
                 </div>
             </div>
         </div>
-
     </section>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-    </script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
-    <script>
-        const disparpora = [109.38130145564007, -6.862078119247119];
-        
-        mapboxgl.accessToken = "{{env('MAPBOX_KEY')}}";
-        let map = new mapboxgl.Map({
-            container: "loc",
-            center: disparpora,
-            zoom: 16,
-            style: "mapbox://styles/mapbox/streets-v11",
-        });
-        
-        map.addControl(new mapboxgl.NavigationControl());
-
-        var popup = new mapboxgl.Popup({ offset: 25 }).setText(
-            'Dinas Pariwisata Pemuda dan Olahraga Kabupaten Pemalang'
-        );
-
-        const marker = new mapboxgl.Marker({ color: 'red'}).setLngLat(disparpora).setPopup(popup).addTo(map);
-
     </script>
 </body>
 

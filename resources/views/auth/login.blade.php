@@ -8,15 +8,15 @@ Sign in
 <!-- login page start-->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xl-7"><img class="bg-img-cover bg-center" src="{{asset('assets/images/login/2.jpg')}}"
+        <div class="col-xl-7"><img class="bg-img-cover bg-center" src="{{asset('assets/images/bg.jpg')}}"
                 alt="looginpage">
         </div>
         <div class="col-xl-5 p-0">
             <div class="login-card">
                 <div>
                     <div><a class="logo text-center" href=""><img class="img-fluid for-light"
-                                src="{{asset('assets/images/logo/login.png')}}" alt="looginpage"><img
-                                class="img-fluid for-dark" src="{{asset('assets/images/logo/logo_dark.png')}}"
+                                src="{{asset('assets/images/logo/logo-pml.jpg')}}" alt="looginpage"><img
+                                class="img-fluid for-dark" src="{{asset('assets/images/logo/logo-pml.jpg')}}"
                                 alt="looginpage"></a></div>
                     <div class="login-main">
                         <form class="theme-form" method="POST" action="{{ route('login') }}">
@@ -67,11 +67,6 @@ Sign in
                                     {{ __('Sign in') }}
                                 </button>
                             </div>
-                            @if (Route::has('password.request'))
-                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                {{ __('Forgot Password?') }}
-                            </a>
-                            @endif
                         </form>
                     </div>
                 </div>
