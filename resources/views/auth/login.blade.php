@@ -8,7 +8,7 @@ Sign in
 <!-- login page start-->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xl-7"><img class="bg-img-cover bg-center" src="{{asset('assets/images/bg.jpg')}}"
+        <div class="col-xl-7"><img class="bg-img-cover bg-center" src="{{asset('assets/images/pemelangkab.jpg')}}"
                 alt="looginpage">
         </div>
         <div class="col-xl-5 p-0">
