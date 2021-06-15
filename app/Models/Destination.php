@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 class Destination extends Model
 {
@@ -17,7 +18,7 @@ class Destination extends Model
         'name',
         'address',
         'rate',
-        'image',
+        'picturePath',
         'phoneNumber',
         'price',
         'hours',
@@ -43,5 +44,17 @@ class Destination extends Model
     public function transaction()
     {
         return $this->belongsTo(Transaction::class);
+    }
+
+    public function toArray()
+    {
+        $toArray = parent::toArray();
+        $toArray['picturePath'] = $this->picturePath;
+        return $toArray;
+    }
+
+    public function getPicturePathAttribute()
+    {
+        return config('app.url') . Storage::url($this->attributes['picturePath']);
     }
 }

@@ -92,19 +92,19 @@ Destinasi
                             <label class="text-white">Image</label>
                             <div class="custom-file">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
-                                <input wire:model="image" type="file" class="custom-file-input" id="customFile"
+                                <input wire:model="picturePath" type="file" class="custom-file-input" id="customFile"
                                     multiple>
                             </div>
                             <label class="text-white">Picture of Location</label>
                             <br>
-                            @error('image') <small class="text-danger">{{$message}}</small>@enderror
-                            @if($image)
-                            @foreach ($image as $item)
+                            @error('picturePath') <small class="text-danger">{{$message}}</small>@enderror
+                            @if($picturePath)
+                            @foreach ($picturePath as $item)
                             <img src="{{$item->temporaryUrl()}}" class="img-fluid" alt="Preview Image">
                             @endforeach
                             @endif
-                            @if($imageUrl && !$image)
-                            <img src="{{asset('/storage/images/destinations'.$imageUrl)}}" class="img-fluid"
+                            @if($picturePathUrl && !$picturePath)
+                            <img src="{{asset('/storage/images/destinations'.$picturePathUrl)}}" class="img-fluid"
                                 alt="Preview Image">
                             @endif
                         </div>

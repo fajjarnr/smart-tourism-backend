@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('city')->nullable();
-            $table->text('image_profile')->nullable();
+            $table->text('profile_photo_path')->nullable();
             // $table->text('picturePath')->default('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDGQO5-8CPA9Hzl5_wLkAf6VtlMw52q7IwRw&usqp=CAU');
 
             $table->softDeletes();

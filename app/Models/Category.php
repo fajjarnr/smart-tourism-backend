@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 class Category extends Model
 {
@@ -13,7 +14,7 @@ class Category extends Model
     // protected $guarded = [];
     protected $fillable = [
         'name',
-        'image'
+        'picturePath'
     ];
 
     protected $casts = [
@@ -24,5 +25,17 @@ class Category extends Model
     public function destination()
     {
         return $this->hasMany(Destination::class, 'id', 'category_id');
+    }
+
+    public function toArray()
+    {
+        $toArray = parent::toArray();
+        $toArray['picturePath'] = $this->picturePath;
+        return $toArray;
+    }
+
+    public function getPicturePathAttribute()
+    {
+        return config('app.url') . Storage::url($this->attributes['picturePath']);
     }
 }

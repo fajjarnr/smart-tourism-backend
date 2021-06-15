@@ -22,17 +22,12 @@ class CreateDestinationsTable extends Migration
             $table->text('description');
             $table->string('address');
             $table->string('rate')->nullable();
-            $table->string('image')->nullable();
+            $table->string('picturePath')->nullable();
             $table->string('phoneNumber')->nullable();
             $table->string('price')->nullable();
             $table->string('hours')->nullable();
             $table->string('facilities')->nullable();
             $table->string('types')->default('');
-
-            // $table->unsignedBigInteger('user_id');
-            // $table->foreign('user_id')->references('id')->on('users');
-            // $table->unsignedBigInteger('category_id');
-            // $table->foreign('category_id')->references('id')->on('categories');
 
             $table->softDeletes();
             $table->timestamps();

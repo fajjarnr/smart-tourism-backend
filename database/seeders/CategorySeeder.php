@@ -22,19 +22,19 @@ class CategorySeeder extends Seeder
         DB::table('categories')->insert([
             [
                 'name' => 'Wisata Alam',
-                'image' => $faker->image(),
+                'picturePath' => $faker->image(),
             ],
             [
                 'name' => 'Wisata Buatan',
-                'image' => $faker->image(),
+                'picturePath' => $faker->image(),
             ],
             [
                 'name' => 'Wisata Budaya',
-                'image' => $faker->image(),
+                'picturePath' => $faker->image(),
             ],
             [
                 'name' => 'Wisata Kuliner',
-                'image' => $faker->image(),
+                'picturePath' => $faker->image(),
             ],
         ]);
     }

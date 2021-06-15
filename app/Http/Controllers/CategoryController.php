@@ -39,7 +39,7 @@ class CategoryController extends Controller
     {
         $data = $request->all();
 
-        $data['image'] = $request->file('image')->store('images/category', 'public');
+        $data['picturePath'] = $request->file('picturePath')->store('images/category', 'public');
 
         Category::create($data);
 
@@ -81,8 +81,8 @@ class CategoryController extends Controller
     {
         $data = $request->all();
 
-        if ($request->file('image')) {
-            $data['image'] = $request->file('image')->store('images/category', 'public');
+        if ($request->file('picturePath')) {
+            $data['picturePath'] = $request->file('picturePath')->store('images/category', 'public');
         }
 
         $category->update($data);

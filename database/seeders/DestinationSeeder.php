@@ -23,7 +23,7 @@ class DestinationSeeder extends Seeder
                 'description' => 'Alun-Alun Pemalang',
                 'address' => 'Pemalang',
                 'rate' => '4',
-                'image' => '-',
+                'picturePath' => '-',
                 'phoneNumber' => '-',
                 'price' => '2000',
                 'hours' => '24',

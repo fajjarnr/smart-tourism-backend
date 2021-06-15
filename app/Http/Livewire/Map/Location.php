@@ -17,11 +17,16 @@ class Location extends Component
     public $count = 5;
     public $locationId, $longitude, $latitude, $name, $description, $address, $phoneNumber, $price, $rate, $hours, $facilities;
     public $geoJson;
-    public $category = null;
+    public $category;
     public $category_id;
-    public $imageUrl;
+    public $picturePathUrl;
     public $isEdit = false;
-    public $image = [];
+    public $picturePath = [];
+
+    protected $rules = [
+        'category' => 'required',
+    ];
+
 
     private function getLocations()
     {
@@ -42,7 +47,7 @@ class Location extends Component
                     'locationId' => $location->id,
                     'icon' => [25, 25],
                     'name' => $location->name,
-                    'image' => $location->image,
+                    'picturePath' => $location->picturePath,
                     'description' => $location->description
                 ]
             ];
@@ -65,14 +70,14 @@ class Location extends Component
         ]);
     }
 
-    public function previewImage()
-    {
-        if (!$isEdit) {
-            $this->validate([
-                'image' => 'image|max:2048'
-            ]);
-        }
-    }
+    // public function previewImage()
+    // {
+    //     if (!$isEdit) {
+    //         $this->validate([
+    //             'image' => 'image|max:2048'
+    //         ]);
+    //     }
+    // }
 
     public function store(Request $request)
     {
@@ -81,11 +86,11 @@ class Location extends Component
             'longitude' => 'required',
             'name' => 'required',
             'description' => 'required',
-            'image' => 'max:2048|required',
+            'picturePath' => 'max:2048|required',
         ]);
 
-        foreach ($this->image as $image) {
-            $image->store('images/destinations', 'public');
+        foreach ($this->picturePath as $picturePath) {
+            $picturePath->store('images/destinations', 'public');
         };
 
         Destination::create([
@@ -99,7 +104,7 @@ class Location extends Component
             'rate' => $this->rate,
             'hours' => $this->hours,
             'facilities' => $this->facilities,
-            'image' => $image,
+            'picturePath' => $picturePath,
             'category_id' => $this->category,
         ]);
 
@@ -116,7 +121,7 @@ class Location extends Component
             'longitude' => 'required',
             'name' => 'required',
             'description' => 'required',
-            'image' => 'max:2048|required',
+            'category_id' => 'required',
         ]);
 
         $location = Destination::findOrFail($this->locationId);
