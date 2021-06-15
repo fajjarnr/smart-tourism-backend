@@ -30,28 +30,22 @@ Create Banner
                 <form action="{{ route('banner.store') }}" method="POST" enctype="multipart/form-data"
                     class="needs-validation" novalidate="">
                     @csrf
+
                     <div class="form-group">
                         <label for="formFile" class="form-label">File</label>
-                        <input name="image" class="form-control" type="file" id="formFile">
+                        <input name="picturePath" class="form-control" type="file" id="formFile">
                     </div>
-                    <div class="form-group">
-                        <div class="col-form-label">Destinasi</div>
-                        <select name="destination_id" class="js-example-basic-single col">
-                            <option value="">Pilih Destinasi</option>
-                            @foreach ($destination as $item)
-                            <option value="{{ $item->id }}">{{ $item->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
+
                     <div class="form-group">
                         <div class="col-form-label">Berita</div>
-                        <select name="news_feed_id" class="js-example-basic-single col">
+                        <select name="news_id" class="js-example-basic-single col">
                             <option value="">Pilih Berita</option>
                             @foreach ($news as $item)
-                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            <option value="{{ $item->id }}">{{ $item->title }}</option>
                             @endforeach
                         </select>
                     </div>
+
                     <button class="btn btn-success btn-block" type="submit">Submit</button>
                 </form>
             </div>

@@ -24,9 +24,9 @@ class BannerRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => ['required', 'max:2048'],
+            'picturePath' => ['required', 'max:2048'],
             'destination_id' => ['max:2048'],
-            'news_feed_id' => ['max:2048'],
+            'news_id' => ['max:2048'],
         ];
     }
 }

@@ -17,7 +17,7 @@ class BannerController extends Controller
      */
     public function index()
     {
-        $banner = Banner::with(['destination', 'news'])->get();
+        $banner = Banner::with(['news'])->get();
         return view('banner.index', [
             'banner' => $banner
         ]);
@@ -30,9 +30,10 @@ class BannerController extends Controller
      */
     public function create()
     {
-        $destination = Destination::all();
         $news = NewsFeed::all();
-        return view('banner.create', compact('destination', 'news'));
+        return view('banner.create', [
+            'news' => $news
+        ]);
     }
 
     /**
@@ -43,13 +44,10 @@ class BannerController extends Controller
      */
     public function store(BannerRequest $request)
     {
-        // $request->validate([
-        //     'image' => 'image|max:2048|mimes:png,jpg'
-        // ]);
 
         $data = $request->all();
 
-        $data['image'] = $request->file('image')->store('images/banner', 'public');
+        $data['picturePath'] = $request->file('picturePath')->store('images/banner', 'public');
 
         Banner::create($data);
 
@@ -75,8 +73,9 @@ class BannerController extends Controller
      */
     public function edit(Banner $banner)
     {
+        $banner = Banner::with(['news'])->get();
         return view('banner.edit', [
-            'item' => Destination::all()
+            'item' =>  $banner
         ]);
     }
 
@@ -91,8 +90,8 @@ class BannerController extends Controller
     {
         $data = $request->all();
 
-        if ($request->file('image')) {
-            $data['image'] = $request->file('image')->store('images/banner', 'public');
+        if ($request->file('picturePath')) {
+            $data['picturePath'] = $request->file('picturePath')->store('images/banner', 'public');
         }
 
         $banner->update($data);

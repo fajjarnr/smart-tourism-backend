@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 class NewsFeed extends Model
 {
@@ -12,7 +13,7 @@ class NewsFeed extends Model
 
     // protected $guarded = [];
     protected $fillable = [
-        'user_id', 'title', 'content', 'image',
+        'user_id', 'title', 'content', 'picturePath',
     ];
 
     protected $casts = [
@@ -28,5 +29,17 @@ class NewsFeed extends Model
     public function banner()
     {
         return $this->belongsTo(Banner::class);
+    }
+
+    public function toArray()
+    {
+        $toArray = parent::toArray();
+        $toArray['picturePath'] = $this->picturePath;
+        return $toArray;
+    }
+
+    public function getPicturePathAttribute()
+    {
+        return config('app.url') . Storage::url($this->attributes['picturePath']);
     }
 }

@@ -13,9 +13,9 @@ class Banner extends Model
 
     // protected $guarded = [];
     protected $fillable = [
-        'image',
-        'destination_id',
-        'news_feed_id',
+        'picturePath',
+        // 'destination_id',
+        'news_id',
     ];
 
     protected $casts = [
@@ -23,18 +23,25 @@ class Banner extends Model
         'updated_at' => 'datetime:Y-m-d H:m:s',
     ];
 
-    public function destination()
-    {
-        return $this->hasOne(Destination::class, 'id', 'destination_id');
-    }
+    // public function destination()
+    // {
+    //     return $this->hasOne(Destination::class, 'id', 'destination_id');
+    // }
 
     public function news()
     {
-        return $this->hasOne(NewsFeed::class, 'id', 'news_feed_id');
+        return $this->hasOne(NewsFeed::class, 'id', 'news_id');
+    }
+
+    public function toArray()
+    {
+        $toArray = parent::toArray();
+        $toArray['picturePath'] = $this->picturePath;
+        return $toArray;
     }
 
     public function getPicturePathAttribute()
     {
-        return config('app.url') . Storage::url($this->attributes['image']);
+        return config('app.url') . Storage::url($this->attributes['picturePath']);
     }
 }

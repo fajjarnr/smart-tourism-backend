@@ -46,15 +46,15 @@ class NewsFeedController extends Controller
         $request->validate([
             'title' => 'required|max:255|string',
             'content' => 'required|max:255|string',
-            'image' => 'required|image|mimes:png,jpg'
+            'picturePath' => 'required|image|mimes:png,jpg'
         ]);
 
-        $image = $request->file('image')->store('images/news', 'public');
+        $image = $request->file('picturePath')->store('images/news', 'public');
 
         NewsFeed::create([
             'title' => $request->title,
             'content' => $request->content,
-            'image' => $image,
+            'picturePath' => $image,
             'user_id' => Auth::user()->id,
         ]);
 
@@ -95,8 +95,8 @@ class NewsFeedController extends Controller
     {
         $data = $request->all();
 
-        if ($request->file('image')) {
-            $data['image'] = $request->file('image')->store('images/news', 'public');
+        if ($request->file('picturePath')) {
+            $data['picturePath'] = $request->file('picturePath')->store('images/news', 'public');
         }
 
         $newsFeed->update($data);

@@ -89,6 +89,12 @@ Destinasi
                                 id="facilities">
                         </div>
                         <div class="form-group">
+                            <label for="types">Tipe</label>
+                            <p class="text-gray-600 text-xs italic">Dipisahkan dengan koma, contoh:
+                                recommended,popular,new</p>
+                            <input wire:model="types" type="text" class="form-control" name="types" id="types">
+                        </div>
+                        <div class="form-group">
                             <label class="text-white">Image</label>
                             <div class="custom-file">
                                 <label class="custom-file-label" for="customFile">Choose file</label>

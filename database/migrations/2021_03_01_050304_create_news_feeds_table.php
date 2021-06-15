@@ -18,7 +18,7 @@ class CreateNewsFeedsTable extends Migration
             $table->integer('user_id')->nullable();
             $table->string('title');
             $table->string('content');
-            $table->string('image');
+            $table->string('picturePath');
 
             $table->softDeletes();
             $table->timestamps();

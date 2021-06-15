@@ -26,7 +26,7 @@ class NewsFeedRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:255'],
             'content' => ['required', 'string', 'max:255'],
-            'image' => ['required', 'mimes:png,jpg']
+            'picturePath' => ['required', 'mimes:png,jpg']
         ];
     }
 }

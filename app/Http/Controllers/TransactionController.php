@@ -14,9 +14,9 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transcation = Transaction::with(['destinations', 'user'])->get();
+        $transaction = Transaction::with(['destinations', 'user'])->get();
         return view('transactions.index', [
-            'transactions' => $transcation,
+            'transactions' => $transaction,
         ]);
     }
 

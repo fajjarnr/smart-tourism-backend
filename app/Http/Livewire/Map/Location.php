@@ -15,7 +15,7 @@ class Location extends Component
     use WithFileUploads;
 
     public $count = 5;
-    public $locationId, $longitude, $latitude, $name, $description, $address, $phoneNumber, $price, $rate, $hours, $facilities;
+    public $locationId, $longitude, $latitude, $name, $description, $address, $phoneNumber, $price, $rate, $hours, $facilities, $types;
     public $geoJson;
     public $category;
     public $category_id;
@@ -181,14 +181,15 @@ class Location extends Component
         $this->longitude = '';
         $this->name = '';
         $this->description = '';
-        $this->image = '';
-        $this->imageUrl = '';
+        $this->picturePath = '';
+        $this->picturePathUrl = '';
         $this->address = '';
         $this->phoneNumber = '';
         $this->price = '';
         $this->rate = '';
         $this->hours = '';
         $this->facilities = '';
+        $this->types = '';
         $this->isEdit = false;
     }
 

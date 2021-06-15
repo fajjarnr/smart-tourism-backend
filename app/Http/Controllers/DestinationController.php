@@ -14,8 +14,9 @@ class DestinationController extends Controller
      */
     public function index()
     {
+        $destination = Destination::with(['category'])->get();
         return view('destination.index', [
-            'destination' => Destination::all()
+            'destination' => $destination
         ]);
     }
 
@@ -57,9 +58,12 @@ class DestinationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Destination $destination)
     {
-        //
+        $destination = Destination::with(['category'])->get();
+        return view('destination.edit', [
+            'item' => $destination,
+        ]);
     }
 
     /**
@@ -80,8 +84,10 @@ class DestinationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Destination $destination)
     {
-        //
+        $destination->delete();
+
+        return redirect()->route('destination.index')->with('success', 'Data berhasil di hapus');
     }
 }

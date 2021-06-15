@@ -46,7 +46,7 @@ Data Destinasi
                                 <td>{{$item->price}}</td>
                                 <td>{{$item->hours}}</td>
                                 <td>{{$item->facilities}}</td>
-                                <td>{{$item->category->name}}</td>
+                                <td>{{$item->category->name ?? '-'}}</td>
                                 <td>category</td>
                                 <td><img src="{{asset('')}}" width="30px" height="30px">
                                 </td>

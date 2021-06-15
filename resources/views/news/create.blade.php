@@ -42,7 +42,7 @@ Create News
                 </div>
                 <div class="form-group">
                     <label for="formFile" class="form-label">File</label>
-                    <input name="image" class="form-control" type="file" id="formFile">
+                    <input name="picturePath" class="form-control" type="file" id="formFile">
                 </div>
                 <button type="submit" class="btn btn-success btn-block">Submit</button>
             </form>

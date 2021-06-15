@@ -22,7 +22,7 @@ Banner
                             <tr>
                                 <th>No</th>
                                 <th>image</th>
-                                <th>Destination</th>
+                                {{-- <th>Destination</th> --}}
                                 <th>Berita</th>
                                 <th>Action</th>
                             </tr>
@@ -36,11 +36,10 @@ Banner
                                 <td><img src="{{asset('storage/assets/banner'.$item->image)}}" width="30px"
                                         height="30px">
                                 </td>
-                                <td>{{$item->destination->name}}</td>
-                                <td>{{$item->news->name ?? '-'}}</td>
+                                <td>{{$item->news->title}}</td>
                                 <td class="text-center row align-items-center">
-                                    <a href="{{route('banner.edit', $item->id)}}" class="btn btn-primary mx-1"><i
-                                            class="fa fa-edit"></i></a>
+                                    {{-- <a href="{{route('banner.edit', $item->id)}}" class="btn btn-primary mx-1"><i
+                                        class="fa fa-edit"></i></a> --}}
                                     <form action="{{route('banner.destroy', $item->id)}}" method="post">
                                         {!! method_field('delete') . csrf_field() !!}
                                         <button type="submit" class="btn btn-danger"><i
