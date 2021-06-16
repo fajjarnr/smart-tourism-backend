@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Map;
 
+use App\Http\Requests\LocationRequest;
 use App\Models\Category;
 use App\Models\Destination;
 use Illuminate\Http\Request;
@@ -19,14 +20,13 @@ class Location extends Component
     public $geoJson;
     public $category;
     public $category_id;
+    public $picturePath = [];
     public $picturePathUrl;
     public $isEdit = false;
-    public $picturePath = [];
 
     protected $rules = [
         'category' => 'required',
     ];
-
 
     private function getLocations()
     {
@@ -70,14 +70,14 @@ class Location extends Component
         ]);
     }
 
-    // public function previewImage()
-    // {
-    //     if (!$isEdit) {
-    //         $this->validate([
-    //             'image' => 'image|max:2048'
-    //         ]);
-    //     }
-    // }
+    public function previewImage()
+    {
+        if (!$isEdit) {
+            $this->validate([
+                'image' => 'image|max:2048'
+            ]);
+        }
+    }
 
     public function store(Request $request)
     {
@@ -126,22 +126,22 @@ class Location extends Component
 
         $location = Destination::findOrFail($this->locationId);
 
-        if ($this->image) {
-            foreach ($this->image as $image) {
-                $image->store('images/destinations', 'public');
+        if ($this->picturePath) {
+            foreach ($this->picturePath as $picturePath) {
+                $picturePath->store('images/destinations', 'public');
             };
 
             $updateData = [
                 'name' => $this->name,
                 'description' => $this->description,
-                'image' => $image,
+                'picturePath' => $picturePath,
                 'address' => $this->address,
                 'price' => $this->price,
                 'phoneNumber' => $this->phoneNumber,
                 'rate' => $this->rate,
                 'hours' => $this->hours,
                 'facilities' => $this->facilities,
-                'category_id' => $this->category,
+                'category_id' => $this->category_id,
             ];
         } else {
             $updateData = [
@@ -153,7 +153,7 @@ class Location extends Component
                 'rate' => $this->rate,
                 'hours' => $this->hours,
                 'facilities' => $this->facilities,
-                'category_id' => $this->category,
+                'category_id' => $this->category_id,
             ];
         }
 
@@ -191,6 +191,7 @@ class Location extends Component
         $this->facilities = '';
         $this->types = '';
         $this->isEdit = false;
+        $this->category_id = '';
     }
 
     public function findLocationById($id)
@@ -208,8 +209,9 @@ class Location extends Component
         $this->rate = $location->rate;
         $this->hours = $location->hours;
         $this->facilities = $location->facilities;
-        $this->category = $location->category;
+        $this->category_id = $location->category_id;
         $this->isEdit = true;
-        $this->imageUrl = $location->image;
+        $this->types = $location->types;
+        $this->picturePathUrl = $location->picturePath;
     }
 }

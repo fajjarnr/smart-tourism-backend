@@ -5,9 +5,6 @@ Destinasi
 @push('custom-css')
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/select2.css') }}">
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
-{{-- <link rel="stylesheet"
-    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
-    type="text/css"> --}}
 @endpush
 
 <div class="container-fluid">
@@ -54,7 +51,7 @@ Destinasi
                         </div>
                         <div class="form-group">
                             <div class="col-form-label">Category</div>
-                            <select wire:model="category" name="category_id" class="js-example-basic-single col">
+                            <select wire:model="category_id" name="category_id" class="js-example-basic-single col">
                                 <option value="">Select a Category</option>
                                 @foreach ($categories as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -131,7 +128,6 @@ Destinasi
 
 @push('custom-js')
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
-{{-- <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script> --}}
 
 <script src="{{ asset('assets/js/form-validation-custom.js') }}"></script>
 <script src="{{ asset('assets/js/select2/select2.full.min.js') }}"></script>
@@ -156,16 +152,10 @@ Destinasi
 
         map.addControl(new mapboxgl.NavigationControl());
 
-        // direction
-        // map.addControl( new MapboxDirections({
-        //     accessToken: mapboxgl.accessToken
-        // }), 'top-left'
-        // );
-
         const loadGeoJSON = (geoJson) => {
             geoJson.features.forEach(function (marker) {
                 const {geometry, properties} = marker
-                const {icon, locationId, name, image, description} = properties
+                const {icon, locationId, name, picturePath, description, address} = properties
 
                 let el = document.createElement('div');
                 el.className = 'marker' + locationId;
@@ -175,7 +165,7 @@ Destinasi
                 el.style.width = icon[0] + 'px';
                 el.style.height = icon[1] + 'px';
 
-                const pictureLocation = '{{asset("/storage/images")}}' + '/' + image
+                const pictureLocation = '{{asset("/storage/images")}}' + '/' + picturePath
 
                 const content = `
                 <div style="overflow-y: auto; max-height:400px;width:100%;">
@@ -192,6 +182,10 @@ Destinasi
                             <tr>
                                 <td>Description</td>         
                                 <td>${description}</td>
+                            </tr>
+                            <tr>
+                                <td>Alamat</td>         
+                                <td>${address}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -214,45 +208,18 @@ Destinasi
 
         loadGeoJSON({!! $geoJson !!})
 
-        // window.addEventListener('locationAdded', (e) => {           
-        //     swal({
-        //         title: "Location Added!",
-        //         text: "Your location has been save sucessfully!",
-        //         icon: "success",
-        //         button: "Ok",
-        //     }).then((value) => {
-        //         loadGeoJSON(JSON.parse(e.detail))
-        //     });
-        // })
-
         window.addEventListener('locationAdded', (e) => {
             loadGeoJSON(JSON.parse(e.detail))
         })
 
         window.addEventListener('deleteLocation', (e) => {  
-            console.log(e.detail);         
-            swal({
-                title: "Location Delete!",
-                text: "Your location deleted sucessfully!",
-                icon: "success",
-                button: "Ok",
-            }).then((value) => {
-               $('.marker' + e.detail).remove();
-               $('.mapboxgl-popup').remove();
-            });
+            $('.marker' + e.detail).remove();
+            $('.mapboxgl-popup').remove();
         })
 
         window.addEventListener('updateLocation', (e) => {  
-            console.log(e.detail);         
-            swal({
-                title: "Location Update!",
-                text: "Your location updated sucessfully!",
-                icon: "success",
-                button: "Ok",
-            }).then((value) => {
-               loadGeoJSON(JSON.parse(e.detail))
-               $('.mapboxgl-popup').remove();
-            });
+            loadGeoJSON(JSON.parse(e.detail))
+            $('.mapboxgl-popup').remove();
         })
 
         const getLongLatByMarker = () => {

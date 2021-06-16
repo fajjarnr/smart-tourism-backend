@@ -37,7 +37,7 @@ Berita
                                 <td>{{ $item->title }}</td>
                                 <td>{{ $item->content }}</td>
                                 <td>{{ $item->user->name }}</td>
-                                <td><img src="{{ $item->image }}" width="50px"></td>
+                                <td><img src="{{asset($item->picturePath)}}" width="50px"></td>
                                 <td class="text-center row align-items-center">
                                     <a href="{{route('news.edit', $item->id)}}" class="btn btn-primary mx-1"><i
                                             class="fa fa-edit"></i></a>
