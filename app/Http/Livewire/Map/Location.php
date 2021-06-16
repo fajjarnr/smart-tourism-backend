@@ -105,7 +105,7 @@ class Location extends Component
             'hours' => $this->hours,
             'facilities' => $this->facilities,
             'picturePath' => $picturePath,
-            'category_id' => $this->category,
+            'category_id' => $this->category_id,
         ]);
 
         session()->flash('info', 'Product Created Successfully');
