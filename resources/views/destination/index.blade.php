@@ -47,8 +47,7 @@ Data Destinasi
                                 <td>{{$item->hours}}</td>
                                 <td>{{$item->facilities}}</td>
                                 <td>{{$item->category->name ?? '-'}}</td>
-                                <td>category</td>
-                                <td><img src="{{asset('')}}" width="30px" height="30px">
+                                <td><img src="{{asset($item->picturePath)}}" width="50px"></td>
                                 </td>
                                 <td class="text-center row align-items-center">
                                     <a href="{{route('destination.edit', $item->id)}}" class="btn btn-primary mx-1"><i
