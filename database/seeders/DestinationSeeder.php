@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
 
 class DestinationSeeder extends Seeder
 {
@@ -14,6 +15,8 @@ class DestinationSeeder extends Seeder
      */
     public function run()
     {
+        $faker = Faker::create('id_ID');
+
         DB::table('destinations')->insert([
             [
                 'category_id' => '1',
@@ -23,7 +26,7 @@ class DestinationSeeder extends Seeder
                 'description' => 'Alun-Alun Pemalang',
                 'address' => 'Pemalang',
                 'rate' => '4',
-                'picturePath' => '-',
+                'picturePath' => $faker->image(),
                 'phoneNumber' => '-',
                 'price' => '2000',
                 'hours' => '24',

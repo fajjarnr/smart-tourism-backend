@@ -27,7 +27,7 @@ class CreateDestinationsTable extends Migration
             $table->string('price')->nullable();
             $table->string('hours')->nullable();
             $table->string('facilities')->nullable();
-            $table->string('types')->default('');
+            $table->string('types')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
