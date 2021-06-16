@@ -74,9 +74,6 @@ class UserController extends Controller
             $request->validate([
                 'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-                'phone' => ['required', 'string', 'max:15'],
-                'address' => ['required', 'string'],
-                'city' => ['required', 'string'],
                 'password' => $this->passwordRules(),
             ]);
 
@@ -86,6 +83,8 @@ class UserController extends Controller
                 'phone' => $request->phone,
                 'address' => $request->address,
                 'city' => $request->city,
+                'roles' => $request->roles,
+                'photoPath' => $request->photoPath,
                 'password' => Hash::make($request->password),
             ]);
 

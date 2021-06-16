@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -28,9 +29,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'phoneNumber',
-        'profile_photo_path',
+        'phone',
         'roles',
+        'address',
+        'city',
+        'photoPath',
     ];
 
     /**
@@ -55,4 +58,16 @@ class User extends Authenticatable
         'created_at' => 'datetime:Y-m-d H:m:s',
         'updated_at' => 'datetime:Y-m-d H:m:s',
     ];
+
+    // public function toArray()
+    // {
+    //     $toArray = parent::toArray();
+    //     $toArray['picturePath'] = $this->picturePath;
+    //     return $toArray;
+    // }
+
+    // public function getPicturePathAttribute()
+    // {
+    //     return config('app.url') . Storage::url($this->attributes['picturePath']);
+    // }
 }

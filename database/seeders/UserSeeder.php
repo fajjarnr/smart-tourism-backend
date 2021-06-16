@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
             'phone' => '082210293875',
             'address' => 'Pegiringan',
             'city' => 'Pemalang',
-            'profile_photo_path' => $faker->image()
+            'photoPath' => $faker->image()
         ]);
 
         DB::table('users')->insert([
@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
             'phone' => '(0284) 3278456 / 3278390',
             'address' => 'Pemalang',
             'city' => 'Pemalang',
-            'profile_photo_path' => $faker->image()
+            'photoPath' => $faker->image()
         ]);
 
         for ($i = 1; $i <= 3; $i++) {
@@ -49,6 +49,7 @@ class UserSeeder extends Seeder
                 'phone' => $faker->phoneNumber,
                 'address' => $faker->address,
                 'city' => $faker->city,
+                'photoPath' => $faker->image()
             ]);
         }
     }

@@ -54,17 +54,6 @@ Dashboard
                                     <i class="icofont icofont-cur-dollar"></i>
                                 </div>
                                 <div class="media-body">
-                                    <h6>Banner</h6>
-                                    <p>{{ $banner->count() }}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6 col-sm-6">
-                            <div class="media p-0">
-                                <div class="media-left">
-                                    <i class="icofont icofont-cur-dollar"></i>
-                                </div>
-                                <div class="media-body">
                                     <h6>Berita</h6>
                                     <p>{{ $news->count() }}</p>
                                 </div>

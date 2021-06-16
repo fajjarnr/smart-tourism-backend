@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('city');
-            $table->text('profile_photo_path')->nullable();
+            $table->text('photoPath')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
