@@ -21,8 +21,8 @@ Dashboard
                                     <i class="icofont icofont-users"></i>
                                 </div>
                                 <div class="media-body">
-                                    <h6>User</h6>
-                                    <p>$5,000.20</p>
+                                    <h6>Pengguna</h6>
+                                    <p>{{ $user->count() }}</p>
                                 </div>
                             </div>
                         </div>
@@ -32,8 +32,8 @@ Dashboard
                                     <i class="icofont icofont-heart-alt"></i>
                                 </div>
                                 <div class="media-body">
-                                    <h6>Wisata Alam</h6>
-                                    <p>$2,657.21</p>
+                                    <h6>Kategori</h6>
+                                    <p>{{ $category->count() }}</p>
                                 </div>
                             </div>
                         </div>
@@ -43,8 +43,8 @@ Dashboard
                                     <i class="icofont icofont-cur-dollar"></i>
                                 </div>
                                 <div class="media-body">
-                                    <h6>Wisata Budaya</h6>
-                                    <p>$9,478.50</p>
+                                    <h6>Destinasi</h6>
+                                    <p>{{ $destination->count() }}</p>
                                 </div>
                             </div>
                         </div>
@@ -54,8 +54,19 @@ Dashboard
                                     <i class="icofont icofont-cur-dollar"></i>
                                 </div>
                                 <div class="media-body">
-                                    <h6>Rumah Makan</h6>
-                                    <p>$9,478.50</p>
+                                    <h6>Banner</h6>
+                                    <p>{{ $banner->count() }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-sm-6">
+                            <div class="media p-0">
+                                <div class="media-left">
+                                    <i class="icofont icofont-cur-dollar"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h6>Berita</h6>
+                                    <p>{{ $news->count() }}</p>
                                 </div>
                             </div>
                         </div>
