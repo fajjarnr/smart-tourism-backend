@@ -24,12 +24,22 @@ class UserSeeder extends Seeder
             'email' => 'zfajart@gmail.com',
             'password' => Hash::make('fajar123'),
             'roles' => 'admin',
-            'phone' => '0987654321',
+            'phone' => '082210293875',
             'address' => 'Pegiringan',
             'city' => 'Pemalang',
         ]);
 
-        for ($i = 1; $i <= 4; $i++) {
+        DB::table('users')->insert([
+            'name' => 'Administrator',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('admin123'),
+            'roles' => 'admin',
+            'phone' => '(0284) 3278456 / 3278390',
+            'address' => 'Pemalang',
+            'city' => 'Pemalang',
+        ]);
+
+        for ($i = 1; $i <= 3; $i++) {
             DB::table('users')->insert([
                 'name' => $faker->name,
                 'email' => $faker->email,

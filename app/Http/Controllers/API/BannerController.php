@@ -12,9 +12,9 @@ class BannerController extends Controller
     public function all()
     {
         try {
-            $destination = Banner::with(['news'])->get();
+            $banner = Banner::with(['news'])->get();
             return ResponseFormatter::success(
-                $destination,
+                $banner,
                 'Data Banner berhasil diambil'
             );
         } catch (Exception $error) {

@@ -77,7 +77,7 @@
                                 style="color: #ff7c57">Pemalang</span></h1>
 
                         <h1 class="title-text-small-header-4-1 d-lg-none d-inline">
-                            Ayo Wisata ke Pemalang</h1>
+                            Ayo Wisata ke <span style="color: #ff7c57">Pemalang</span></h1>
                         <div
                             class="div-button-header-4-1 d-inline d-lg-flex align-items-center mx-lg-0 mx-auto justify-content-center">
                             <button class="btn d-inline-flex mb-md-0 btn-try-header-4-1">Download App</button>

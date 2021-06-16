@@ -17,7 +17,6 @@ class CreateBannersTable extends Migration
             $table->id();
             $table->string('picturePath');
 
-            // $table->integer('destination_id')->nullable();
             $table->integer('news_id')->nullable();
 
             $table->softDeletes();
