@@ -13,7 +13,7 @@ Data Destinasi
     <div class="col-sm-12">
         <div class="card">
             <div class="card-header">
-                List Data Destinasi
+                <a href="{{ route('destination.create') }}" class="btn btn-primary"><i data-feather="plus"></i></a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

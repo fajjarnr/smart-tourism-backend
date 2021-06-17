@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
 @section('title')
-Edit Destination
+Create Destination
 @endsection
+
+@push('custom-css')
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/select2.css') }}">
+@endpush
 
 @section('content')
 <div class="col-12">
@@ -25,45 +29,43 @@ Edit Destination
                 </div>
                 @endif
 
-                <form action="{{ route('destination.update', $item->id) }}" method="POST" enctype="multipart/form-data"
+                <form action="{{ route('destination.store') }}" method="POST" enctype="multipart/form-data"
                     class="needs-validation" novalidate="">
 
                     @csrf
-                    @method('PUT')
 
                     <div class="col mb-3">
                         <label for="validationCustom01">Latitude</label>
-                        <input value="{{ old('latitude') ?? $item->latitude }}" name="latitude" class="form-control"
+                        <input value="{{ old('latitude') }}" name="latitude" class="form-control"
                             id="validationCustom01" type="text" placeholder="latitude" required="">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 
                     <div class="col mb-3">
                         <label for="validationCustom01">Longitude</label>
-                        <input value="{{ old('longitude') ?? $item->longitude }}" name="longitude" class="form-control"
+                        <input value="{{ old('longitude') }}" name="longitude" class="form-control"
                             id="validationCustom01" type="text" placeholder="longitude" required="">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 
                     <div class="col mb-3">
                         <label for="validationCustom01">Nama</label>
-                        <input value="{{ old('name') ?? $item->name }}" name="name" class="form-control"
-                            id="validationCustom01" type="text" placeholder="name" required="">
+                        <input value="{{ old('name') }}" name="name" class="form-control" id="validationCustom01"
+                            type="text" placeholder="name" required="">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 
                     <div class="col mb-3">
                         <label for="floatingTextarea2">Description</label>
-                        <textarea value="{{ old('description') ?? $item->description }}" name="description"
-                            class="form-control" placeholder="description" id="floatingTextarea2"
-                            style="height: 100px"></textarea>
+                        <textarea value="{{ old('description') }}" name="description" class="form-control"
+                            placeholder="description" id="floatingTextarea2" style="height: 100px"></textarea>
                     </div>
 
                     <div class="col mb-3">
                         <div class="col-form-label">Category</div>
                         <select name="category_id" class="js-example-basic-single col">
                             <option value="">Select a Category</option>
-                            @foreach ($item as $item)
+                            @foreach ($category as $item)
                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
                         </select>
@@ -71,58 +73,56 @@ Edit Destination
 
                     <div class="col mb-3">
                         <label for="validationCustom01">Alamat</label>
-                        <input value="{{ old('address') ?? $item->address }}" name="address" class="form-control"
-                            id="validationCustom01" type="text" placeholder="address" required="">
+                        <input value="{{ old('address') }}" name="address" class="form-control" id="validationCustom01"
+                            type="text" placeholder="address" required="">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 
                     <div class="col mb-3">
                         <label for="validationCustom01">Rating</label>
-                        <input value="{{ old('rate') ?? $item->rate }}" name="rate" class="form-control"
-                            id="validationCustom01" type="number" max="5" min="1" placeholder="rate" required="">
+                        <input value="{{ old('rate') }}" name="rate" class="form-control" id="validationCustom01"
+                            type="number" max="5" min="1" placeholder="rate" required="">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 
                     <div class="col mb-3">
                         <label for="validationCustom01">Nomor Telepon</label>
-                        <input value="{{ old('phoneNumber') ?? $item->phoneNumber }}" name="phoneNumber"
-                            class="form-control" id="validationCustom01" type="text" placeholder="phoneNumber"
-                            required="">
+                        <input value="{{ old('phoneNumber') }}" name="phoneNumber" class="form-control"
+                            id="validationCustom01" type="text" placeholder="phoneNumber" required="">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 
                     <div class="col mb-3">
                         <label for="validationCustom01">Harga Tiket</label>
-                        <input value="{{ old('price') ?? $item->price }}" name="price" class="form-control"
-                            id="validationCustom01" type="text" placeholder="price" required="">
+                        <input value="{{ old('price') }}" name="price" class="form-control" id="validationCustom01"
+                            type="text" placeholder="price" required="">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 
                     <div class="col mb-3">
                         <label for="validationCustom01">Jam Buka</label>
-                        <input value="{{ old('hours') ?? $item->hours }}" name="hours" class="form-control"
-                            id="validationCustom01" type="text" placeholder="hours" required="">
+                        <input value="{{ old('hours') }}" name="hours" class="form-control" id="validationCustom01"
+                            type="text" placeholder="hours" required="">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 
                     <div class="col mb-3">
                         <label for="validationCustom01">Fasilitas</label>
-                        <input value="{{ old('facilities') ?? $item->facilities }}" name="facilities"
-                            class="form-control" id="validationCustom01" type="text" placeholder="facilities"
-                            required="">
+                        <input value="{{ old('facilities') }}" name="facilities" class="form-control"
+                            id="validationCustom01" type="text" placeholder="facilities" required="">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 
                     <div class="col mb-3">
                         <label for="validationCustom01">Tipe</label>
-                        <input value="{{ old('types') ?? $item->types }}" name="types" class="form-control"
-                            id="validationCustom01" type="text" placeholder="types" required="">
+                        <input value="{{ old('types') }}" name="types" class="form-control" id="validationCustom01"
+                            type="text" placeholder="types" required="">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 
                     <div class="col mb-3">
-                        <label for="formFile" class="form-label">Icon</label>
-                        <input name="image" class="form-control" type="file" id="formFile">
+                        <label for="formFile" class="form-label">Image</label>
+                        <input name="picturePath" class="form-control" type="file" id="formFile">
                     </div>
 
                     <button type="submit" class="btn btn-success btn-block">Submit</button>
@@ -135,4 +135,6 @@ Edit Destination
 
 @push('custom-js')
 <script src="{{ asset('assets/js/form-validation-custom.js') }}"></script>
+<script src="{{ asset('assets/js/select2/select2.full.min.js') }}"></script>
+<script src="{{ asset('assets/js/select2/select2-custom.js') }}"></script>
 @endpush

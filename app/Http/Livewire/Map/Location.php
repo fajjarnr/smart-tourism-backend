@@ -20,9 +20,11 @@ class Location extends Component
     public $geoJson;
     public $category;
     public $category_id;
-    public $picturePath = [];
+    public $picturePath;
     public $picturePathUrl;
     public $isEdit = false;
+    public $image;
+    public $imageUrl;
 
     protected $rules = [
         'category' => 'required',
@@ -92,6 +94,21 @@ class Location extends Component
         foreach ($this->picturePath as $picturePath) {
             $picturePath->store('images/destinations', 'public');
         };
+
+        // if ($request->file('picturePath')) {
+        //     $picturePath = $request->file->store('images/destination', 'public');
+        // }
+
+        // $picturePath = rand(11111, 99999) . '.' . $request->file('picturePath')->getClientOriginalExtension();
+        // $imageName = md5($this->image . microtime()) . '.' . $this->image->extension();
+
+        // Storage::putFileAs(
+        //     'public/images',
+        //     $this->image,
+        //     $imageName
+        // );
+
+        // $this->image->store('images/destination', 'public');x
 
         Destination::create([
             'latitude' => $this->latitude,

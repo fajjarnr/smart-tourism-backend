@@ -77,10 +77,11 @@ class NewsFeedController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(NewsFeed $newsFeed)
+    public function edit(NewsFeed $newsFeed, $id)
     {
+        $news = NewsFeed::where('id', $id)->first();
         return view('news.edit', [
-            'item' => $newsFeed,
+            'item' => $news,
         ]);
     }
 

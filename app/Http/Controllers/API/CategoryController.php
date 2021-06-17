@@ -11,7 +11,7 @@ class CategoryController extends Controller
 {
     public function fetch(Request $request)
     {
-        $category = Category::all();
+        $category = Category::with('destination')->get();
         return ResponseFormatter::success(
             $category,
             'Data list category berhasil diambil'

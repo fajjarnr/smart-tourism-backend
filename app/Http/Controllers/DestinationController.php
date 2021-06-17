@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Destination;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,10 @@ class DestinationController extends Controller
      */
     public function create()
     {
-        //
+        $category = Category::all();
+        return view('destination.create', [
+            'category' => $category
+        ]);
     }
 
     /**
@@ -38,7 +42,32 @@ class DestinationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'latitude' => 'required',
+            'longitude' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+            'picturePath' => 'max:2048|required',
+        ]);
+
+        $picturePath = $request->file('picturePath')->store('images/destination', 'public');
+
+        Destination::create([
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+            'name' => $request->name,
+            'description' => $request->description,
+            'address' => $request->address,
+            'price' => $request->price,
+            'phoneNumber' => $request->phoneNumber,
+            'rate' => $request->rate,
+            'hours' => $request->hours,
+            'facilities' => $request->facilities,
+            'picturePath' => $picturePath,
+            'category_id' => $request->category_id,
+        ]);
+
+        return redirect()->route('destination.index')->with('success', 'Data~ berhasil dibuat');
     }
 
     /**
@@ -58,9 +87,9 @@ class DestinationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Destination $destination)
+    public function edit(Request $request, $id)
     {
-        $destination = Destination::with(['category'])->get();
+        $destination = Destination::where('id', $id)->first();
         return view('destination.edit', [
             'item' => $destination,
         ]);
@@ -75,7 +104,6 @@ class DestinationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
     }
 
     /**

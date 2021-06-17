@@ -33,7 +33,7 @@ class User extends Authenticatable
         'roles',
         'address',
         'city',
-        'photoPath',
+        'profile_photo_path',
     ];
 
     /**
