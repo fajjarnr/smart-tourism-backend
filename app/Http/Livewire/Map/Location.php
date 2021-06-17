@@ -17,15 +17,14 @@ class Location extends Component
     use WithFileUploads;
 
     public $count = 5;
-    public $locationId, $longitude, $latitude, $name, $description, $address, $phone, $price, $rate, $hours, $facilities, $types;
+    public $locationId, $longitude, $latitude, $image, $name, $description, $address, $phone, $price, $rate, $hours, $facilities, $types;
     public $geoJson;
     public $category;
     public $category_id;
     public $picturePath;
     public $picturePathUrl;
-    public $isEdit = false;
-    public $image;
     public $imageUrl;
+    public $isEdit = false;
 
     protected $rules = [
         'category_id' => 'required',
@@ -100,7 +99,7 @@ class Location extends Component
         $imageName = md5($this->image . microtime()) . '.' . $this->image->extension();
 
         Storage::putFileAs(
-            'public/images',
+            'public/images/destinations',
             $this->image,
             $imageName
         );
