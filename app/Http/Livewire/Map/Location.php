@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Map;
 use App\Http\Requests\LocationRequest;
 use App\Models\Category;
 use App\Models\Destination;
+use App\Models\Location as ModelsLocation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -16,7 +17,7 @@ class Location extends Component
     use WithFileUploads;
 
     public $count = 5;
-    public $locationId, $longitude, $latitude, $name, $description, $address, $phoneNumber, $price, $rate, $hours, $facilities, $types;
+    public $locationId, $longitude, $latitude, $name, $description, $address, $phone, $price, $rate, $hours, $facilities, $types;
     public $geoJson;
     public $category;
     public $category_id;
@@ -27,12 +28,12 @@ class Location extends Component
     public $imageUrl;
 
     protected $rules = [
-        'category' => 'required',
+        'category_id' => 'required',
     ];
 
     private function getLocations()
     {
-        $locations = Destination::orderBy('created_at', 'desc')->get();
+        $locations = ModelsLocation::orderBy('created_at', 'desc')->get();
 
         $customLocation = [];
 
@@ -49,8 +50,9 @@ class Location extends Component
                     'locationId' => $location->id,
                     'icon' => [25, 25],
                     'name' => $location->name,
-                    'picturePath' => $location->picturePath,
-                    'description' => $location->description
+                    'image' => $location->image,
+                    'description' => $location->description,
+                    'address' => $location->address,
                 ]
             ];
         };
@@ -88,44 +90,37 @@ class Location extends Component
             'longitude' => 'required',
             'name' => 'required',
             'description' => 'required',
-            'picturePath' => 'max:2048|required',
+            'image' => 'required',
         ]);
 
-        foreach ($this->picturePath as $picturePath) {
-            $picturePath->store('images/destinations', 'public');
-        };
+        // foreach ($this->picturePath as $picturePath) {
+        //     $picturePath->store('images/destinations', 'public');
+        // };
 
-        // if ($request->file('picturePath')) {
-        //     $picturePath = $request->file->store('images/destination', 'public');
-        // }
+        $imageName = md5($this->image . microtime()) . '.' . $this->image->extension();
 
-        // $picturePath = rand(11111, 99999) . '.' . $request->file('picturePath')->getClientOriginalExtension();
-        // $imageName = md5($this->image . microtime()) . '.' . $this->image->extension();
+        Storage::putFileAs(
+            'public/images',
+            $this->image,
+            $imageName
+        );
 
-        // Storage::putFileAs(
-        //     'public/images',
-        //     $this->image,
-        //     $imageName
-        // );
-
-        // $this->image->store('images/destination', 'public');x
-
-        Destination::create([
+        ModelsLocation::create([
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
             'name' => $this->name,
             'description' => $this->description,
             'address' => $this->address,
             'price' => $this->price,
-            'phoneNumber' => $this->phoneNumber,
+            'phone' => $this->phone,
             'rate' => $this->rate,
             'hours' => $this->hours,
             'facilities' => $this->facilities,
-            'picturePath' => $picturePath,
             'category_id' => $this->category_id,
+            'image' => $imageName,
         ]);
 
-        session()->flash('info', 'Product Created Successfully');
+        session()->flash('info', 'Location Created Successfully');
         $this->clearForm();
         $this->getLocations();
         $this->dispatchBrowserEvent('locationAdded', $this->geoJson);
@@ -141,20 +136,28 @@ class Location extends Component
             'category_id' => 'required',
         ]);
 
-        $location = Destination::findOrFail($this->locationId);
+        $location = ModelsLocation::findOrFail($this->locationId);
 
-        if ($this->picturePath) {
-            foreach ($this->picturePath as $picturePath) {
-                $picturePath->store('images/destinations', 'public');
-            };
+        if ($this->image) {
+            // foreach ($this->picturePath as $picturePath) {
+            //     $picturePath->store('images/destinations', 'public');
+            // };
+
+            $imageName = md5($this->image . microtime()) . '.' . $this->image->extension();
+
+            Storage::putFileAs(
+                'public/images/destinations',
+                $this->image,
+                $imageName
+            );
 
             $updateData = [
                 'name' => $this->name,
                 'description' => $this->description,
-                'picturePath' => $picturePath,
+                'picturePath' => $this->image,
                 'address' => $this->address,
                 'price' => $this->price,
-                'phoneNumber' => $this->phoneNumber,
+                'phone' => $this->phone,
                 'rate' => $this->rate,
                 'hours' => $this->hours,
                 'facilities' => $this->facilities,
@@ -166,7 +169,7 @@ class Location extends Component
                 'description' => $this->description,
                 'address' => $this->address,
                 'price' => $this->price,
-                'phoneNumber' => $this->phoneNumber,
+                'phone' => $this->phone,
                 'rate' => $this->rate,
                 'hours' => $this->hours,
                 'facilities' => $this->facilities,
@@ -185,7 +188,7 @@ class Location extends Component
 
     public function deleteLocationById()
     {
-        $location = Destination::findOrFail($this->locationId);
+        $location = ModelsLocation::findOrFail($this->locationId);
         $location->delete();
 
         $this->clearForm();
@@ -200,8 +203,10 @@ class Location extends Component
         $this->description = '';
         $this->picturePath = '';
         $this->picturePathUrl = '';
+        $this->image = '';
+        $this->imageUrl = '';
         $this->address = '';
-        $this->phoneNumber = '';
+        $this->phone = '';
         $this->price = '';
         $this->rate = '';
         $this->hours = '';
@@ -213,7 +218,7 @@ class Location extends Component
 
     public function findLocationById($id)
     {
-        $location = Destination::findOrFail($id);
+        $location = ModelsLocation::findOrFail($id);
 
         $this->locationId = $id;
         $this->latitude = $location->latitude;
@@ -221,7 +226,7 @@ class Location extends Component
         $this->name = $location->name;
         $this->description = $location->description;
         $this->address = $location->address;
-        $this->phoneNumber = $location->phoneNumber;
+        $this->phone = $location->phone;
         $this->price = $location->price;
         $this->rate = $location->rate;
         $this->hours = $location->hours;
@@ -229,6 +234,7 @@ class Location extends Component
         $this->category_id = $location->category_id;
         $this->isEdit = true;
         $this->types = $location->types;
-        $this->picturePathUrl = $location->picturePath;
+        $this->picturePathUrl = $location->picturePathUrl;
+        $this->imageUrl = $location->image;
     }
 }

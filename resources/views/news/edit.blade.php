@@ -39,7 +39,8 @@ Edit News
                 <div class="form-floating mb-3">
                     <label for="floatingTextarea2">Content</label>
                     <textarea value="{{ old('content') ?? $item->content }}" name="content" class="form-control"
-                        placeholder="content" id="floatingTextarea2" style="height: 100px"></textarea>
+                        placeholder="content" id="floatingTextarea2"
+                        style="height: 100px">{{ $item->content }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="formFile" class="form-label">File</label>

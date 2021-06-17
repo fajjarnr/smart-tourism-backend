@@ -12,6 +12,7 @@ class Transaction extends Model
 
     protected $fillable = [
         'destination_id',
+        'location_id',
         'user_id',
         'quantity',
         'total',
@@ -27,6 +28,11 @@ class Transaction extends Model
     public function destinations()
     {
         return $this->hasOne(Destination::class, 'id', 'destination_id');
+    }
+
+    public function locations()
+    {
+        return $this->hasOne(Location::class, 'id', 'location_id');
     }
 
     public function user()

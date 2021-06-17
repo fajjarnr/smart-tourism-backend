@@ -16,9 +16,11 @@ Destinasi
         </div>
         <div class="col-sm-4">
             <div class="card">
-                <div class="card-header ">
+                <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
-                        <span>Location</span>
+                        @if($isEdit)
+                        <button wire:click="clearForm" class="btn btn-success btn-block active">New Location</button>
+                        @endif
                     </div>
                 </div>
                 <div class="card-body">
@@ -63,9 +65,8 @@ Destinasi
                             <input wire:model="address" type="text" class="form-control" name="address" id="address">
                         </div>
                         <div class="form-group">
-                            <label for="phoneNumber">Phone Number</label>
-                            <input wire:model="phoneNumber" type="text" class="form-control" name="phoneNumber"
-                                id="phoneNumber">
+                            <label for="phone">Phone Number</label>
+                            <input wire:model="phone" type="text" class="form-control" name="phone" id="phone">
                         </div>
                         <div class="form-group">
                             <label for="rate">Rate</label>
@@ -95,19 +96,19 @@ Destinasi
                             <label class="text-white">Image</label>
                             <div class="custom-file">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
-                                <input wire:model="picturePath" type="file" class="custom-file-input" id="customFile"
+                                <input wire:model="image" type="file" class="custom-file-input" id="customFile"
                                     multiple>
                             </div>
                             <label class="text-white">Picture of Location</label>
                             <br>
-                            @error('picturePath') <small class="text-danger">{{$message}}</small>@enderror
-                            @if($picturePath)
-                            @foreach ($picturePath as $item)
+                            @error('image') <small class="text-danger">{{$message}}</small>@enderror
+                            @if($image)
+                            @foreach ($image as $item)
                             <img src="{{$item->temporaryUrl()}}" class="img-fluid" alt="Preview Image">
                             @endforeach
                             @endif
-                            @if($picturePathUrl && !$picturePath)
-                            <img src="{{asset('/storage/images/destinations'.$picturePathUrl)}}" class="img-fluid"
+                            @if($imageUrl && !$image)
+                            <img src="{{asset('/storage/images/destinations'.$imageUrl)}}" class="img-fluid"
                                 alt="Preview Image">
                             @endif
                         </div>
@@ -128,6 +129,7 @@ Destinasi
 
 @push('custom-js')
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script src="{{ asset('assets/js/form-validation-custom.js') }}"></script>
 <script src="{{ asset('assets/js/select2/select2.full.min.js') }}"></script>
@@ -155,7 +157,7 @@ Destinasi
         const loadGeoJSON = (geoJson) => {
             geoJson.features.forEach(function (marker) {
                 const {geometry, properties} = marker
-                const {icon, locationId, name, picturePath, description, address} = properties
+                const {icon, locationId, name, image, description, address} = properties
 
                 let el = document.createElement('div');
                 el.className = 'marker' + locationId;
@@ -165,7 +167,7 @@ Destinasi
                 el.style.width = icon[0] + 'px';
                 el.style.height = icon[1] + 'px';
 
-                const pictureLocation = '{{asset("/storage/images")}}' + '/' + picturePath
+                const pictureLocation = '{{asset("/storage/images")}}' + '/' + image
 
                 const content = `
                 <div style="overflow-y: auto; max-height:400px;width:100%;">
@@ -208,18 +210,41 @@ Destinasi
 
         loadGeoJSON({!! $geoJson !!})
 
-        window.addEventListener('locationAdded', (e) => {
-            loadGeoJSON(JSON.parse(e.detail))
-        })
-
+        window.addEventListener('locationAdded', (e) => {           
+            swal({
+                title: "Location Added!",
+                text: "Your location has been save sucessfully!",
+                icon: "success",
+                button: "Ok",
+            }).then((value) => {
+                loadGeoJSON(JSON.parse(e.detail))
+            });
+        }) 
+        
         window.addEventListener('deleteLocation', (e) => {  
-            $('.marker' + e.detail).remove();
-            $('.mapboxgl-popup').remove();
+            console.log(e.detail);         
+            swal({
+                title: "Location Delete!",
+                text: "Your location deleted sucessfully!",
+                icon: "success",
+                button: "Ok",
+            }).then((value) => {
+               $('.marker' + e.detail).remove();
+               $('.mapboxgl-popup').remove();
+            });
         })
 
         window.addEventListener('updateLocation', (e) => {  
-            loadGeoJSON(JSON.parse(e.detail))
-            $('.mapboxgl-popup').remove();
+            console.log(e.detail);         
+            swal({
+                title: "Location Update!",
+                text: "Your location updated sucessfully!",
+                icon: "success",
+                button: "Ok",
+            }).then((value) => {
+               loadGeoJSON(JSON.parse(e.detail))
+               $('.mapboxgl-popup').remove();
+            });
         })
 
         const getLongLatByMarker = () => {

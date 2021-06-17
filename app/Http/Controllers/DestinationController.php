@@ -87,11 +87,13 @@ class DestinationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id)
+    public function edit($id)
     {
-        $destination = Destination::where('id', $id)->first();
+        $destination = Destination::findOrFail($id);
+        $category = Category::all();
         return view('destination.edit', [
             'item' => $destination,
+            'category' => $category
         ]);
     }
 
@@ -104,6 +106,48 @@ class DestinationController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'latitude' => 'required',
+            'longitude' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+            'picturePath' => 'max:2048|required',
+        ]);
+
+        $destination = Destination::findOrFail($id);
+
+        if ($request->hasFile('picturePath')) {
+            $picturePath = $request->file('picturePath')->store('images/destination', 'public');
+
+            $updateData = [
+                'name' => $request->name,
+                'description' => $request->description,
+                'address' => $request->address,
+                'price' => $request->price,
+                'phoneNumber' => $request->phoneNumber,
+                'rate' => $request->rate,
+                'hours' => $request->hours,
+                'facilities' => $request->facilities,
+                'category_id' => $request->category_id,
+                'picturePath' => $picturePath,
+            ];
+        } else {
+            $updateData = [
+                'name' => $request->name,
+                'description' => $request->description,
+                'address' => $request->address,
+                'price' => $request->price,
+                'phoneNumber' => $request->phoneNumber,
+                'rate' => $request->rate,
+                'hours' => $request->hours,
+                'facilities' => $request->facilities,
+                'category_id' => $request->category_id,
+            ];
+        }
+
+        $destination->update($updateData);
+
+        return redirect()->route('destination.index')->with('success', 'Data berhasil di update');
     }
 
     /**

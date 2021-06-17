@@ -77,9 +77,9 @@ class NewsFeedController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(NewsFeed $newsFeed, $id)
+    public function edit($id)
     {
-        $news = NewsFeed::where('id', $id)->first();
+        $news = NewsFeed::findOrFail($id);
         return view('news.edit', [
             'item' => $news,
         ]);

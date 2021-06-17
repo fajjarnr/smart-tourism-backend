@@ -56,15 +56,18 @@ Edit Destination
                         <label for="floatingTextarea2">Description</label>
                         <textarea value="{{ old('description') ?? $item->description }}" name="description"
                             class="form-control" placeholder="description" id="floatingTextarea2"
-                            style="height: 100px"></textarea>
+                            style="height: 100px">{{ $item->description }}</textarea>
                     </div>
 
                     <div class="col mb-3">
                         <div class="col-form-label">Category</div>
                         <select name="category_id" class="js-example-basic-single col">
                             <option value="">Select a Category</option>
-                            @foreach ($item as $item)
-                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            @foreach ($category as $result)
+                            <option value="{{ $result->id }}" @if ($result->id == $item->category_id)
+                                selected
+                                @endif
+                                >{{ $result->name }}</option>
                             @endforeach
                         </select>
                     </div>
