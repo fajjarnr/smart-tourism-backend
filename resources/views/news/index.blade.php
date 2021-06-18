@@ -35,7 +35,7 @@ Berita
                             <tr>
                                 <td>{{$no}}</td>
                                 <td>{{ $item->title }}</td>
-                                <td>{{ $item->content }}</td>
+                                <td>{{ Str::limit($item->content, 10) }}</td>
                                 <td>{{ $item->user->name }}</td>
                                 <td><img src="{{asset($item->picturePath)}}" width="50px"></td>
                                 <td class="text-center row align-items-center">

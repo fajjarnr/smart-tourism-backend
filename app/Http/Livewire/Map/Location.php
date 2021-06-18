@@ -47,11 +47,13 @@ class Location extends Component
                 ],
                 'properties' => [
                     'locationId' => $location->id,
-                    'icon' => [25, 25],
+                    'icon' => [30, 30],
                     'name' => $location->name,
                     'image' => $location->image,
                     'description' => $location->description,
                     'address' => $location->address,
+                    'phone' => $location->phone,
+                    'rate' => $location->rate,
                 ]
             ];
         };

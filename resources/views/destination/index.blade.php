@@ -41,7 +41,7 @@ Data Destinasi
                             <tr>
                                 <td>{{$no}}</td>
                                 <td>{{$item->name}}</td>
-                                <td>{{$item->description}}</td>
+                                <td>{{Str::limit($item->description, 10)}}</td>
                                 <td>{{$item->address}}</td>
                                 <td>{{$item->phone}}</td>
                                 <td>{{$item->price}}</td>

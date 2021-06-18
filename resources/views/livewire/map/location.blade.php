@@ -102,11 +102,12 @@ Destinasi
                             <br>
                             @error('image') <small class="text-danger">{{$message}}</small>@enderror
                             @if($image)
-                                <img src="{{$image->temporaryUrl()}}" class="img-fluid" alt="Preview Image">
+                            <img src="{{$image->temporaryUrl()}}" class="img-fluid" alt="Preview Image">
                             @endif
-                            @if($imageUrl && !$image)                                
-                                <img src="{{asset('/storage/images/destinations'.$imageUrl)}}" class="img-fluid" alt="Preview Image">
-                            @endif   
+                            @if($imageUrl && !$image)
+                            <img src="{{asset('/storage/images/destinations'.$imageUrl)}}" class="img-fluid"
+                                alt="Preview Image">
+                            @endif
                         </div>
                         <div class="form-group">
                             <button type="submit"
@@ -153,7 +154,7 @@ Destinasi
         const loadGeoJSON = (geoJson) => {
             geoJson.features.forEach(function (marker) {
                 const {geometry, properties} = marker
-                const {icon, locationId, name, image, description, address} = properties
+                const {icon, locationId, name, image, description, address, phone, rate} = properties
 
                 let el = document.createElement('div');
                 el.className = 'marker' + locationId;
@@ -163,7 +164,7 @@ Destinasi
                 el.style.width = icon[0] + 'px';
                 el.style.height = icon[1] + 'px';
 
-                const pictureLocation = '{{asset("/storage/images")}}' + '/' + image
+                const pictureLocation = '{{asset("/storage/images/destinations")}}' + '/' + image
 
                 const content = `
                 <div style="overflow-y: auto; max-height:400px;width:100%;">
@@ -178,12 +179,16 @@ Destinasi
                                 <td><img src="${pictureLocation}" loading="lazy" class="img-fluid"/></td>
                             </tr>
                             <tr>
-                                <td>Description</td>         
-                                <td>${description}</td>
-                            </tr>
-                            <tr>
                                 <td>Alamat</td>         
                                 <td>${address}</td>
+                            </tr>
+                            <tr>
+                                <td>No Telp</td>         
+                                <td>${phone}</td>
+                            </tr>
+                            <tr>
+                                <td>Rating</td>         
+                                <td>${rate}</td>
                             </tr>
                         </tbody>
                     </table>
