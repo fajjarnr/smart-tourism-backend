@@ -4,6 +4,7 @@ use App\Http\Controllers\API\BannerController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\DestinationController;
+use App\Http\Controllers\API\LocationController;
 use App\Http\Controllers\API\NewsFeedController;
 use App\Http\Controllers\API\TransactionController;
 use Illuminate\Http\Request;
@@ -25,6 +26,9 @@ Route::post('register', [UserController::class, 'register']);
 Route::get('category', [CategoryController::class, 'fetch']);
 Route::get('destination', [DestinationController::class, 'all']);
 Route::get('destination/{category_id}', [DestinationController::class, 'fetch']);
+
+Route::get('location', [LocationController::class, 'all']);
+Route::get('location/{category_id}', [LocationController::class, 'fetch']);
 
 Route::get('news', [NewsFeedController::class, 'all']);
 Route::get('banner', [BannerController::class, 'all']);
