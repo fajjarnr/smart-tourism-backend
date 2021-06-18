@@ -18,12 +18,13 @@ class Destination extends Model
         'name',
         'address',
         'rate',
-        'picturePath',
-        'phoneNumber',
+        'image',
+        'phone',
         'price',
         'hours',
         'facilities',
-        'category_id'
+        'category_id',
+        'types'
     ];
 
     protected $casts = [
@@ -46,15 +47,15 @@ class Destination extends Model
         return $this->belongsTo(Transaction::class);
     }
 
-    public function toArray()
-    {
-        $toArray = parent::toArray();
-        $toArray['picturePath'] = $this->picturePath;
-        return $toArray;
-    }
+    // public function toArray()
+    // {
+    //     $toArray = parent::toArray();
+    //     $toArray['picturePath'] = $this->picturePath;
+    //     return $toArray;
+    // }
 
-    public function getPicturePathAttribute()
-    {
-        return config('app.url') . Storage::url($this->attributes['picturePath']);
-    }
+    // public function getPicturePathAttribute()
+    // {
+    //     return config('app.url') . Storage::url($this->attributes['picturePath']);
+    // }
 }

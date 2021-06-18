@@ -21,7 +21,8 @@ class Location extends Model
         'price',
         'hours',
         'facilities',
-        'category_id'
+        'category_id',
+        'types'
     ];
 
     protected $casts = [

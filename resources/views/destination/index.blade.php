@@ -21,14 +21,15 @@ Data Destinasi
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Address</th>
-                                <th>Phone Number</th>
-                                <th>Price</th>
-                                <th>Hours</th>
-                                <th>Facilities</th>
-                                <th>Category</th>
+                                <th>Nama</th>
+                                <th>Deskripsi</th>
+                                <th>Alamat</th>
+                                <th>No Telp</th>
+                                <th>Harga Tiket</th>
+                                <th>Jam Operasional</th>
+                                <th>Fasilitas</th>
+                                <th>Kategori</th>
+                                <th>Tipe</th>
                                 <th>Image</th>
                                 <th>Action</th>
                             </tr>
@@ -42,16 +43,17 @@ Data Destinasi
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->description}}</td>
                                 <td>{{$item->address}}</td>
-                                <td>{{$item->phoneNumber}}</td>
+                                <td>{{$item->phone}}</td>
                                 <td>{{$item->price}}</td>
-                                <td>{{$item->hours}}</td>
+                                <td>{{$item->hours}} jam</td>
                                 <td>{{$item->facilities}}</td>
                                 <td>{{$item->category->name ?? '-'}}</td>
-                                <td><img src="{{asset($item->picturePath)}}" width="50px"></td>
+                                <td>{{$item->types}}</td>
+                                <td><img src="{{asset($item->image)}}" width="50px"></td>
                                 </td>
                                 <td class="text-center row align-items-center">
-                                    <a href="{{route('destination.edit', $item->id)}}" class="btn btn-primary mx-1"><i
-                                            class="fa fa-edit"></i></a>
+                                    {{-- <a href="{{route('destination.edit', $item->id)}}" class="btn btn-primary
+                                    mx-1"><i class="fa fa-edit"></i></a> --}}
                                     <form action="{{route('destination.destroy', $item->id)}}" method="post">
                                         {!! method_field('delete') . csrf_field() !!}
                                         <button type="submit" class="btn btn-danger"><i

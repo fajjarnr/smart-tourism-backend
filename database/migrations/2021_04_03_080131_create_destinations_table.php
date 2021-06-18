@@ -22,8 +22,8 @@ class CreateDestinationsTable extends Migration
             $table->text('description');
             $table->string('address');
             $table->string('rate')->nullable();
-            $table->string('picturePath')->nullable();
-            $table->string('phoneNumber')->nullable();
+            $table->string('image')->nullable();
+            $table->string('phone')->nullable();
             $table->string('price')->nullable();
             $table->string('hours')->nullable();
             $table->string('facilities')->nullable();

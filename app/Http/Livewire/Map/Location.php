@@ -32,7 +32,7 @@ class Location extends Component
 
     private function getLocations()
     {
-        $locations = ModelsLocation::orderBy('created_at', 'desc')->get();
+        $locations = Destination::orderBy('created_at', 'desc')->get();
 
         $customLocation = [];
 
@@ -104,7 +104,7 @@ class Location extends Component
             $imageName
         );
 
-        ModelsLocation::create([
+        Destination::create([
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
             'name' => $this->name,
@@ -116,6 +116,7 @@ class Location extends Component
             'hours' => $this->hours,
             'facilities' => $this->facilities,
             'category_id' => $this->category_id,
+            'types' => $this->types,
             'image' => $imageName,
         ]);
 
@@ -135,7 +136,7 @@ class Location extends Component
             'category_id' => 'required',
         ]);
 
-        $location = ModelsLocation::findOrFail($this->locationId);
+        $location = Destination::findOrFail($this->locationId);
 
         if ($this->image) {
             // foreach ($this->picturePath as $picturePath) {
@@ -160,6 +161,7 @@ class Location extends Component
                 'rate' => $this->rate,
                 'hours' => $this->hours,
                 'facilities' => $this->facilities,
+                'types' => $this->types,
                 'category_id' => $this->category_id,
             ];
         } else {
@@ -172,6 +174,7 @@ class Location extends Component
                 'rate' => $this->rate,
                 'hours' => $this->hours,
                 'facilities' => $this->facilities,
+                'types' => $this->types,
                 'category_id' => $this->category_id,
             ];
         }
@@ -187,7 +190,7 @@ class Location extends Component
 
     public function deleteLocationById()
     {
-        $location = ModelsLocation::findOrFail($this->locationId);
+        $location = Destination::findOrFail($this->locationId);
         $location->delete();
 
         $this->clearForm();
@@ -217,7 +220,7 @@ class Location extends Component
 
     public function findLocationById($id)
     {
-        $location = ModelsLocation::findOrFail($id);
+        $location = Destination::findOrFail($id);
 
         $this->locationId = $id;
         $this->latitude = $location->latitude;
