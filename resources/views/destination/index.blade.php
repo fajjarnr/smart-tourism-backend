@@ -49,8 +49,7 @@ Data Destinasi
                                 <td>{{$item->facilities}}</td>
                                 <td>{{$item->category->name ?? '-'}}</td>
                                 <td>{{$item->types}}</td>
-                                <td><img src="{{asset('storage/images/destinations/', $item->image)}}" width="50px">
-                                </td>
+                                <td><img src="{{asset($item->image)}}" width="50px"></td>
                                 </td>
                                 <td class="text-center row align-items-center">
                                     {{-- <a href="{{route('destination.edit', $item->id)}}" class="btn btn-primary
