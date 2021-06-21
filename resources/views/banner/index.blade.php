@@ -34,7 +34,7 @@ Banner
                             <tr>
                                 <td>{{$no}}</td>
                                 <td><img src="{{asset($item->picturePath)}}" width="50px"></td>
-                                <td>{{$item->news->title}}</td>
+                                <td>{{$item->news->title ?? '-'}}</td>
                                 <td class="text-center row align-items-center">
                                     {{-- <a href="{{route('banner.edit', $item->id)}}" class="btn btn-primary mx-1"><i
                                         class="fa fa-edit"></i></a> --}}
