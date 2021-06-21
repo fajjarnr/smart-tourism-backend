@@ -43,17 +43,17 @@ Destinasi
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="name">Name</label>
+                            <label for="name">Nama</label>
                             <input wire:model="name" type="text" class="form-control" name="name" id="name"
                                 autocomplete="off">
                         </div>
                         <div class="form-group">
-                            <label for="description">Description</label>
+                            <label for="description">Deskripsi</label>
                             <textarea wire:model="description" name="description" class="form-control" id="description"
                                 cols="30" rows="5" autocomplete="off"></textarea>
                         </div>
                         <div class="form-group">
-                            <div class="col-form-label">Category</div>
+                            <div class="col-form-label">Kategori</div>
                             <select wire:model="category_id" name="category_id" class="js-example-basic-single col">
                                 <option value="">Select a Category</option>
                                 @foreach ($categories as $item)
@@ -62,32 +62,32 @@ Destinasi
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="address">Address</label>
+                            <label for="address">Alamat</label>
                             <input wire:model="address" type="text" class="form-control" name="address" id="address"
                                 autocomplete="off">
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
+                            <label for="phone">No Telepon</label>
                             <input wire:model="phone" type="text" class="form-control" name="phone" id="phone"
                                 autocomplete="off">
                         </div>
                         <div class="form-group">
-                            <label for="rate">Rate</label>
+                            <label for="rate">Rating</label>
                             <input wire:model="rate" type="number" class="form-control" name="rate" max="5" min="1"
                                 id="rate" autocomplete="off">
                         </div>
                         <div class="form-group">
-                            <label for="price">Price</label>
+                            <label for="price">Harga Tiket</label>
                             <input wire:model="price" type="text" class="form-control" name="price" id="price"
                                 autocomplete="off">
                         </div>
                         <div class="form-group">
-                            <label for="hours">Hours</label>
+                            <label for="hours">Jam Operasional</label>
                             <input wire:model="hours" type="text" class="form-control" name="hours" id="hours"
                                 autocomplete="off">
                         </div>
                         <div class="form-group">
-                            <label for="facilities">Facilities</label>
+                            <label for="facilities">Fasilitas</label>
                             <input wire:model="facilities" type="text" class="form-control" name="facilities"
                                 id="facilities" autocomplete="off">
                         </div>
