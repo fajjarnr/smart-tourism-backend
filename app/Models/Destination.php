@@ -59,8 +59,8 @@ class Destination extends Model
     //     return config('app.url') . Storage::url($this->attributes['picturePath']);
     // }
 
-    public function getImageFullLinkAttribute()
-    {
-        return config('app.url') . Storage::url($this->attributes['image']);
-    }
+    // public function getImageFullLinkAttribute()
+    // {
+    //     return config('app.url') . Storage::url($this->attributes['image']);
+    // }
 }
