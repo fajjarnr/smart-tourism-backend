@@ -32,13 +32,13 @@ Create News
                 <div class="form-group">
                     <label for="validationCustom01">Title</label>
                     <input value="{{ old('title') }}" name="title" class="form-control" id="validationCustom01"
-                        type="text" placeholder="title" required="">
+                        type="text" placeholder="title" required="" autocomplete="off">
                     <div class="valid-feedback">good!</div>
                 </div>
                 <div class="form-floating mb-3">
                     <label for="floatingTextarea2">Content</label>
                     <textarea value="{{ old('content') }}" name="content" class="form-control" placeholder="Content"
-                        id="floatingTextarea2" style="height: 100px"></textarea>
+                        id="floatingTextarea2" style="height: 100px" autocomplete="off"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="formFile" class="form-label">File</label>

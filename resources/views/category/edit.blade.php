@@ -32,7 +32,8 @@ Edit Category
                     <div class="col mb-3">
                         <label for="validationCustom01">Category Name</label>
                         <input value="{{ old('name') ?? $item->name }}" name="name" class="form-control"
-                            id="validationCustom01" type="text" placeholder="Category name" required="">
+                            id="validationCustom01" type="text" placeholder="Category name" required=""
+                            autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
                     <div class="col mb-3">

@@ -22,7 +22,7 @@ Transaksi Detail
                                             src="{{ asset('assets/images/other-images/logo-login.png') }}" alt=""></div>
                                     <div class="media-body m-l-20">
                                         <h4 class="media-heading">Smart Tourism Pemalang</h4>
-                                        <p>hello@smarttourismpemalang.com<br><span>1122-33-44-5566</span></p>
+                                        <p>hello@smarttourismpemalang.codes<br><span>1122-33-44-5566</span></p>
                                     </div>
                                 </div>
                                 <!-- End Info-->

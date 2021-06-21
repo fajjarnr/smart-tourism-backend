@@ -35,20 +35,20 @@ Edit User
                     <div class="col mb-3">
                         <label for="validationCustom01">Name</label>
                         <input value="{{ old('name') ?? $item->name }}" name="name" class="form-control"
-                            id="validationCustom01" type="text" placeholder="Name" required="">
+                            id="validationCustom01" type="text" placeholder="Name" required="" autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
                     <div class="col mb-3">
                         <label for="validationCustom01">Email</label>
                         <input value="{{ old('email') ?? $item->email }}" name="email" class="form-control"
-                            id="validationCustom01" type="email" placeholder="Email" required="">
+                            id="validationCustom01" type="email" placeholder="Email" required="" autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
                     <div class="col mb-3">
                         <label for="validationCustom01">Phone Number</label>
                         <input value="{{ old('phoneNumber') ?? $item->phoneNumber }}" name="phoneNumber"
                             class="form-control" id="validationCustom01" type="text" placeholder="Phone Number"
-                            required="">
+                            required="" autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
                     <div class="col mb-3">

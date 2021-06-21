@@ -31,25 +31,26 @@ Destinasi
                                 <div class="form-group">
                                     <label for="">latitude</label>
                                     <input wire:model="latitude" type="text" name="latitude" class="form-control"
-                                        id="latitude" {{$isEdit ? 'disabled' : null}} />
+                                        id="latitude" autocomplete="off" {{$isEdit ? 'disabled' : null}} />
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">longitude</label>
                                     <input wire:model="longitude" type="text" name="longitude" class="form-control"
-                                        id="longitude" {{$isEdit ? 'disabled' : null}} />
+                                        id="longitude" autocomplete="off" {{$isEdit ? 'disabled' : null}} />
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input wire:model="name" type="text" class="form-control" name="name" id="name">
+                            <input wire:model="name" type="text" class="form-control" name="name" id="name"
+                                autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="description">Description</label>
                             <textarea wire:model="description" name="description" class="form-control" id="description"
-                                cols="30" rows="5"></textarea>
+                                cols="30" rows="5" autocomplete="off"></textarea>
                         </div>
                         <div class="form-group">
                             <div class="col-form-label">Category</div>
@@ -62,35 +63,40 @@ Destinasi
                         </div>
                         <div class="form-group">
                             <label for="address">Address</label>
-                            <input wire:model="address" type="text" class="form-control" name="address" id="address">
+                            <input wire:model="address" type="text" class="form-control" name="address" id="address"
+                                autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input wire:model="phone" type="text" class="form-control" name="phone" id="phone">
+                            <input wire:model="phone" type="text" class="form-control" name="phone" id="phone"
+                                autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="rate">Rate</label>
                             <input wire:model="rate" type="number" class="form-control" name="rate" max="5" min="1"
-                                id="rate">
+                                id="rate" autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="price">Price</label>
-                            <input wire:model="price" type="text" class="form-control" name="price" id="price">
+                            <input wire:model="price" type="text" class="form-control" name="price" id="price"
+                                autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="hours">Hours</label>
-                            <input wire:model="hours" type="text" class="form-control" name="hours" id="hours">
+                            <input wire:model="hours" type="text" class="form-control" name="hours" id="hours"
+                                autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="facilities">Facilities</label>
                             <input wire:model="facilities" type="text" class="form-control" name="facilities"
-                                id="facilities">
+                                id="facilities" autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="types">Tipe</label>
                             <p class="text-gray-600 text-xs italic">Dipisahkan dengan koma, contoh:
                                 recommended,popular,new</p>
-                            <input wire:model="types" type="text" class="form-control" name="types" id="types">
+                            <input wire:model="types" type="text" class="form-control" name="types" id="types"
+                                autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label class="text-white">Image</label>
