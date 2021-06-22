@@ -84,7 +84,7 @@ class UserController extends Controller
                 'address' => $request->address,
                 'city' => $request->city,
                 'roles' => $request->roles,
-                'photoPath' => $request->photoPath,
+                'profile_photo_path' => $request->profile_photo_path,
                 'password' => Hash::make($request->password),
             ]);
 
@@ -134,7 +134,7 @@ class UserController extends Controller
 
         if ($request->file('file')) {
 
-            $file = $request->file->store('assets/user', 'public');
+            $file = $request->file->store('images/user', 'public');
 
             //store your file into database
             $user = Auth::user();
