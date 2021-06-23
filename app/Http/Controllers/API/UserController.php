@@ -83,8 +83,8 @@ class UserController extends Controller
                 'phone' => $request->phone,
                 'address' => $request->address,
                 'city' => $request->city,
-                'roles' => $request->roles,
-                'profile_photo_path' => $request->profile_photo_path,
+                // 'roles' => $request->roles,
+                // 'profile_photo_path' => $request->profile_photo_path,
                 'password' => Hash::make($request->password),
             ]);
 
