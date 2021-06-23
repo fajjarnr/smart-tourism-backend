@@ -15,6 +15,22 @@ class UserController extends Controller
 {
     use PasswordValidationRules;
 
+    public function all()
+    {
+        try {
+            $user = User::all();
+            return ResponseFormatter::success(
+                $user,
+                'Data user berhasil diambil'
+            );
+        } catch (Exception $error) {
+            return ResponseFormatter::error([
+                'message' => 'Something went wrong',
+                'error' => $error,
+            ], 'Data gagal di ambil', 404);
+        }
+    }
+
     /**
      * @param Request $request
      * @return mixed
