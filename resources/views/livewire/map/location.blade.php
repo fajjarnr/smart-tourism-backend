@@ -27,70 +27,86 @@ Destinasi
                     <form @if($isEdit) wire:submit.prevent="update" @else wire:submit.prevent="store" @endif
                         enctype="multipart/form-data">
                         <div class="row">
+
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">latitude</label>
-                                    <input wire:model="latitude" type="text" name="latitude" class="form-control"
+                                    <input wire:model="latitude" type="number" name="latitude" class="form-control"
                                         id="latitude" autocomplete="off" {{$isEdit ? 'disabled' : null}} />
                                 </div>
                             </div>
+
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">longitude</label>
-                                    <input wire:model="longitude" type="text" name="longitude" class="form-control"
+                                    <input wire:model="longitude" type="number" name="longitude" class="form-control"
                                         id="longitude" autocomplete="off" {{$isEdit ? 'disabled' : null}} />
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <label for="name">Nama</label>
                             <input wire:model="name" type="text" class="form-control" name="name" id="name"
                                 autocomplete="off">
                         </div>
+
                         <div class="form-group">
                             <label for="description">Deskripsi</label>
                             <textarea wire:model="description" name="description" class="form-control" id="description"
                                 cols="30" rows="5" autocomplete="off"></textarea>
                         </div>
+
                         <div class="form-group">
                             <div class="col-form-label">Kategori</div>
+
                             <select wire:model="category_id" name="category_id" class="js-example-basic-single col">
+
                                 <option value="">Select a Category</option>
+
                                 @foreach ($categories as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach
+
                             </select>
                         </div>
+
                         <div class="form-group">
                             <label for="address">Alamat</label>
                             <input wire:model="address" type="text" class="form-control" name="address" id="address"
                                 autocomplete="off">
                         </div>
+
                         <div class="form-group">
                             <label for="phone">No Telepon</label>
-                            <input wire:model="phone" type="text" class="form-control" name="phone" id="phone"
+                            <input wire:model="phone" type="number" class="form-control" name="phone" id="phone"
                                 autocomplete="off">
                         </div>
+
                         <div class="form-group">
                             <label for="rate">Rating</label>
                             <input wire:model="rate" type="number" class="form-control" name="rate" max="5" min="1"
                                 id="rate" autocomplete="off">
                         </div>
+
                         <div class="form-group">
                             <label for="price">Harga Tiket</label>
-                            <input wire:model="price" type="text" class="form-control" name="price" id="price"
+                            <input wire:model="price" type="number" class="form-control" name="price" id="price"
                                 autocomplete="off">
                         </div>
+
                         <div class="form-group">
                             <label for="hours">Jam Operasional</label>
                             <input wire:model="hours" type="text" class="form-control" name="hours" id="hours"
                                 autocomplete="off">
                         </div>
+
                         <div class="form-group">
                             <label for="facilities">Fasilitas</label>
                             <input wire:model="facilities" type="text" class="form-control" name="facilities"
                                 id="facilities" autocomplete="off">
                         </div>
+
                         <div class="form-group">
                             <label for="types">Tipe</label>
                             <p class="text-gray-600 text-xs italic">Dipisahkan dengan koma, contoh:
@@ -98,31 +114,41 @@ Destinasi
                             <input wire:model="types" type="text" class="form-control" name="types" id="types"
                                 autocomplete="off">
                         </div>
+
                         <div class="form-group">
                             <label class="text-white">Image</label>
+
                             <div class="custom-file">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
                                 <input wire:model="image" type="file" class="custom-file-input" id="customFile">
                             </div>
+
                             <label class="text-white">Picture of Location</label>
                             <br>
+
                             @error('image') <small class="text-danger">{{$message}}</small>@enderror
+
                             @if($image)
                             <img src="{{$image->temporaryUrl()}}" class="img-fluid" alt="Preview Image">
                             @endif
+
                             @if($imageUrl && !$image)
                             <img src="{{asset('/storage/images/destinations'.$imageUrl)}}" class="img-fluid"
                                 alt="Preview Image">
                             @endif
+
                         </div>
+
                         <div class="form-group">
                             <button type="submit"
                                 class="btn active btn-{{$isEdit ? 'success text-white' : 'primary'}} btn-block">{{$isEdit ? 'Update Location' : 'Submit Location'}}</button>
+
                             @if($isEdit)
                             <button wire:click="deleteLocationById" type="button"
                                 class="btn btn-danger active btn-block">Delete Location</button>
                             @endif
                         </div>
+
                     </form>
                 </div>
             </div>
