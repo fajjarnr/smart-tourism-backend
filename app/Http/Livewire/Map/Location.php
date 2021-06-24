@@ -94,10 +94,6 @@ class Location extends Component
             'image' => 'required',
         ]);
 
-        // foreach ($this->picturePath as $picturePath) {
-        //     $picturePath->store('images/destinations', 'public');
-        // };
-
         $imageName = md5($this->image . microtime()) . '.' . $this->image->extension();
 
         Storage::putFileAs(
@@ -141,10 +137,6 @@ class Location extends Component
         $location = Destination::findOrFail($this->locationId);
 
         if ($this->image) {
-            // foreach ($this->picturePath as $picturePath) {
-            //     $picturePath->store('images/destinations', 'public');
-            // };
-
             $imageName = md5($this->image . microtime()) . '.' . $this->image->extension();
 
             Storage::putFileAs(
@@ -156,7 +148,7 @@ class Location extends Component
             $updateData = [
                 'name' => $this->name,
                 'description' => $this->description,
-                'picturePath' => $this->image,
+                'image' => $this->image,
                 'address' => $this->address,
                 'price' => $this->price,
                 'phone' => $this->phone,

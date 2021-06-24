@@ -49,18 +49,13 @@ class Destination extends Model
 
     // public function toArray()
     // {
-    //     $toArray = parent::toArray();
-    //     $toArray['picturePath'] = $this->picturePath;
-    //     return $toArray;
+    //     return [
+    //         'image'  => asset('storage/images/destinations/' . $this->image)
+    //     ];
     // }
 
-    // public function getPicturePathAttribute()
+    // public function getImagePathAttribute()
     // {
-    //     return config('app.url') . Storage::url($this->attributes['picturePath']);
-    // }
-
-    // public function getImageFullLinkAttribute()
-    // {
-    //     return config('app.url') . Storage::url($this->attributes['image']);
+    //     return config('app.url') . Storage::url('images/destinations', $this->image);
     // }
 }

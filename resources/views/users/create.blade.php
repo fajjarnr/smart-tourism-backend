@@ -30,31 +30,49 @@ Create User
                 <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data"
                     class="needs-validation">
                     @csrf
+
                     <div class="col mb-3">
-                        <label for="validationCustom01">Name</label>
+                        <label for="validationCustom01">Nama</label>
                         <input value="{{ old('name') }}" name="name" class="form-control" id="validationCustom01"
-                            type="text" placeholder="Name" required="" autocomplete="off">
+                            type="text" placeholder="Nama" required="" autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
+
                     <div class="col mb-3">
                         <label for="validationCustom01">Email</label>
                         <input value="{{ old('email') }}" name="email" class="form-control" id="validationCustom01"
                             type="email" placeholder="Email" required="" autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
+
                     <div class="col mb-3">
-                        <label for="validationCustom01">Phone Number</label>
-                        <input value="{{ old('phoneNumber') }}" name="phoneNumber" class="form-control"
-                            id="validationCustom01" type="text" placeholder="Phone Number" required=""
-                            autocomplete="off">
+                        <label for="validationCustom01">No Telepon</label>
+                        <input value="{{ old('phone') }}" name="phone" class="form-control" id="validationCustom01"
+                            type="text" placeholder="No Telepon" required="" autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
+
+                    <div class="col mb-3">
+                        <label for="validationCustom01">Alamat</label>
+                        <input value="{{ old('address') }}" name="address" class="form-control" id="validationCustom01"
+                            type="text" placeholder="Alamat" required="" autocomplete="off">
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+
+                    <div class="col mb-3">
+                        <label for="validationCustom01">Kota</label>
+                        <input value="{{ old('city') }}" name="city" class="form-control" id="validationCustom01"
+                            type="text" placeholder="Kota" required="" autocomplete="off">
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+
                     <div class="col mb-3">
                         <label for="validationCustom01">Password</label>
                         <input value="{{ old('password') }}" name="password" class="form-control"
                             id="validationCustom01" type="password" placeholder="Password" required="">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
+
                     <div class="col mb-3">
                         <label for="validationCustom01">Password Confirmation</label>
                         <input value="{{ old('password_confirmation') }}" name="password_confirmation"
@@ -62,6 +80,7 @@ Create User
                             placeholder="Password Confirmation" required="">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
+
                     <div class="col mb-3">
                         <div class="col-form-label">Roles</div>
                         <select name="roles" class="js-example-basic-single col">
@@ -69,12 +88,14 @@ Create User
                             <option value="admin">Admin</option>
                         </select>
                     </div>
+
                     <div class="col mb-5">
                         <label for="validationCustom02">Photo Profile</label>
                         <input name="profile_photo_path" class="form-control" id="validationCustom02" type="file"
                             placeholder="Photo Profile" required="">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
+
                     <button type="submit" class="btn btn-success btn-block">Submit</button>
                 </form>
             </div>

@@ -20,7 +20,8 @@
                 </li>
                 <li class="profile-nav onhover-dropdown p-0 mr-0">
                     <div class="media profile-media">
-                        <img class="b-r-10" src="{{asset('storage/images/user/'.Auth::user()->profile_photo_path)}}" />
+                        <img class="b-r-10" src="{{asset('storage/'.Auth::user()->profile_photo_path)}}" width="35"
+                            height="35" />
                         <div class="media-body">
                             <span>{{Auth::user()->name}}</span>
                             <p class="mb-0 font-roboto">

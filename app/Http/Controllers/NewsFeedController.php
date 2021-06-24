@@ -92,15 +92,33 @@ class NewsFeedController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, NewsFeed $newsFeed)
+    public function update(Request $request, $id)
     {
-        $data = $request->all();
+        $request->validate([
+            'title' => 'required|max:255|string',
+            'content' => 'required|max:255|string',
+        ]);
 
-        if ($request->file('picturePath')) {
-            $data['picturePath'] = $request->file('picturePath')->store('images/news', 'public');
+        $news = NewsFeed::findorfail($id);
+
+        if ($request->has('picturePath')) {
+            $image = $request->file('picturePath')->store('images/news', 'public');
+
+            $data_update = [
+                'title'     => $request->title,
+                'content'   => $request->content,
+                'picturePath' => $image,
+                'user_id' => Auth::user()->id,
+            ];
+        } else {
+            $data_update = [
+                'title'     => $request->title,
+                'content'   => $request->content,
+                'user_id' => Auth::user()->id,
+            ];
         }
 
-        $newsFeed->update($data);
+        $news->update($data_update);
 
         return redirect()->route('news.index')->with('success', 'Berita berhasil di edit');
     }

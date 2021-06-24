@@ -9,7 +9,7 @@ Edit User
 @endpush
 
 @section('content')
-<div class="col-6">
+<div class="col-12">
     <div class="justify-content-center">
         <div class="card">
             <div class="card-body">
@@ -32,37 +32,51 @@ Edit User
                     class="needs-validation">
                     @csrf
                     @method('PUT')
+
                     <div class="col mb-3">
-                        <label for="validationCustom01">Name</label>
+                        <label for="validationCustom01">Nama</label>
                         <input value="{{ old('name') ?? $item->name }}" name="name" class="form-control"
-                            id="validationCustom01" type="text" placeholder="Name" required="" autocomplete="off">
+                            id="validationCustom01" type="text" placeholder="Nama" required="" autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
+
                     <div class="col mb-3">
                         <label for="validationCustom01">Email</label>
                         <input value="{{ old('email') ?? $item->email }}" name="email" class="form-control"
                             id="validationCustom01" type="email" placeholder="Email" required="" autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
+
                     <div class="col mb-3">
                         <label for="validationCustom01">Phone Number</label>
-                        <input value="{{ old('phoneNumber') ?? $item->phoneNumber }}" name="phoneNumber"
-                            class="form-control" id="validationCustom01" type="text" placeholder="Phone Number"
-                            required="" autocomplete="off">
+                        <input value="{{ old('phone') ?? $item->phone }}" name="phone" class="form-control"
+                            id="validationCustom01" type="text" placeholder="Phone Number" required=""
+                            autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
+
+
                     <div class="col mb-3">
-                        <label for="validationCustom02">Photo Profile</label>
-                        <input name="profile_photo_path" class="custom-file-input" id="validationCustom02" type="file"
-                            placeholder="Photo Profile">
+                        <label for="validationCustom01">Alamat</label>
+                        <input value="{{ old('address') ?? $item->address }}" name="address" class="form-control"
+                            id="validationCustom01" type="text" placeholder="Alamat" required="" autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
+
+                    <div class="col mb-3">
+                        <label for="validationCustom01">Kota</label>
+                        <input value="{{ old('city') ?? $item->city }}" name="city" class="form-control"
+                            id="validationCustom01" type="text" placeholder="Kota" required="" autocomplete="off">
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+
                     <div class="col mb-3">
                         <label for="validationCustom01">Password</label>
                         <input value="{{ old('password') }}" name="password" class="form-control"
                             id="validationCustom01" type="password" placeholder="Password">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
+
                     <div class="col mb-3">
                         <label for="validationCustom01">Password Confirmation</label>
                         <input value="{{ old('password_confirmation') }}" name="password_confirmation"
@@ -70,7 +84,8 @@ Edit User
                             placeholder="Password Confirmation">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
-                    <div class="mb-3">
+
+                    <div class="col mb-3">
                         <div class="col-form-label">Roles</div>
                         <select name="roles" class="js-example-basic-single col">
                             <option value="{{ $item->roles }}">{{ $item->roles }}</option>
@@ -78,6 +93,14 @@ Edit User
                             <option value="admin">Admin</option>
                         </select>
                     </div>
+
+                    <div class="col mb-5">
+                        <label for="validationCustom02">Photo Profile</label>
+                        <input name="profile_photo_path" class="form-control" id="validationCustom02" type="file"
+                            placeholder="Photo Profile" required="">
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+
                     <button type="submit" class="btn btn-success btn-block">Submit</button>
                 </form>
 
