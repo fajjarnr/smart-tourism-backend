@@ -31,7 +31,7 @@ Destinasi
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">latitude</label>
-                                    <input wire:model="latitude" type="number" name="latitude" class="form-control"
+                                    <input wire:model="latitude" type="text" name="latitude" class="form-control"
                                         id="latitude" autocomplete="off" {{$isEdit ? 'disabled' : null}} />
                                 </div>
                             </div>
@@ -39,7 +39,7 @@ Destinasi
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">longitude</label>
-                                    <input wire:model="longitude" type="number" name="longitude" class="form-control"
+                                    <input wire:model="longitude" type="text" name="longitude" class="form-control"
                                         id="longitude" autocomplete="off" {{$isEdit ? 'disabled' : null}} />
                                 </div>
                             </div>
