@@ -5,6 +5,7 @@ use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\DestinationController;
 use App\Http\Controllers\API\LocationController;
+use App\Http\Controllers\API\MidtransController;
 use App\Http\Controllers\API\NewsFeedController;
 use App\Http\Controllers\API\TransactionController;
 use Illuminate\Http\Request;
