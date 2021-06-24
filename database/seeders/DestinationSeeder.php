@@ -20,8 +20,8 @@ class DestinationSeeder extends Seeder
         DB::table('destinations')->insert([
             [
                 'category_id' => '1',
-                'latitude' => '-6.8902627925291',
-                'longitude' => '109.38135790220787',
+                'latitude' => -6.8902627925291,
+                'longitude' => 109.38135790220787,
                 'name' => 'Alun-Alun Pemalang',
                 'description' => 'Alun-Alun Pemalang',
                 'address' => 'Pemalang',
