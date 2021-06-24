@@ -77,13 +77,13 @@ Dashboard
                         </div>
                     </div>
                     <div class="greeting-user text-center">
-                        <div class="profile-vector"><img class="img-fluid" src="../assets/images/dashboard/welcome.png"
-                                alt=""></div>
+                        <div class="profile-vector"><img class="b-r-10"
+                                src="{{asset('storage/'.Auth::user()->profile_photo_path)}}" width="90" height="90" />
+                        </div>
                         <h4 class="f-w-600"><span id="greeting">Good Morning</span> <span class="right-circle"><i
                                     class="fa fa-check-circle f-14 middle"></i></span></h4>
                         <p><span> Hallo selamat datang kembali <br>{{Auth::user()->name}} </span>
                         </p>
-                        <div class="whatsnew-btn"><a class="btn btn-primary">Whats New !</a></div>
                         <div class="left-icon"><i class="fa fa-bell"> </i></div>
                     </div>
                 </div>
