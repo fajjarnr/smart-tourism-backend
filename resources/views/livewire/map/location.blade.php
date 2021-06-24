@@ -170,7 +170,7 @@ Destinasi
                 el.style.width = icon[0] + 'px';
                 el.style.height = icon[1] + 'px';
 
-                const pictureLocation = '{{asset("/storage")}}' + '/' + image
+                const pictureLocation = '{{asset("/storage/images/destinations")}}' + '/' + image
 
                 const content = `
                 <div style="overflow-y: auto; max-height:400px;width:100%;">

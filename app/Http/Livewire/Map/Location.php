@@ -97,7 +97,7 @@ class Location extends Component
         $imageName = md5($this->image . microtime()) . '.' . $this->image->extension();
 
         Storage::putFileAs(
-            'public',
+            'public/images/destinations',
             $this->image,
             $imageName
         );
@@ -140,7 +140,7 @@ class Location extends Component
             $imageName = md5($this->image . microtime()) . '.' . $this->image->extension();
 
             Storage::putFileAs(
-                'public',
+                'public/images/destinations',
                 $this->image,
                 $imageName
             );
