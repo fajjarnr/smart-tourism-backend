@@ -37,6 +37,11 @@ class Destination extends Model
         return $this->belongsTo(Category::class);
     }
 
+    // public function galery()
+    // {
+    //     return $this->hasMany(Galery::class, 'id', 'destination_id');
+    // }
+
     public function banner()
     {
         return $this->belongsTo(Banner::class);

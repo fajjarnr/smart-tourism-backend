@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Map;
 use App\Http\Requests\LocationRequest;
 use App\Models\Category;
 use App\Models\Destination;
+use App\Models\Galery;
 use App\Models\Location as ModelsLocation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,6 +26,7 @@ class Location extends Component
     public $picturePathUrl;
     public $imageUrl;
     public $isEdit = false;
+    public $galeries = [];
 
     protected $rules = [
         'category_id' => 'required',
@@ -117,6 +119,14 @@ class Location extends Component
             'types' => $this->types,
             'image' => $imageName,
         ]);
+
+        // foreach ($this->galeries as $galery) {
+        //     $galery->store('images/galeries', 'public');
+        // }
+
+        // Galery::create([
+        //     'image_url' => $galery,
+        // ]);
 
         session()->flash('info', 'Location Created Successfully');
         $this->clearForm();
