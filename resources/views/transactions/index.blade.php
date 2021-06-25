@@ -38,7 +38,7 @@ Transaksi
                                 <td>{{ $item->quantity }}</td>
                                 <td>{{ number_format($item->total) }}</td>
                                 <td>
-                                    @if ($item->status == 'ACCEPTED')
+                                    @if ($item->status == 'SUCCESS')
                                     <span class="badge bg-success">{{ $item->status }}</span>
                                     @else
                                     <span class="badge bg-danger">{{ $item->status }}</span>

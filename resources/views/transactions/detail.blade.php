@@ -117,8 +117,8 @@ Transaksi Detail
                 <div class="col-sm-12 text-center mt-3">
                     <button class="btn btn btn-primary mr-2" type="button" onclick="myFunction()">Print</button>
                     <button class="btn btn-success mr-2" type="button">
-                        <a href="{{ route('transactions.changeStatus', ['id' => $item->id, 'status' => 'ACCEPTED']) }}"
-                            class="text-white">ACCEPTED</a>
+                        <a href="{{ route('transactions.changeStatus', ['id' => $item->id, 'status' => 'SUCCESS']) }}"
+                            class="text-white">SUCCESS</a>
                     </button>
                     <button class="btn btn-secondary" type="button">
                         <a href="{{ route('transactions.changeStatus', ['id' => $item->id, 'status' => 'CANCELLED']) }}"
