@@ -81,7 +81,7 @@ Transaksi Detail
                                     <tr>
                                         <td>
                                             <img class="media-object img-60"
-                                                src="{{ asset('/storage/images/destinations'.$item->destinations->image) }}">
+                                                src="{{ asset('storage/images/destinations/'.$item->destinations->image) }}">
                                         </td>
                                         <td>
                                             <label>{{ $item->destinations->name }}</label>
