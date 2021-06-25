@@ -47,15 +47,27 @@ class Destination extends Model
         return $this->belongsTo(Transaction::class);
     }
 
-    // public function toArray()
-    // {
-    //     return [
-    //         'image'  => asset('storage/images/destinations/' . $this->image)
-    //     ];
-    // }
-
-    // public function getImagePathAttribute()
-    // {
-    //     return config('app.url') . Storage::url('images/destinations', $this->image);
-    // }
+    public function toArray()
+    {
+        return [
+            'id' => $this->id,
+            'category_id' => $this->category_id,
+            'latitude' => $this->latitude,
+            'longitude' => $this->longitude,
+            'name' => $this->name,
+            'description' => $this->description,
+            'address' => $this->address,
+            'rate' => $this->rate,
+            'phone' => $this->phone,
+            'price' => $this->price,
+            'hours' => $this->hours,
+            'facilities' => $this->facilities,
+            'types' => $this->types,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'deleted_at' => $this->deleted_at,
+            'image'  => asset('storage/images/destinations/' . $this->image),
+            'category' => $this->category,
+        ];
+    }
 }
