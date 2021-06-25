@@ -91,7 +91,12 @@ class TransactionController extends Controller
                 'first_name'    => $transaction->user->name,
                 'email'         => $transaction->user->email
             ],
-            'enabled_payments' => ['gopay', 'bank_transfer', 'shopeepay', 'indomaret', 'bca_va'],
+            'enabled_payments' => [
+                'gopay', 'bank_transfer', "shopeepay", "credit_card", "cimb_clicks",
+                "bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va",
+                "bca_va", "bni_va", "bri_va", "other_va", "indomaret",
+                "danamon_online", "akulaku"
+            ],
             'vtweb' => []
         ];
 
