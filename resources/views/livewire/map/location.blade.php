@@ -48,13 +48,13 @@ Destinasi
                         <div class="form-group">
                             <label for="name">Nama</label>
                             <input wire:model="name" type="text" class="form-control" name="name" id="name"
-                                autocomplete="off">
+                                autocomplete="off" required>
                         </div>
 
                         <div class="form-group">
                             <label for="description">Deskripsi</label>
                             <textarea wire:model="description" name="description" class="form-control" id="description"
-                                cols="30" rows="5" autocomplete="off"></textarea>
+                                cols="30" rows="5" autocomplete="off" required></textarea>
                         </div>
 
                         <div class="form-group">
@@ -120,7 +120,8 @@ Destinasi
 
                             <div class="custom-file">
                                 <label class="custom-file-label" for="customFile">Choose file</label>
-                                <input wire:model="image" type="file" class="custom-file-input" id="customFile">
+                                <input wire:model="image" type="file" class="custom-file-input" id="customFile"
+                                    required>
                             </div>
 
                             <label class="text-white">Picture of Location</label>
@@ -136,16 +137,15 @@ Destinasi
                             <img src="{{asset('/storage/images/destinations'.$imageUrl)}}" class="img-fluid"
                                 alt="Preview Image">
                             @endif
-
                         </div>
 
                         <div class="form-group">
                             <button type="submit"
-                                class="btn active btn-{{$isEdit ? 'success text-white' : 'primary'}} btn-block">{{$isEdit ? 'Update Location' : 'Submit Location'}}</button>
+                                class="btn active btn-{{$isEdit ? 'success text-white' : 'primary'}} btn-block">{{$isEdit ? 'Update Data' : 'Submit Data'}}</button>
 
                             @if($isEdit)
                             <button wire:click="deleteLocationById" type="button"
-                                class="btn btn-danger active btn-block">Delete Location</button>
+                                class="btn btn-danger active btn-block">Delete Data</button>
                             @endif
                         </div>
 
@@ -203,7 +203,7 @@ Destinasi
                     <table class="table table-sm mt-2">
                          <tbody>
                             <tr>
-                                <td>Title</td>
+                                <td>Nama</td>
                                 <td>${name}</td>
                             </tr>
                             <tr>
