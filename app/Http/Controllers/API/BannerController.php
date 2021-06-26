@@ -12,7 +12,7 @@ class BannerController extends Controller
     public function all()
     {
         try {
-            $banner = Banner::with(['news'])->get();
+            $banner = Banner::with(['news'])->orderBy('id', 'DESC')->get();
             return ResponseFormatter::success(
                 $banner,
                 'Data Banner berhasil diambil'

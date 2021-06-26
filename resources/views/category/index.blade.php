@@ -23,7 +23,6 @@ Category
                             <tr>
                                 <th>No</th>
                                 <th>Name</th>
-                                <th>image</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -34,7 +33,6 @@ Category
                             <tr>
                                 <td>{{$no}}</td>
                                 <td>{{$item->name}}</td>
-                                <td><img src="{{asset($item->picturePath)}}" width="30px" height="30px">
                                 </td>
                                 <td class="text-center row"><a href="{{route('category.edit', $item->id)}}"
                                         class="btn btn-primary mx-1">edit</a>

@@ -39,8 +39,6 @@ class CategoryController extends Controller
     {
         $data = $request->all();
 
-        $data['picturePath'] = $request->file('picturePath')->store('images/category', 'public');
-
         Category::create($data);
 
         return redirect()->route('category.index')->with('success', 'category berhasil dibuat');
@@ -80,10 +78,6 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $data = $request->all();
-
-        if ($request->file('picturePath')) {
-            $data['picturePath'] = $request->file('picturePath')->store('images/category', 'public');
-        }
 
         $category->update($data);
 

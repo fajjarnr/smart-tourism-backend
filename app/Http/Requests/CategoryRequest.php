@@ -25,7 +25,6 @@ class CategoryRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'picturePath' => ['required', 'max:2048', 'mimes:png,jpg']
         ];
     }
 }

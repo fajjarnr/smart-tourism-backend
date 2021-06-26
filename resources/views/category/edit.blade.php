@@ -36,10 +36,6 @@ Edit Category
                             autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
-                    <div class="col mb-3">
-                        <label for="formFile" class="form-label">Icon</label>
-                        <input name="image" class="form-control" type="file" id="formFile">
-                    </div>
                     <button type="submit" class="btn btn-success btn-block">Submit</button>
                 </form>
 

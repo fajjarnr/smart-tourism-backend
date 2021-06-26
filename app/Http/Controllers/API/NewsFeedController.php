@@ -11,7 +11,7 @@ class NewsFeedController extends Controller
 {
     public function all()
     {
-        $newsFeed = NewsFeed::all();
+        $newsFeed = NewsFeed::orderBy('id', 'DESC')->get();
 
         return ResponseFormatter::success(
             $newsFeed,

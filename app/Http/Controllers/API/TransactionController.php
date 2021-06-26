@@ -46,7 +46,7 @@ class TransactionController extends Controller
         }
 
         return ResponseFormatter::success(
-            $transaction->paginate($limit),
+            $transaction->orderBy('id', 'DESC')->get(),
             'Data list transaksi berhasil diambil'
         );
     }

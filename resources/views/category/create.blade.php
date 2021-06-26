@@ -32,10 +32,6 @@ Create Category
                             type="text" placeholder="Category name" required="" autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
-                    <div class="col mb-3">
-                        <label for="formFile" class="form-label">File</label>
-                        <input name="picturePath" class="form-control" type="file" id="formFile">
-                    </div>
                     <button class="btn btn-success btn-block" type="submit">Submit</button>
                 </form>
             </div>
