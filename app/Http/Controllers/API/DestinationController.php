@@ -12,7 +12,7 @@ class DestinationController extends Controller
     public function all(Request $request)
     {
         try {
-            $destination = Destination::all();
+            $destination = Destination::paginate(10);
             return ResponseFormatter::success(
                 $destination,
                 'Data destinasi berhasil diambil'
