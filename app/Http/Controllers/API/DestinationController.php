@@ -76,7 +76,7 @@ class DestinationController extends Controller
                 $destination->where('rate', '<=', $rate_to);
 
             return ResponseFormatter::success(
-                $destination->orderBy('id', 'DESC')->get(),
+                $destination->orderBy('id', 'DESC')->paginate($limit)->get(),
                 'Data destinasi berhasil diambil'
             );
         } catch (Exception $error) {
@@ -90,7 +90,7 @@ class DestinationController extends Controller
     public function fetch($category_id)
     {
         try {
-            $destination = Destination::with(['category'])->where('category_id', $category_id)->get();
+            $destination = Destination::with(['category'])->where('category_id', $category_id)->paginate(10);
             return ResponseFormatter::success(
                 $destination,
                 'Data list destinasi sesuai category berhasil diambil'
