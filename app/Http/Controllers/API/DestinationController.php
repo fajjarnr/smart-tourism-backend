@@ -76,7 +76,7 @@ class DestinationController extends Controller
                 $destination->where('rate', '<=', $rate_to);
 
             return ResponseFormatter::success(
-                $destination->orderBy('id', 'DESC')->paginate($limit)->get(),
+                $destination->paginate($limit),
                 'Data destinasi berhasil diambil'
             );
         } catch (Exception $error) {
