@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Kebijakan Pengguna - Smart Tourism Pemalang</title>
+    <title>Syarat dan Ketentuan - Smart Tourism Pemalang</title>
     <link rel="shortcut icon"
         href="http://api.elements.buildwithangga.com/storage/files/2/assets/Header/Header2/Header-2-2.png"
         type="image/x-icon">

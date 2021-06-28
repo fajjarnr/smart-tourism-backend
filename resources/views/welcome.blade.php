@@ -152,13 +152,13 @@
                     </div>
                     <nav
                         class="mx-auto d-flex flex-wrap align-items-center justify-content-center footer-responsive-space-footer-2-1">
-                        <p class="footer-link-footer-2-1" style="margin: 0">Copyright © 2021 Smart Tourism Pemalang</p>
-
+                        <p class="footer-link-footer-2-1 text-center">Copyright © 2021 Smart Tourism Pemalang</p>
                     </nav>
                     <nav class="d-flex flex-lg-row flex-column align-items-center justify-content-center">
                         <p>
-                            Developed By <a href="https://www.instagram.com/jaaaayyyyyyyy/" class="text-muted"
-                                style="text-decoration: none;" target="_blank" rel="noopener noreferrer">Fajar Nur
+                            Developed By <a href="https://www.instagram.com/jaaaayyyyyyyy/"
+                                class="text-muted text-center" style="text-decoration: none;" target="_blank"
+                                rel="noopener noreferrer">Fajar Nur
                                 Rohman</a> with <i class="fa fa-heart"></i>
                         </p>
                     </nav>
