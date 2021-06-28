@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\MidtransController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\NewsFeedController;
@@ -32,6 +33,7 @@ Route::prefix('dashboard')->middleware(['auth:sanctum', 'admin'])->group(functio
     Route::resource('/destination', DestinationController::class);
     Route::resource('/banner', BannerController::class);
     Route::resource('/news', NewsFeedController::class);
+    Route::resource('/contact', ContactController::class);
 
     Route::get('transactions/{id}/status/{status}', [TransactionController::class, 'changeStatus'])
         ->name('transactions.changeStatus');

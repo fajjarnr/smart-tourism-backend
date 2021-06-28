@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\BannerController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\ContactController;
 use App\Http\Controllers\API\DestinationController;
 use App\Http\Controllers\API\LocationController;
 use App\Http\Controllers\API\MidtransController;
@@ -19,6 +20,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('transaction/{id}', [TransactionController::class, 'update']);
     Route::post('checkout', [TransactionController::class, 'checkout']);
     Route::post('logout', [UserController::class, 'logout']);
+
+    Route::post('contact', [ContactController::class, 'post']);
 });
 
 // Route::get('all-user', [UserController::class, 'all']);

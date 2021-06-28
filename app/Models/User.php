@@ -59,6 +59,11 @@ class User extends Authenticatable
         'updated_at' => 'datetime:Y-m-d H:m:s',
     ];
 
+    public function news()
+    {
+        return $this->hasMany(NewsFeed::class, 'id', 'user_id');
+    }
+
     // public function toArray()
     // {
     //     $toArray = parent::toArray();

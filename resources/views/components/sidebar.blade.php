@@ -55,6 +55,10 @@
                             data-feather="dollar-sign"></i><span>Transaksi</span></a>
                 </li>
                 <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title" href="{{ route('contact.index') }}"><i
+                            data-feather="message-square"></i><span>Pesan</span></a>
+                </li>
+                <li class="sidebar-list">
                     <a class="sidebar-link sidebar-title" href="{{route('users.index')}}"><i
                             data-feather="user"></i><span>Users</span></a>
                 </li>
