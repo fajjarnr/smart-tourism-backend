@@ -13,7 +13,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('/privacy-policy', function () {
+    return view('privacy_policy');
+})->name('privacy_policy');
+
+Route::get('/term-and-conditions', function () {
+    return view('term_and_conditions');
+})->name('term_and_conditions');
+
 
 Route::prefix('dashboard')->middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');

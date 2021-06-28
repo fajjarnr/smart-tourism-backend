@@ -91,7 +91,7 @@
                     alt="">
                 <div class="text-center w-100">
                     <h1 class="title-text-empty-3-5">Checkout Successful</h1>
-                    <p class="d-none d-lg-block caption-text-empty-3-5">Lakukan pembayaran sesuai dengan metode
+                    <p class="d-none caption-text-empty-3-5">Lakukan pembayaran sesuai dengan metode
                         pembayaran yang dipilih<br>
                         Silahkan tutup halaman ini</p>
                 </div>
