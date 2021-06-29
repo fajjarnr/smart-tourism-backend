@@ -84,7 +84,7 @@ class TransactionController extends Controller
 
         $midtrans = [
             'transaction_details' => [
-                'order_id' =>  $transaction->rand(0, 9),
+                'order_id' =>  $transaction->id->rand(0, 9),
                 'gross_amount' => (int) $transaction->total,
             ],
             'customer_details' => [
