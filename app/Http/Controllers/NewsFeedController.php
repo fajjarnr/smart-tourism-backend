@@ -44,8 +44,8 @@ class NewsFeedController extends Controller
         // $data = $request->all();
 
         $request->validate([
-            'title' => 'required|max:255|string',
-            'content' => 'required|max:255|string',
+            'title' => 'required|string',
+            'content' => 'required|string',
             'picturePath' => 'required|image|mimes:png,jpg'
         ]);
 
@@ -95,8 +95,8 @@ class NewsFeedController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required|max:255|string',
-            'content' => 'required|max:255|string',
+            'title' => 'required|string',
+            'content' => 'required|string',
         ]);
 
         $news = NewsFeed::findorfail($id);

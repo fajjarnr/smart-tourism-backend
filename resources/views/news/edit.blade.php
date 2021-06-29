@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Edit News
+Edit Berita
 @endsection
 
 @push('custom-css')
