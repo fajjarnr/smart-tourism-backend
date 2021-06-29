@@ -10,7 +10,7 @@ class DownloadController extends Controller
     public function download()
     {
         try {
-            return Storage::download('public\apk\stp.apk');
+            return Storage::download('public/apk/stp.apk');
         } catch (\Exception $error) {
             return $error->getMessage();
         }
