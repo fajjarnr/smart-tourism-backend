@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Midtrans\Config;
 use Midtrans\Snap;
+use Illuminate\Support\Str;
 
 class TransactionController extends Controller
 {
@@ -84,7 +85,7 @@ class TransactionController extends Controller
 
         $midtrans = [
             'transaction_details' => [
-                'order_id' =>  $transaction->id,
+                'order_id' =>  $transaction->id = Str::random(9),
                 'gross_amount' => (int) $transaction->total,
             ],
             'customer_details' => [
