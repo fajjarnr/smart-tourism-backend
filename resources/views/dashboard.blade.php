@@ -40,7 +40,7 @@ Dashboard
                         <div class="col-xl-3 col-md-6 col-sm-6">
                             <div class="media p-0">
                                 <div class="media-left">
-                                    <i class="icofont map"></i>
+                                    <i class="icofont icofont-map"></i>
                                 </div>
                                 <div class="media-body">
                                     <h6>Destinasi</h6>
@@ -51,7 +51,7 @@ Dashboard
                         <div class="col-xl-3 col-md-6 col-sm-6">
                             <div class="media p-0">
                                 <div class="media-left">
-                                    <i class="icofont newspaper"></i>
+                                    <i class="icofont icofont-newspaper"></i>
                                 </div>
                                 <div class="media-body">
                                     <h6>Berita</h6>
