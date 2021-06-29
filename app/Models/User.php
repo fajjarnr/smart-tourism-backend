@@ -64,15 +64,21 @@ class User extends Authenticatable
         return $this->hasMany(NewsFeed::class, 'id', 'user_id');
     }
 
-    // public function toArray()
-    // {
-    //     $toArray = parent::toArray();
-    //     $toArray['picturePath'] = $this->picturePath;
-    //     return $toArray;
-    // }
-
-    // public function getPicturePathAttribute()
-    // {
-    //     return config('app.url') . Storage::url($this->attributes['picturePath']);
-    // }
+    public function toArray()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'email' => $this->email,
+            'email_verified_at' => $this->email_verified_at,
+            'roles' => $this->roles,
+            'phone' => $this->phone,
+            'address' => $this->address,
+            'city' => $this->city,
+            'image'  => asset('storage/images/user/' . $this->profile_photo_path),
+            'deleted_at' => $this->deleted_at,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+        ];
+    }
 }
