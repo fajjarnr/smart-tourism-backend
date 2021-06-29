@@ -75,7 +75,7 @@ class User extends Authenticatable
             'phone' => $this->phone,
             'address' => $this->address,
             'city' => $this->city,
-            'image'  => asset('storage/images/user/' . $this->profile_photo_path),
+            'image'  => asset('storage/' . $this->profile_photo_path),
             'deleted_at' => $this->deleted_at,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
