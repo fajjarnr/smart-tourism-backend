@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon"
-        href="http://api.elements.buildwithangga.com/storage/files/2/assets/Header/Header2/Header-2-2.png"
+        href="{{asset("assets/images/favicon.png")}}"
         type="image/x-icon">
     <title>Smart Tourism Pemalang</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -20,7 +20,7 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a href="#">
                     <img style="margin-right:0.75rem"
-                        src="http://api.elements.buildwithangga.com/storage/files/2/assets/Header/Header2/Header-2-2.png"
+                        src="{{asset("assets/images/favicon.png")}}"
                         alt="">
                 </a>
                 {{-- Mobile Responsive --}}

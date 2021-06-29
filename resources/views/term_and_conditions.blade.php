@@ -8,7 +8,7 @@
     <meta name="author" content="" />
     <title>Syarat dan Ketentuan - Smart Tourism Pemalang</title>
     <link rel="shortcut icon"
-        href="http://api.elements.buildwithangga.com/storage/files/2/assets/Header/Header2/Header-2-2.png"
+        href="{{asset("assets/images/favicon.png")}}"
         type="image/x-icon">
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet" />
