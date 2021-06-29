@@ -80,7 +80,8 @@
                             Ayo Wisata ke <span style="color: #ff7c57">Pemalang</span></h1>
                         <div
                             class="div-button-header-4-1 d-inline d-lg-flex align-items-center mx-lg-0 mx-auto justify-content-center">
-                            <button class="btn d-inline-flex mb-md-0 btn-try-header-4-1">Download App</button>
+                            <a href="{{ route('download') }}" class="text-white text-decoration-none"><button
+                                    class="btn d-inline-flex mb-md-0 btn-try-header-4-1">Download App</button></a>
                         </div>
                     </div>
                     <!-- Right Column -->

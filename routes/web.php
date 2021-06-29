@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DestinationController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\NewsFeedController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
@@ -15,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
+Route::get('/download', [DownloadController::class, 'download'])->name('download');
 
 Route::get('/privacy-policy', function () {
     return view('privacy_policy');
