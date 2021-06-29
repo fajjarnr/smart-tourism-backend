@@ -82,9 +82,11 @@ class TransactionController extends Controller
 
         $transaction = Transaction::with(['destinations', 'user'])->find($transaction->id);
 
+        $randId = rand(0, 9);
+
         $midtrans = [
             'transaction_details' => [
-                'order_id' =>  $transaction->id->rand(0, 9),
+                'order_id' =>  $transaction->id = $randId,
                 'gross_amount' => (int) $transaction->total,
             ],
             'customer_details' => [
