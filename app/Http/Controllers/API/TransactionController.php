@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Midtrans\Config;
 use Midtrans\Snap;
+use Illuminate\Support\Str;
+use Ramsey\Uuid\Uuid;
 
 class TransactionController extends Controller
 {
@@ -65,14 +67,26 @@ class TransactionController extends Controller
             'status' => 'required',
         ]);
 
-        $transaction = Transaction::create([
-            'destination_id' => $request->destination_id,
-            'user_id' => $request->user_id,
-            'quantity' => $request->quantity,
-            'total' => $request->total,
-            'status' => $request->status,
-            'payment_url' => ''
-        ]);
+        $randId = rand(0, 9);
+
+        $transaction = new Transaction();
+        $transaction->id = Uuid::uuid4()->getHex();
+        $transaction->destination_id = $request->destination_id;
+        $transaction->user_id = $request->user_id;
+        $transaction->quantity = $request->quantity;
+        $transaction->total = $request->total;
+        $transaction->status = $request->status;
+        $transaction->payment_url = '';
+        $transaction->save();
+
+        // $transaction = Transaction::create([
+        //     'destination_id' => $request->destination_id,
+        //     'user_id' => $request->user_id,
+        //     'quantity' => $request->quantity,
+        //     'total' => $request->total,
+        //     'status' => $request->status,
+        //     'payment_url' => ''
+        // ]);
 
         // Konfigurasi midtrans
         Config::$serverKey = config('services.midtrans.serverKey');
@@ -82,11 +96,9 @@ class TransactionController extends Controller
 
         $transaction = Transaction::with(['destinations', 'user'])->find($transaction->id);
 
-        $randId = rand(0, 9);
-
         $midtrans = [
             'transaction_details' => [
-                'order_id' =>  $transaction->id = $randId,
+                'order_id' =>  $transaction->id,
                 'gross_amount' => (int) $transaction->total,
             ],
             'customer_details' => [

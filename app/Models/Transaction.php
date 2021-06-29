@@ -10,6 +10,8 @@ class Transaction extends Model
 {
     use HasFactory, SoftDeletes;
 
+    public $incrementing = false;
+
     protected $fillable = [
         'destination_id',
         'user_id',
