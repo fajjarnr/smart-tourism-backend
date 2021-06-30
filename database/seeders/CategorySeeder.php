@@ -36,7 +36,10 @@ class CategorySeeder extends Seeder
                 'name' => 'Hotel',
             ],
             [
-                'name' => 'Makanan Khas',
+                'name' => 'Wisata Kuliner',
+            ],
+            [
+                'name' => 'Ekonomi Kreatif',
             ],
         ]);
     }
