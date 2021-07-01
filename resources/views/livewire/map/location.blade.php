@@ -85,7 +85,7 @@ Destinasi
 
                         <div class="form-group">
                             <label for="rate">Rating</label>
-                            <input wire:model="rate" type="number" class="form-control" name="rate" max="5" min="1"
+                            <input wire:model="rate" type="text" class="form-control" name="rate" max="5" min="1"
                                 id="rate" autocomplete="off">
                         </div>
 
