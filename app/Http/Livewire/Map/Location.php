@@ -158,7 +158,7 @@ class Location extends Component
             $updateData = [
                 'name' => $this->name,
                 'description' => $this->description,
-                'image' => $this->image,
+                'image' => $imageName,
                 'address' => $this->address,
                 'price' => $this->price,
                 'phone' => $this->phone,
