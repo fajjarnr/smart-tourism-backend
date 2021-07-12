@@ -22,7 +22,7 @@ Transaksi
                             <tr>
                                 <th>ID</th>
                                 <th>Destination</th>
-                                {{-- <th>User</th> --}}
+                                <th>User</th>
                                 <th>Quantity</th>
                                 <th>Total</th>
                                 <th>Status</th>
@@ -34,7 +34,7 @@ Transaksi
                             <tr>
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->destinations->name }}</td>
-                                {{-- <td>{{ $item->user->name }}</td> --}}
+                                <td>{{ $item->user->name }}</td>
                                 <td>{{ $item->quantity }}</td>
                                 <td>{{ number_format($item->total) }}</td>
                                 <td>
