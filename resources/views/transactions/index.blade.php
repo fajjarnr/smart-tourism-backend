@@ -22,7 +22,7 @@ Transaksi
                             <tr>
                                 <th>ID</th>
                                 <th>Destination</th>
-                                <th>User</th>
+                                {{-- <th>User</th> --}}
                                 <th>Quantity</th>
                                 <th>Total</th>
                                 <th>Status</th>
