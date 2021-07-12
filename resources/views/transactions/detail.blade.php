@@ -41,8 +41,10 @@ Transaksi Detail
                     <div class="row">
                         <div class="col-md-4">
                             <div class="media">
-                                <div class="media-left"><img class="media-object rounded-circle img-60"
-                                        src="{{ $item->user->profile_photo_path }}" alt=""></div>
+                                <div class="media-left">
+                                    {{-- <img class="media-object rounded-circle img-60"
+                                        src="{{ $item->user->profile_photo_path }}" alt=""> --}}
+                                </div>
                                 <div class="media-body m-l-20">
                                     <h4 class="media-heading">{{ $item->user->name }}</h4>
                                     <p>{{ $item->user->email }}<br><span>{{ $item->user->phone }}</span></p>
