@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon"
-        href="{{asset("assets/images/favicon.png")}}"
-        type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset("assets/images/favicon.png")}}" type="image/x-icon">
     <title>Smart Tourism Pemalang</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
@@ -19,9 +17,7 @@
         <div class="header-4-1" style="font-family: 'Poppins', sans-serif;">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a href="#">
-                    <img style="margin-right:0.75rem"
-                        src="{{asset("assets/images/favicon.png")}}"
-                        alt="">
+                    <img style="margin-right:0.75rem" src="{{asset("assets/images/favicon.png")}}" alt="">
                 </a>
                 {{-- Mobile Responsive --}}
 
@@ -38,7 +34,7 @@
                         @csrf
                     </form>
                     @else
-                    <a href="{{ route('login') }}" class="btn btn-fill-header-4-1">Log in</a>
+                    <a href="{{ route('login') }}" class="btn btn-fill-header-4-1">Sign in</a>
                     @endauth
                 </div>
                 @endif
@@ -60,7 +56,7 @@
                             @csrf
                         </form>
                         @else
-                        <a href="{{ route('login') }}" class="btn btn-fill-header-4-1">Log in</a>
+                        <a href="{{ route('login') }}" class="btn btn-fill-header-4-1">Sign in</a>
                         @endauth
                     </div>
                     @endif
