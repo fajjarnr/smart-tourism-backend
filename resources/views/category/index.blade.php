@@ -35,10 +35,11 @@ Category
                                 <td>{{$item->name}}</td>
                                 </td>
                                 <td class="text-center row"><a href="{{route('category.edit', $item->id)}}"
-                                        class="btn btn-primary mx-1">edit</a>
+                                        class="btn btn-primary mx-1"><i class="fa fa-edit"></i></a>
                                     <form action="{{route('category.destroy', $item->id)}}" method="post">
                                         {!! method_field('delete') . csrf_field() !!}
-                                        <button type="submit" class="btn btn-danger">delete</button>
+                                        <button type="submit" class="btn btn-danger"><i
+                                                class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

@@ -67,8 +67,6 @@ class TransactionController extends Controller
             'status' => 'required',
         ]);
 
-        $randId = rand(0, 9);
-
         $transaction = new Transaction();
         $transaction->id = Uuid::uuid4()->getHex();
         $transaction->destination_id = $request->destination_id;
@@ -78,15 +76,6 @@ class TransactionController extends Controller
         $transaction->status = $request->status;
         $transaction->payment_url = '';
         $transaction->save();
-
-        // $transaction = Transaction::create([
-        //     'destination_id' => $request->destination_id,
-        //     'user_id' => $request->user_id,
-        //     'quantity' => $request->quantity,
-        //     'total' => $request->total,
-        //     'status' => $request->status,
-        //     'payment_url' => ''
-        // ]);
 
         // Konfigurasi midtrans
         Config::$serverKey = config('services.midtrans.serverKey');
@@ -106,7 +95,7 @@ class TransactionController extends Controller
                 'email'         => $transaction->user->email
             ],
             'enabled_payments' => [
-                'gopay', 'bank_transfer', "shopeepay", "credit_card", "cimb_clicks",
+                'gopay', "shopeepay", 'bank_transfer', "credit_card", "cimb_clicks",
                 "bca_klikbca", "bca_klikpay", "bri_epay", "echannel", "permata_va",
                 "bca_va", "bni_va", "bri_va", "other_va", "indomaret",
                 "danamon_online", "akulaku"

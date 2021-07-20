@@ -15,22 +15,6 @@ class UserController extends Controller
 {
     use PasswordValidationRules;
 
-    // public function all()
-    // {
-    //     try {
-    //         $user = User::all();
-    //         return ResponseFormatter::success(
-    //             $user,
-    //             'Data user berhasil diambil'
-    //         );
-    //     } catch (Exception $error) {
-    //         return ResponseFormatter::error([
-    //             'message' => 'Something went wrong',
-    //             'error' => $error,
-    //         ], 'Data gagal di ambil', 404);
-    //     }
-    // }
-
     /**
      * @param Request $request
      * @return mixed
@@ -99,8 +83,6 @@ class UserController extends Controller
                 'phone' => $request->phone,
                 'address' => $request->address,
                 'city' => $request->city,
-                // 'roles' => $request->roles,
-                // 'profile_photo_path' => $request->profile_photo_path,
                 'password' => Hash::make($request->password),
             ]);
 
@@ -152,7 +134,6 @@ class UserController extends Controller
 
             $file = $request->file->store('images/user', 'public');
 
-            //store your file into database
             $user = Auth::user();
             $user->profile_photo_path = $file;
             $user->update();

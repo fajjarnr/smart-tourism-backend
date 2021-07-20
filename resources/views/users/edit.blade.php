@@ -30,6 +30,7 @@ Edit User
 
                 <form action="{{ route('users.update', $item->id) }}" method="POST" enctype="multipart/form-data"
                     class="needs-validation">
+
                     @csrf
                     @method('PUT')
 
@@ -50,8 +51,7 @@ Edit User
                     <div class="col mb-3">
                         <label for="validationCustom01">Phone Number</label>
                         <input value="{{ old('phone') ?? $item->phone }}" name="phone" class="form-control"
-                            id="validationCustom01" type="text" placeholder="Phone Number" required=""
-                            autocomplete="off">
+                            id="validationCustom01" type="text" placeholder="Phone Number" autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 
@@ -59,29 +59,14 @@ Edit User
                     <div class="col mb-3">
                         <label for="validationCustom01">Alamat</label>
                         <input value="{{ old('address') ?? $item->address }}" name="address" class="form-control"
-                            id="validationCustom01" type="text" placeholder="Alamat" required="" autocomplete="off">
+                            id="validationCustom01" type="text" placeholder="Alamat" autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 
                     <div class="col mb-3">
                         <label for="validationCustom01">Kota</label>
                         <input value="{{ old('city') ?? $item->city }}" name="city" class="form-control"
-                            id="validationCustom01" type="text" placeholder="Kota" required="" autocomplete="off">
-                        <div class="valid-feedback">Looks good!</div>
-                    </div>
-
-                    <div class="col mb-3">
-                        <label for="validationCustom01">Password</label>
-                        <input value="{{ old('password') }}" name="password" class="form-control"
-                            id="validationCustom01" type="password" placeholder="Password">
-                        <div class="valid-feedback">Looks good!</div>
-                    </div>
-
-                    <div class="col mb-3">
-                        <label for="validationCustom01">Password Confirmation</label>
-                        <input value="{{ old('password_confirmation') }}" name="password_confirmation"
-                            class="form-control" id="validationCustom01" type="password"
-                            placeholder="Password Confirmation">
+                            id="validationCustom01" type="text" placeholder="Kota" autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 
@@ -97,7 +82,7 @@ Edit User
                     <div class="col mb-5">
                         <label for="validationCustom02">Photo Profile</label>
                         <input name="profile_photo_path" class="form-control" id="validationCustom02" type="file"
-                            placeholder="Photo Profile" required="">
+                            placeholder="Photo Profile">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 

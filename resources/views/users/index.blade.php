@@ -21,54 +21,52 @@ Users
             </button>
         </div>
         <div class="card">
-            {{-- <div class="card-header">
-                <a href="{{ route('users.create') }}" class="btn btn-primary"><i data-feather="user-plus"></i></a>
-        </div> --}}
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="display" id="basic-1">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>City</th>
-                            <th>Roles</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $no=0; ?>
-                        @foreach ($users as $user)
-                        <?php $no++; ?>
-                        <tr>
-                            <td>{{$no}}</td>
-                            <td>{{$user->name}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>{{$user->city}}</td>
-                            <td>
-                                @if ($user->roles == 'admin')
-                                <span class="badge bg-success">{{$user->roles}}</span>
-                                @else
-                                <span class="badge bg-warning">{{$user->roles}}</span>
-                                @endif
-                            </td>
-                            <td class="text-center row align-items-center">
-                                {{-- <a href="{{route('users.edit', $user->id)}}" class="btn btn-primary mx-1"><i
-                                    class="fa fa-edit"></i></a> --}}
-                                <form action="{{route('users.destroy', $user->id)}}" method="post">
-                                    {!! method_field('delete') . csrf_field() !!}
-                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                </form>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="display" id="basic-1">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>City</th>
+                                <th>Roles</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no=0; ?>
+                            @foreach ($users as $user)
+                            <?php $no++; ?>
+                            <tr>
+                                <td>{{$no}}</td>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>{{$user->city}}</td>
+                                <td>
+                                    @if ($user->roles == 'admin')
+                                    <span class="badge bg-success">{{$user->roles}}</span>
+                                    @else
+                                    <span class="badge bg-warning">{{$user->roles}}</span>
+                                    @endif
+                                </td>
+                                <td class="text-center row align-items-center">
+                                    <a href="{{route('users.edit', $user->id)}}" class="btn btn-primary mx-1"><i
+                                            class="fa fa-edit"></i></a>
+                                    <form action="{{route('users.destroy', $user->id)}}" method="post">
+                                        {!! method_field('delete') . csrf_field() !!}
+                                        <button type="submit" class="btn btn-danger"><i
+                                                class="fa fa-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 @endsection
 

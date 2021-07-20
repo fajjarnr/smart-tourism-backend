@@ -30,9 +30,10 @@ class UserRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => $this->passwordRules(),
-            'roles' => ['required', 'string', 'max:255', 'in:user,admin'],
             'phone' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:255'],
+            'roles' => ['required', 'string', 'max:255', 'in:user,admin'],
         ];
     }
 }

@@ -38,7 +38,8 @@ Pesan
                                 <td class="text-center row">
                                     <form action="{{route('contact.destroy', $item->id)}}" method="post">
                                         {!! method_field('delete') . csrf_field() !!}
-                                        <button type="submit" class="btn btn-danger">delete</button>
+                                        <button type="submit" class="btn btn-danger"><i
+                                                class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>
