@@ -50,13 +50,13 @@ Users
                                     <span class="badge bg-warning">{{$user->roles}}</span>
                                     @endif
                                 </td>
-                                <td class="text-center row align-items-center">
-                                    <a href="{{route('users.edit', $user->id)}}" class="btn btn-primary mx-1"><i
-                                            class="fa fa-edit"></i></a>
+                                <td class="text-right row mx-2">
+                                    <a href="{{route('users.edit', $user->id)}}" class="btn btn-primary btn-sm">
+                                        <i class="fa fa-pencil"></i></a>
                                     <form action="{{route('users.destroy', $user->id)}}" method="post">
                                         {!! method_field('delete') . csrf_field() !!}
-                                        <button type="submit" class="btn btn-danger"><i
-                                                class="fa fa-trash"></i></button>
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

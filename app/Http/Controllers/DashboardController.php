@@ -6,6 +6,7 @@ use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Destination;
 use App\Models\NewsFeed;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -18,12 +19,15 @@ class DashboardController extends Controller
         $destination = Destination::all();
         $banner = Banner::all();
         $news = NewsFeed::all();
+        $transaction = Transaction::all();
+
         return view('dashboard', [
             'user' => $user,
             'category' => $category,
             'destination' => $destination,
             'banner' => $banner,
-            'news' => $news
+            'news' => $news,
+            'transaction' => $transaction,
         ]);
     }
 }

@@ -11,52 +11,73 @@ Dashboard
 @section('content')
 <div class="container-fluid">
     <div class="col-xl-8 xl-100 dashboard-sec box-col-12">
-        <div class="card earning-card">
-            <div class="card-body p-0">
-                <div class="row m-0">
-                    <div class="row border-top m-0">
-                        <div class="col-xl-3 pl-0 col-md-6 col-sm-6">
-                            <div class="media p-0">
-                                <div class="media-left">
-                                    <i class="icofont icofont-users"></i>
-                                </div>
-                                <div class="media-body">
-                                    <h6>Pengguna</h6>
-                                    <p>{{ $user->count() }}</p>
-                                </div>
+        <div class="row">
+            <div class="col-sm-6 col-xl-3 col-lg-6">
+                <div class="card o-hidden">
+                    <div class="bg-info b-r-4 card-body">
+                        <div class="media static-top-widget">
+                            <div class="align-self-center text-center"><i data-feather="database"></i></div>
+                            <div class="media-body"><span class="m-0">Kategori</span>
+                                <h4 class="mb-0 counter">{{ $category->count() }}</h4><i class="icon-bg"
+                                    data-feather="database"></i>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6 col-sm-6">
-                            <div class="media p-0">
-                                <div class="media-left bg-secondary">
-                                    <i class="icofont icofont-heart-alt"></i>
-                                </div>
-                                <div class="media-body">
-                                    <h6>Kategori</h6>
-                                    <p>{{ $category->count() }}</p>
-                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xl-3 col-lg-6">
+                <div class="card o-hidden">
+                    <div class="bg-secondary b-r-4 card-body">
+                        <div class="media static-top-widget">
+                            <div class="align-self-center text-center"><i data-feather="map"></i></div>
+                            <div class="media-body"><span class="m-0">Destinasi</span>
+                                <h4 class="mb-0 counter">{{ $destination->count() }}</h4><i class="icon-bg"
+                                    data-feather="map"></i>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6 col-sm-6">
-                            <div class="media p-0">
-                                <div class="media-left">
-                                    <i class="icofont icofont-map"></i>
-                                </div>
-                                <div class="media-body">
-                                    <h6>Destinasi</h6>
-                                    <p>{{ $destination->count() }}</p>
-                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xl-3 col-lg-6">
+                <div class="card o-hidden">
+                    <div class="bg-warning b-r-4 card-body">
+                        <div class="media static-top-widget">
+                            <div class="align-self-center text-center"><i data-feather="file-text"></i></div>
+                            <div class="media-body"><span class="m-0">Berita</span>
+                                <h4 class="mb-0 counter">{{ $news->count() }}</h4><i class="icon-bg"
+                                    data-feather="file-text"></i>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6 col-sm-6">
-                            <div class="media p-0">
-                                <div class="media-left">
-                                    <i class="icofont icofont-newspaper"></i>
-                                </div>
-                                <div class="media-body">
-                                    <h6>Berita</h6>
-                                    <p>{{ $news->count() }}</p>
-                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xl-3 col-lg-6">
+                <div class="card o-hidden">
+                    <div class="bg-primary b-r-4 card-body">
+                        <div class="media static-top-widget">
+                            <div class="align-self-center text-center"><i data-feather="user-plus"></i></div>
+                            <div class="media-body"><span class="m-0">User</span>
+                                <h4 class="mb-0 counter">{{ $user->count() }}</h4><i class="icon-bg"
+                                    data-feather="user-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-12 box-col-12 col-lg-12 col-md-12">
+                <div class="card o-hidden">
+                    <div class="card-body">
+                        <div class="ecommerce-widgets media">
+                            <div class="media-body">
+                                <p class="f-w-500 font-roboto">Jumlah Transaksi<span
+                                        class="badge pill-badge-primary ml-3">Hot</span></p>
+                                <h4 class="f-w-500 mb-0 f-26"><span class="counter">{{ $transaction->count() }}</span>
+                                </h4>
+                            </div>
+                            <div class="ecommerce-box light-bg-primary"><i class="fa fa-heart" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
@@ -65,46 +86,27 @@ Dashboard
         </div>
     </div>
 
-    <div class="row second-chart-list third-news-update">
-        <div class="col-xl-4 col-lg-12 xl-50 morning-sec box-col-12">
-            <div class="card o-hidden profile-greeting">
-                <div class="card-body">
-                    <div class="media">
-                        <div class="badge-groups w-100">
-                            <div class="badge f-12"><i class="mr-1" data-feather="clock"></i><span id="txt"></span>
+    <div class="col-xl-6 xl-100 box-col-12">
+        <div class="card">
+            <div class="cal-date-widget card-body">
+                <div class="row">
+                    <div class="col-xl-6 col-xs-12 col-md-6 col-sm-6">
+                        <div class="cal-info text-center">
+                            <div class="d-inline-block mt-4">
+                                <div class="profile-vector"><img class="b-r-10"
+                                        src="{{asset('storage/'.Auth::user()->profile_photo_path)}}" width="150"
+                                        height="150" />
+                                </div>
                             </div>
-                            <div class="badge f-12"><i class="fa fa-spin fa-cog f-14"></i></div>
+                            <p class="mt-4 f-16 text-muted">Hallo selamat datang kembali <br>
+                                <strong>{{Auth::user()->name}}</strong> </p>
                         </div>
                     </div>
-                    <div class="greeting-user text-center">
-                        <div class="profile-vector"><img class="b-r-10"
-                                src="{{asset('storage/'.Auth::user()->profile_photo_path)}}" width="90" height="90" />
+                    <div class="col-xl-6 col-xs-12 col-md-6 col-sm-6">
+                        <div class="cal-datepicker">
+                            <div class="datepicker-here float-sm-right" data-language="en"> </div>
                         </div>
-                        <h4 class="f-w-600"><span id="greeting">Good Morning</span> <span class="right-circle"><i
-                                    class="fa fa-check-circle f-14 middle"></i></span></h4>
-                        <p><span> Hallo selamat datang kembali <br>{{Auth::user()->name}} </span>
-                        </p>
-                        <div class="left-icon"><i class="fa fa-bell"> </i></div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-4 col-lg-12 xl-50 calendar-sec box-col-6">
-            <div class="card gradient-primary o-hidden">
-                <div class="card-body">
-                    <div class="setting-dot">
-                        <div class="setting-bg-primary date-picker-setting position-set pull-right"><i
-                                class="fa fa-spin fa-cog"></i></div>
-                    </div>
-                    <div class="default-datepicker">
-                        <div class="datepicker-here" data-language="en"></div>
-                    </div><span class="default-dots-stay overview-dots full-width-dots"><span class="dots-group"><span
-                                class="dots dots1"></span><span class="dots dots2 dot-small"></span><span
-                                class="dots dots3 dot-small"></span><span class="dots dots4 dot-medium"></span><span
-                                class="dots dots5 dot-small"></span><span class="dots dots6 dot-small"></span><span
-                                class="dots dots7 dot-small-semi"></span><span
-                                class="dots dots8 dot-small-semi"></span><span class="dots dots9 dot-small">
-                            </span></span></span>
                 </div>
             </div>
         </div>
