@@ -28,19 +28,14 @@ class Destination extends Model
     ];
 
     protected $casts = [
-        'created_at' => 'datetime:Y-m-d H:m:s',
-        'updated_at' => 'datetime:Y-m-d H:m:s',
+        'created_at' => 'datetime:d-m-Y',
+        'updated_at' => 'datetime:d-m-Y',
     ];
 
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
-
-    // public function galery()
-    // {
-    //     return $this->hasMany(Galery::class, 'id', 'destination_id');
-    // }
 
     public function banner()
     {
