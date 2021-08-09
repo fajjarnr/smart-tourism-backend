@@ -25,11 +25,10 @@ Sign up
                             <h4>Sign up</h4>
 
                             <div class="form-group">
-                                <label for="name" class=" col-form-label">Name</label>
+                                <label for="name" class=" col-form-label">Nama</label>
 
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                    name="name" value="{{ old('name') }}" required autocomplete="name" autofocus
-                                    placeholder="name">
+                                    name="name" value="{{ old('name') }}" required autofocus placeholder="name">
 
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -46,6 +45,46 @@ Sign up
                                     placeholder="email">
 
                                 @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-form-label">No Telepon</label>
+
+                                <input id="phone" type="phone" class="form-control @error('phone') is-invalid @enderror"
+                                    name="phone" value="{{ old('phone') }}" required autofocus placeholder="phone">
+
+                                @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-form-label">Alamat</label>
+
+                                <input id="address" type="address"
+                                    class="form-control @error('address') is-invalid @enderror" name="address"
+                                    value="{{ old('address') }}" required autofocus placeholder="address">
+
+                                @error('address')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-form-label">Kota</label>
+
+                                <input id="city" type="city" class="form-control @error('city') is-invalid @enderror"
+                                    name="city" value="{{ old('city') }}" required autofocus placeholder="city">
+
+                                @error('city')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

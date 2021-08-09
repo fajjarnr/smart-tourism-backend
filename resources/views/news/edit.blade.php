@@ -46,7 +46,7 @@ Edit Berita
                     <label for="formFile" class="form-label">File</label>
                     <input name="picturePath" class="form-control" type="file" id="formFile">
                 </div>
-                <button type="submit" class="btn btn-success btn-block">Submit</button>
+                <button type="submit" class="btn btn-success btn-block">Update</button>
             </form>
         </div>
     </div>

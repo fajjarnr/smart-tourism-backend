@@ -86,7 +86,7 @@ Edit User
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 
-                    <button type="submit" class="btn btn-success btn-block">Submit</button>
+                    <button type="submit" class="btn btn-success btn-block">Update</button>
                 </form>
 
             </div>
