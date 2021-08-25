@@ -28,7 +28,6 @@ Users
                             <tr>
                                 <th>No</th>
                                 <th>Name</th>
-                                <th>Email</th>
                                 <th>City</th>
                                 <th>Roles</th>
                                 <th>Action</th>
@@ -41,7 +40,6 @@ Users
                             <tr>
                                 <td>{{$no}}</td>
                                 <td>{{$user->name}}</td>
-                                <td>{{$user->email}}</td>
                                 <td>{{$user->city}}</td>
                                 <td>
                                     @if ($user->roles == 'admin')

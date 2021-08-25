@@ -53,10 +53,6 @@ class TransactionController extends Controller
         );
     }
 
-    /**
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function checkout(Request $request)
     {
         $request->validate([
@@ -77,7 +73,6 @@ class TransactionController extends Controller
         $transaction->payment_url = '';
         $transaction->save();
 
-        // Konfigurasi midtrans
         Config::$serverKey = config('services.midtrans.serverKey');
         Config::$isProduction = config('services.midtrans.isProduction');
         Config::$isSanitized = config('services.midtrans.isSanitized');
@@ -104,24 +99,17 @@ class TransactionController extends Controller
         ];
 
         try {
-            // Ambil halaman payment midtrans
             $paymentUrl = Snap::createTransaction($midtrans)->redirect_url;
 
             $transaction->payment_url = $paymentUrl;
             $transaction->save();
 
-            // Redirect ke halaman midtrans
             return ResponseFormatter::success($transaction, 'Transaksi berhasil');
         } catch (Exception $e) {
             return ResponseFormatter::error($e->getMessage(), 'Transaksi Gagal');
         }
     }
 
-    /**
-     * @param Request $request
-     * @param $id
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function update(Request $request, $id)
     {
         $transaction = Transaction::findOrFail($id);

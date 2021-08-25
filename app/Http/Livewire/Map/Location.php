@@ -120,14 +120,6 @@ class Location extends Component
             'image' => $imageName,
         ]);
 
-        // foreach ($this->galeries as $galery) {
-        //     $galery->store('images/galeries', 'public');
-        // }
-
-        // Galery::create([
-        //     'image_url' => $galery,
-        // ]);
-
         session()->flash('info', 'Location Created Successfully');
         $this->clearForm();
         $this->getLocations();
