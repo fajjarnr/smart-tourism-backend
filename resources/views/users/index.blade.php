@@ -28,7 +28,6 @@ Users
                             <tr>
                                 <th>No</th>
                                 <th>Name</th>
-                                <th>City</th>
                                 <th>Roles</th>
                                 <th>Action</th>
                             </tr>
@@ -40,7 +39,6 @@ Users
                             <tr>
                                 <td>{{$no}}</td>
                                 <td>{{$user->name}}</td>
-                                <td>{{$user->city}}</td>
                                 <td>
                                     @if ($user->roles == 'admin')
                                     <span class="badge bg-success">{{$user->roles}}</span>
