@@ -227,7 +227,8 @@ Destinasi
                 `;
                 
                 el.addEventListener('click', (e) => {   
-                    const locationId = e.toElement.id        
+                    // const locationId = e.toElement.id
+                    const locationId = e.srcElement.id        
                     @this.findLocationById(locationId)
                 }); 
 
