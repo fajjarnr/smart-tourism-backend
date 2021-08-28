@@ -67,10 +67,4 @@ Transaksi
 @push('custom-js')
 <script src="{{asset('assets/js/datatable/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/js/datatable/datatables/datatable.custom.js')}}"></script>
-
-$(document).ready(function() {
-$('#basic-1').DataTable( {
-order: [[ 0, 'desc' ], [ 1, 'desc' ], [ 2, 'desc' ], [ 3, 'desc' ], [ 4, 'desc' ], [ 5, 'desc' ], [ 6, 'desc' ]]
-} );
-} );
 @endpush
