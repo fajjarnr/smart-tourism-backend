@@ -70,7 +70,7 @@ Transaksi
 
 $(document).ready(function() {
 $('#basic-1').DataTable( {
-"dom": "tilfp"
+order: [[ 0, 'desc' ], [ 1, 'desc' ], [ 2, 'desc' ], [ 3, 'desc' ], [ 4, 'desc' ], [ 5, 'desc' ], [ 6, 'desc' ]]
 } );
 } );
 @endpush
