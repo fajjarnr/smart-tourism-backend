@@ -51,7 +51,8 @@ Edit User
                     <div class="col mb-3">
                         <label for="validationCustom01">Phone Number</label>
                         <input value="{{ old('phone') ?? $item->phone }}" name="phone" class="form-control"
-                            id="validationCustom01" type="text" placeholder="Phone Number" autocomplete="off">
+                            id="validationCustom01" type="text" placeholder="Phone Number" required=""
+                            autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 
@@ -59,14 +60,14 @@ Edit User
                     <div class="col mb-3">
                         <label for="validationCustom01">Alamat</label>
                         <input value="{{ old('address') ?? $item->address }}" name="address" class="form-control"
-                            id="validationCustom01" type="text" placeholder="Alamat" autocomplete="off">
+                            id="validationCustom01" type="text" placeholder="Alamat" required="" autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 
                     <div class="col mb-3">
                         <label for="validationCustom01">Kota</label>
                         <input value="{{ old('city') ?? $item->city }}" name="city" class="form-control"
-                            id="validationCustom01" type="text" placeholder="Kota" autocomplete="off">
+                            id="validationCustom01" type="text" placeholder="Kota" required="" autocomplete="off">
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 
