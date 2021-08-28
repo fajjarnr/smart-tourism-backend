@@ -14,7 +14,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transaction = Transaction::with(['destinations', 'user'])->orderBy('updated_at', 'DESC')->get();
+        $transaction = Transaction::with(['destinations', 'user'])->get();
         return view('transactions.index', [
             'transactions' => $transaction,
         ]);

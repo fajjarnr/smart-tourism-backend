@@ -176,7 +176,6 @@ Destinasi
             style: "mapbox://styles/mapbox/streets-v11"
         });
 
-        //light-v10, outdoors-v11, satellite-v9, streets-v11, dark-v10
         const style = "streets-v11"
         map.setStyle(`mapbox://styles/mapbox/${style}`);
 
@@ -227,7 +226,6 @@ Destinasi
                 `;
                 
                 el.addEventListener('click', (e) => {   
-                    // const locationId = e.srcElement.id
                     const locationId = e.target.id     
                     @this.findLocationById(locationId)
                 }); 
@@ -245,8 +243,8 @@ Destinasi
 
         window.addEventListener('locationAdded', (e) => {           
             swal({
-                title: "Location Added!",
-                text: "Your location has been save sucessfully!",
+                title: "Lokasi Ditambahkan!",
+                text: "lokasi berhasil ditambahkan!",
                 icon: "success",
                 button: "Ok",
             }).then((value) => {
@@ -257,8 +255,8 @@ Destinasi
         window.addEventListener('deleteLocation', (e) => {  
             console.log(e.detail);         
             swal({
-                title: "Location Delete!",
-                text: "Your location deleted sucessfully!",
+                title: "Lokasi Dihapus!",
+                text: "Lokasi Berhasil Dihapus!",
                 icon: "success",
                 button: "Ok",
             }).then((value) => {
@@ -270,8 +268,8 @@ Destinasi
         window.addEventListener('updateLocation', (e) => {  
             console.log(e.detail);         
             swal({
-                title: "Location Update!",
-                text: "Your location updated sucessfully!",
+                title: "Lokasi Diperbaharui!",
+                text: "Lokasi Berhasil Diperbaharui!",
                 icon: "success",
                 button: "Ok",
             }).then((value) => {
