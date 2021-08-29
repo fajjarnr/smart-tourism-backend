@@ -96,26 +96,4 @@ class CategoryController extends Controller
 
         return redirect()->route('category.index')->with('success', 'category berhasil di delete');
     }
-
-    public function hapus()
-    {
-        $category = Category::onlyTrashed()->get();
-        return view('category.hapus', compact('category'));
-    }
-
-    public function restore($id)
-    {
-        $category = Category::withTrashed()->where('id', $id)->first();
-        $category->restore();
-
-        return redirect()->back()->with('success', 'category Berhasil DiRestore (Silahkan cek list post)');
-    }
-
-    public function kill($id)
-    {
-        $category = Category::withTrashed()->where('id', $id)->first();
-        $category->forceDelete();
-
-        return redirect()->back()->with('success', 'category Berhasil Dihapus Secara Permanen');
-    }
 }
