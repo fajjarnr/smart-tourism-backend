@@ -31,6 +31,11 @@ Route::get('/term-and-conditions', function () {
 Route::prefix('dashboard')->middleware(['auth:sanctum', 'admin'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('/users', UserController::class);
+
+    Route::get('/category/hapus', [CategoryController::class, 'hapus'])->name('category.hapus');
+    Route::get('/category/restore/{id}', [CategoryController::class, 'restore'])->name('category.restore');
+    Route::delete('/category/kill/{id}', [CategoryController::class, 'kill'])->name('category.kill');
+
     Route::resource('/category', CategoryController::class);
     Route::get('/map', Location::class)->name('map');
     Route::resource('/destination', DestinationController::class);
@@ -43,7 +48,6 @@ Route::prefix('dashboard')->middleware(['auth:sanctum', 'admin'])->group(functio
     Route::resource('transactions', TransactionController::class);
 });
 
-// Midtrans Related
 Route::get('midtrans/success', [MidtransController::class, 'success']);
 Route::get('midtrans/unfinish', [MidtransController::class, 'unfinish']);
 Route::get('midtrans/error', [MidtransController::class, 'error']);

@@ -35,6 +35,10 @@
                             data-feather="list"></i><span>Kategori</span></a>
                 </li>
                 <li class="sidebar-list">
+                    <a class="sidebar-link sidebar-title" href="{{route('category.hapus')}}"><i
+                            data-feather="list"></i><span>Kategori Tampil Hapus</span></a>
+                </li>
+                <li class="sidebar-list">
                     <label class="badge badge-info">2</label><a class="sidebar-link sidebar-title" href="#"><i
                             data-feather="map"></i><span>Destinasi</span></a>
                     <ul class="sidebar-submenu">
