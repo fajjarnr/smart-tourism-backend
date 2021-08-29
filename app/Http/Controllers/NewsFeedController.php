@@ -129,9 +129,10 @@ class NewsFeedController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(NewsFeed $newsFeed)
+    public function destroy(NewsFeed $newsFeed, $id)
     {
-        $newsFeed->delete();
+        $news = NewsFeed::find($id);
+        $news->delete();
 
         return redirect()->route('news.index')->with('success', 'Berita berhasil di hapus');
     }
