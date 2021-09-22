@@ -84,7 +84,7 @@
                     <div
                         class="right-column-header-4-1 text-center d-flex justify-content-lg-end justify-content-center pe-0">
                         <img id="img-fluid" style="display: block;max-width: 100%;height: auto;"
-                            src="{{ asset('assets/sapiens.svg') }}" alt="">
+                            src="{{ asset('assets/stp.svg') }}" alt="">
                     </div>
                 </div>
             </div>
