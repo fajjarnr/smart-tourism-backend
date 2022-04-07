@@ -4,8 +4,10 @@
 
 Smart Tourism Pamalang adalah aplikasi untuk mempermudah wisatawan berkunjung di kabupaten pemalang
 
-![Home](screenshot/home.png)
-![Dashboard](screenshot/dashboard.png)
+<p align="center">
+  <img src="https://github.com/fajjarnr/smart-tourism-backend/blob/master/screenshoot/home.png" width="350" title="hover text">
+  <img src="https://github.com/fajjarnr/smart-tourism-backend/blob/master/screenshoot/dashboard.png" width="350" alt="accessibility text">
+</p>
 
 ## License
 
